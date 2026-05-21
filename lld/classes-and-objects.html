@@ -252,15 +252,15 @@
   <article class="article-content">
     <p>নারায়ণগঞ্জের বাজারে করিম মিয়ার একটা ছোট্ট কারখানা আছে।</p>
 <p>মাটির পাতিল বানান তিনি। বছরের পর বছর ধরে।</p>
-<p>কারখানার কোণে একটা পুরনো কাঠের ছাঁচ আছে। সেই ছাঁচটাই সব। ছাঁচটা বলে দেয় — পাতিলের মুখ কতটা চওড়া হবে, পেট কতটা গোলাকার হবে, তলা কতটা পুরু হবে। ছাঁচটা নিজে পাতিল না। কিন্তু ছাঁচ ছাড়া একটা পাতিলও তৈরি হয় না।</p>
+<p>কারখানার কোণে একটা পুরনো কাঠের ছাঁচ আছে। সেই ছাঁচটাই সব। ছাঁচটা বলে দেয়: পাতিলের মুখ কতটা চওড়া হবে, পেট কতটা গোলাকার হবে, তলা কতটা পুরু হবে। ছাঁচটা নিজে পাতিল না। কিন্তু ছাঁচ ছাড়া একটা পাতিলও তৈরি হয় না।</p>
 <p>করিম মিয়া প্রতিদিন সেই এক ছাঁচ দিয়ে অনেক পাতিল বানান। একটা পাতিলে তিনি লাল রঙ দেন, একটায় বাদামি। একটা ছোট, একটা বড়। একটা যায় রান্নাঘরে, একটা যায় ফুলের টব হয়ে বারান্দায়।</p>
 <p>প্রতিটা পাতিল আলাদা। কিন্তু সবাই একই ছাঁচ থেকে জন্মেছে।</p>
 <p>এই ছাঁচটাই হলো <strong>Class</strong>। আর প্রতিটা পাতিল হলো একটা করে <strong>Object</strong>।</p>
 <hr />
 <h2>১. Class কী?</h2>
 <p>করিম মিয়ার ছাঁচটা একটু ভালো করে দেখো।</p>
-<p>ছাঁচটায় লেখা আছে — পাতিলের কী কী বৈশিষ্ট্য থাকবে। রঙ থাকবে। উচ্চতা থাকবে। দাম থাকবে। আর কী কী করতে পারবে — পানি ধরে রাখতে পারবে, বিক্রি হতে পারবে।</p>
-<p>প্রোগ্রামিং-এ <strong>Class</strong> ঠিক এই কাজটাই করে। এটা একটা blueprint বা ছাঁচ — যেটা বলে দেয় কোনো একটা জিনিসের কী কী data থাকবে (এগুলোকে বলে <strong>attributes</strong> বা <strong>fields</strong>) আর সেটা কী কী কাজ করতে পারবে (এগুলোকে বলে <strong>methods</strong>)।</p>
+<p>ছাঁচটায় লেখা আছে: পাতিলের কী কী বৈশিষ্ট্য থাকবে। রঙ থাকবে। উচ্চতা থাকবে। দাম থাকবে। আর কী কী করতে পারবে: পানি ধরে রাখতে পারবে, বিক্রি হতে পারবে।</p>
+<p>প্রোগ্রামিং-এ <strong>Class</strong> ঠিক এই কাজটাই করে। এটা একটা blueprint বা ছাঁচ, যেটা বলে দেয় কোনো একটা জিনিসের কী কী data থাকবে (এগুলোকে বলে <strong>attributes</strong> বা <strong>fields</strong>) আর সেটা কী কী কাজ করতে পারবে (এগুলোকে বলে <strong>methods</strong>)।</p>
 <p>Class নিজে কোনো real জিনিস না। এটা শুধু একটা নকশা। করিম মিয়ার ছাঁচ যেমন নিজে পাতিল না, Class-ও তেমনি নিজে কোনো concrete জিনিস না।</p>
 <pre><code class="language-python">class Patil:
     def __init__(self, rang, unchhota, mullo):
@@ -274,7 +274,7 @@
     def bikri_holo(self):
         print(f&quot;{self.rang} রঙের পাতিলটা বিক্রি হয়ে গেছে!&quot;)
 </code></pre>
-<p>এখানে <code>Patil</code> হলো Class। <code>rang</code>, <code>unchhota</code>, <code>mullo</code> হলো attributes — পাতিলের বৈশিষ্ট্য। <code>porichoy_dao()</code> আর <code>bikri_holo()</code> হলো methods — পাতিল কী কী করতে পারে।</p>
+<p>এখানে <code>Patil</code> হলো Class। <code>rang</code>, <code>unchhota</code>, <code>mullo</code> হলো attributes: পাতিলের বৈশিষ্ট্য। <code>porichoy_dao()</code> আর <code>bikri_holo()</code> হলো methods: পাতিল কী কী করতে পারে।</p>
 <p>কিন্তু এখনো কোনো পাতিল তৈরি হয়নি। শুধু ছাঁচটা বানানো হয়েছে। এখন দরকার আসল পাতিল।</p>
 <hr />
 <h2>২. Object কী?</h2>
@@ -327,12 +327,12 @@ graph TD
     C --&gt;|"instantiate করে"| O3</pre>
 <p>একটা Class থেকে যত খুশি Object তৈরি করা যায়। করিম মিয়ার ছাঁচ দিয়ে যেমন হাজার পাতিল বানানো যায়।</p>
 <hr />
-<h2>৩. Attributes এবং Methods — পাতিলের পরিচয়</h2>
+<h2>৩. Attributes এবং Methods: পাতিলের পরিচয়</h2>
 <p>প্রতিটা পাতিলের দুটো দিক আছে।</p>
-<p>একটা হলো সে কে — তার রঙ কী, উচ্চতা কত, দাম কত। এগুলো তার পরিচয়। প্রোগ্রামিং-এ এগুলোকে বলে <strong>attributes</strong> বা <strong>instance variables</strong>। প্রতিটা object-এর attributes-এর মান আলাদা আলাদা হতে পারে।</p>
-<p>আরেকটা হলো সে কী করতে পারে — পানি ধরতে পারে, বিক্রি হতে পারে, ভাঙতে পারে। এগুলো তার ক্ষমতা। প্রোগ্রামিং-এ এগুলোকে বলে <strong>methods</strong>। Methods হলো Class-এর ভেতরে লেখা functions যেগুলো object-রা call করতে পারে।</p>
+<p>একটা হলো সে কে: তার রঙ কী, উচ্চতা কত, দাম কত। এগুলো তার পরিচয়। প্রোগ্রামিং-এ এগুলোকে বলে <strong>attributes</strong> বা <strong>instance variables</strong>। প্রতিটা object-এর attributes-এর মান আলাদা আলাদা হতে পারে।</p>
+<p>আরেকটা হলো সে কী করতে পারে: পানি ধরতে পারে, বিক্রি হতে পারে, ভাঙতে পারে। এগুলো তার ক্ষমতা। প্রোগ্রামিং-এ এগুলোকে বলে <strong>methods</strong>। Methods হলো Class-এর ভেতরে লেখা functions যেগুলো object-রা call করতে পারে।</p>
 <pre><code class="language-python">class Patil:
-    # __init__ হলো constructor — object তৈরির সময় এটা প্রথমে চলে
+    # __init__ হলো constructor, object তৈরির সময় এটা প্রথমে চলে
     def __init__(self, rang, unchhota, mullo):
         self.rang = rang          # attribute
         self.unchhota = unchhota  # attribute
@@ -345,9 +345,9 @@ graph TD
         self.mullo = notun_dam
         print(f&quot;নতুন দাম নির্ধারণ হয়েছে: {self.mullo} টাকা&quot;)
 </code></pre>
-<p><code>__init__</code> হলো একটা বিশেষ method। এটাকে বলে <strong>constructor</strong>। Object তৈরির মুহূর্তে এই method-টা স্বয়ংক্রিয়ভাবে চলে। করিম মিয়া যখন ছাঁচে মাটি ঢালেন, তখন ছাঁচটা নিজেই পাতিলের আকার দেয় — constructor ঠিক এই কাজটাই করে।</p>
+<p><code>__init__</code> হলো একটা বিশেষ method। এটাকে বলে <strong>constructor</strong>। Object তৈরির মুহূর্তে এই method-টা স্বয়ংক্রিয়ভাবে চলে। করিম মিয়া যখন ছাঁচে মাটি ঢালেন, তখন ছাঁচটা নিজেই পাতিলের আকার দেয়, constructor ঠিক এই কাজটাই করে।</p>
 <p><code>self</code> কথাটা একটু মনে রাখো। <code>self</code> মানে "আমি নিজে"। প্রতিটা object যখন কোনো method call করে, সে নিজের reference পাঠিয়ে দেয় <code>self</code> হিসেবে। <code>patil1.porichoy_dao()</code> বলতে আসলে <code>patil1</code> বলছে, "আমার নিজের রঙ, উচ্চতা, দাম দিয়ে এই কাজটা করো।"</p>
-<p>Class আর Object-এর এই সম্পর্কটা বোঝার পরই মাথায় আসে — বাস্তব দুনিয়ার প্রায় সব কিছুকেই কি এভাবে model করা যায়?</p>
+<p>Class আর Object-এর এই সম্পর্কটা বোঝার পরই মাথায় আসে: বাস্তব দুনিয়ার প্রায় সব কিছুকেই কি এভাবে model করা যায়?</p>
 <hr />
 <h2>বাস্তব উদাহরণ: Pathao-তে Driver</h2>
 <p>Pathao-এর কথা ভাবো। লক্ষাধিক driver আছে তাদের platform-এ। প্রতিটা driver-এর নাম আছে, ফোন নম্বর আছে, গাড়ির নম্বর আছে, rating আছে। আর প্রতিটা driver trip accept করতে পারে, cancel করতে পারে, গন্তব্যে পৌঁছাতে পারে।</p>
@@ -459,15 +459,15 @@ graph LR
 </tr>
 </tbody>
 </table>
-<p><strong>Class হলো blueprint — এটা নিজে কোনো real জিনিস না, শুধু একটা নকশা।</strong></p>
-<p><strong>Object হলো সেই blueprint থেকে তৈরি real জিনিস — প্রতিটার নিজস্ব data আছে।</strong></p>
+<p><strong>Class হলো blueprint। এটা নিজে কোনো real জিনিস না, শুধু একটা নকশা।</strong></p>
+<p><strong>Object হলো সেই blueprint থেকে তৈরি real জিনিস। প্রতিটার নিজস্ব data আছে।</strong></p>
 <p><strong>একটা Class থেকে যত খুশি Object তৈরি করা যায়, প্রতিটা সম্পূর্ণ স্বাধীন।</strong></p>
-<p><strong>Constructor (<code>__init__</code>) Object-এর জন্মের সময় চলে — প্রাথমিক data সেট করে দেয়।</strong></p>
+<p><strong>Constructor (<code>__init__</code>) Object-এর জন্মের সময় চলে, প্রাথমিক data সেট করে দেয়।</strong></p>
 <hr />
 <blockquote>
-<p>পরবর্তী প্রশ্ন হলো: Object-এর ভেতরের data কি সবার জন্য উন্মুক্ত থাকা উচিত? নাকি কিছু জিনিস লুকিয়ে রাখাটাই বুদ্ধিমানের কাজ? সেই গল্পের নাম — <strong>Encapsulation।</strong></p>
+<p>পরবর্তী প্রশ্ন হলো: Object-এর ভেতরের data কি সবার জন্য উন্মুক্ত থাকা উচিত? নাকি কিছু জিনিস লুকিয়ে রাখাটাই বুদ্ধিমানের কাজ? সেই গল্পের নাম <strong>Encapsulation।</strong></p>
 </blockquote>
-<p><em>OOP সিরিজের পরবর্তী পর্ব: Encapsulation — যা সবাইকে দেখানো যায় না</em></p>
+<p><em>OOP সিরিজের পরবর্তী পর্ব: Encapsulation, যা সবাইকে দেখানো যায় না</em></p>
   </article>
 
   <footer>
