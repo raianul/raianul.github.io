@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>স্কেলেবিলিটি: ঈদের দিন রাশেদ ভাইয়ের দোকান ডুবে গেল | raian.xyz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --border: #e8e8e8;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #5b4de8;
+      --accent-soft: #5b4de812;
+      --code-bg: #f6f8fa;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      min-height: 100vh;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2.5rem;
+    }
+    .article-series {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .article-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* CONTENT */
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .article-content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 2rem 0 0.8rem;
+      color: var(--text);
+    }
+    .article-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .article-content p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    .article-content strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* TABLES */
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .article-content th {
+      background: var(--surface);
+      color: var(--accent);
+      font-weight: 600;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .article-content td {
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .article-content tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    /* CODE */
+    .article-content pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .article-content code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88em;
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #5b4de8;
+    }
+    .article-content pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+
+    /* MERMAID */
+    .article-content pre.mermaid {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    /* BLOCKQUOTE */
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      background: var(--accent-soft);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* LISTS */
+    .article-content ul, .article-content ol {
+      margin: 1rem 0 1.2rem 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .article-title { font-size: 1.6rem; }
+      .article-content { padding: 0 1.2rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
+    <a href="/" class="nav-back">← সব লেখা</a>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-series">System Design সিরিজ</div>
+    <h1 class="article-title">স্কেলেবিলিটি: ঈদের দিন রাশেদ ভাইয়ের দোকান ডুবে গেল</h1>
+    <div class="article-meta">
+      <span>রাইয়ান</span>
+      <span>·</span>
+      <span>মে ২০২৬</span>
+    </div>
+  </header>
+
+  <article class="article-content">
+    <h2>ভূমিকা</h2>
+<p>ধরো, ঢাকার মোহাম্মদপুরে রাশেদ ভাই একটা ছোট্ট চায়ের দোকান খুললেন।</p>
+<p>প্রথম দিন ১০ জন কাস্টমার। রাশেদ ভাই একাই চা বানালেন, টাকা নিলেন, সব সামলালেন। কোনো সমস্যা নেই।</p>
+<p>এক মাস পর ৫০ জন।</p>
+<p>তিন মাস পর ২০০ জন।</p>
+<p>ঈদের দিন? সারা পাড়া এসে হাজির — ৫০০ মানুষ।</p>
+<p>রাশেদ ভাই একা আর পারছেন না। চুলা একটা, হাত দুটো, আর মাথায় ঘাম। কাস্টমাররা বিরক্ত হয়ে চলে যাচ্ছে।</p>
+<p>এই সমস্যাটার নাম <strong>স্কেলেবিলিটি সমস্যা।</strong></p>
+<p>সফটওয়্যারের দুনিয়ায় এটা প্রতিটা সফল অ্যাপের গল্প। ১,০০০ ইউজারে যে সিস্টেম ঝরঝরে চলে, ১০,০০০ ইউজারে সেটা হাঁপাতে শুরু করে। ১০ লাখ ইউজারে? ধপাস।</p>
+<p>স্কেলেবিলিটি হলো সেই ক্ষমতা — যার কারণে একটা সিস্টেম ইউজার বাড়লেও ভেঙে পড়ে না, বরং গ্রেস্ফুলি সামলে নেয়।</p>
+<hr />
+<h2>১. স্কেলেবিলিটি মাপা যায় কীভাবে?</h2>
+<p>রাশেদ ভাই যদি বলেন "আমার দোকান স্লো হয়ে গেছে" — এটা কোনো কাজের কথা না।</p>
+<p>কিন্তু যদি বলেন "আগে প্রতি মিনিটে ৩০ কাপ চা দিতে পারতাম, এখন ১০ মিনিটে একজনকে দিতে পারছি না" — তাহলে বোঝা যায় সমস্যাটা কোথায়।</p>
+<p>সফটওয়্যারেও তাই, স্কেলেবিলিটি মাপা হয় কিছু নির্দিষ্ট সংখ্যা দিয়ে।</p>
+<table>
+<thead>
+<tr>
+<th>মেট্রিক</th>
+<th>মানে</th>
+<th>উদাহরণ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RPS (Requests Per Second)</td>
+<td>প্রতি সেকেন্ডে কতটা রিকোয়েস্ট সামলাতে পারে</td>
+<td>১০,০০০ RPS</td>
+</tr>
+<tr>
+<td>Concurrent Users</td>
+<td>একই সময়ে কতজন একটিভ থাকতে পারে</td>
+<td>৫০,০০০ জন</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>প্রতি সেকেন্ডে কতটা ডেটা ট্রান্সফার হচ্ছে</td>
+<td>১ GB/s</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>রিকোয়েস্ট পাঠানো থেকে রেসপন্স পাওয়া পর্যন্ত সময়</td>
+<td>৫০ms</td>
+</tr>
+</tbody>
+</table>
+<h3>লোড বাড়লে কী হয়?</h3>
+<p>ধরো রাশেদ ভাইয়ের দোকানে স্বাভাবিক দিনে একটা চা বানাতে লাগে ৩০ সেকেন্ড।</p>
+<table>
+<thead>
+<tr>
+<th>কাস্টমার সংখ্যা</th>
+<th>অপেক্ষার সময়</th>
+<th>অবস্থা</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>১০ জন (স্বাভাবিক)</td>
+<td>৩০ সেকেন্ড</td>
+<td>স্বাভাবিক</td>
+</tr>
+<tr>
+<td>২০ জন</td>
+<td>৩৩ সেকেন্ড</td>
+<td>চমৎকার, খুব একটা বাড়েনি</td>
+</tr>
+<tr>
+<td>৫০ জন</td>
+<td>৪৫ সেকেন্ড</td>
+<td>ভালোই আছে</td>
+</tr>
+<tr>
+<td>১০০ জন</td>
+<td>১.৫ মিনিট</td>
+<td>একটু বাড়ছে, সামলানো যাচ্ছে</td>
+</tr>
+<tr>
+<td>১০০ জন</td>
+<td>৫ মিনিট</td>
+<td>সমস্যা শুরু, বোতলনেক আসছে</td>
+</tr>
+<tr>
+<td>১০০ জন</td>
+<td>দোকান বন্ধ</td>
+<td>সিস্টেম ক্র্যাশ</td>
+</tr>
+</tbody>
+</table>
+<p>একটা ভালো সিস্টেমের লক্ষ্য হলো লোড দ্বিগুণ হলেও রেসপন্স টাইম যেন দ্বিগুণ না হয়। সেটাই <strong>লিনিয়ার বা সাবলিনিয়ার স্কেলিং।</strong></p>
+<hr />
+<h2>২. ভার্টিকাল স্কেলিং — বড় চুলা কিনে আনো</h2>
+<p>সমস্যা বুঝে রাশেদ ভাই প্রথমে যা করলেন, সেটা সবচেয়ে সহজ সমাধান।</p>
+<p>পুরনো একটা ছোট চুলা ছিল। সেটা বদলে কিনে আনলেন বড় ইন্ডাস্ট্রিয়াল চুলা। চায়ের কেতলি বদলে নিলেন বড় পাতিল। একটু বেশি জায়গা হলো।</p>
+<p>এটাই <strong>ভার্টিকাল স্কেলিং (Scale Up)।</strong></p>
+<p>সফটওয়্যারে মানে হলো — একটাই সার্ভার রাখো, কিন্তু সেটার ক্ষমতা বাড়াও।</p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    A["আগের সার্ভার\n4 CPU, 16GB RAM"]:::box --&gt;|আপগ্রেড| B["নতুন সার্ভার\n32 CPU, 256GB RAM"]:::box</pre>
+<h3>কী কী আপগ্রেড করা যায়?</h3>
+<ul>
+<li><strong>CPU বাড়াও</strong> — যখন কাজ হিসাব-নিকাশের বেশি</li>
+<li><strong>RAM বাড়াও</strong> — যখন বেশি ডেটা মেমোরিতে রাখতে হয়</li>
+<li><strong>SSD লাগাও</strong> — যখন ডিস্ক রিড-রাইট স্লো</li>
+<li><strong>নেটওয়ার্ক কার্ড আপগ্রেড করো</strong> — যখন ব্যান্ডউইথ সমস্যা</li>
+</ul>
+<h3>সুবিধা ও সীমাবদ্ধতা</h3>
+<p><strong>ভালো দিক:</strong><br />
+- কোড একটুও বদলাতে হয় না<br />
+- সব ডেটা এক জায়গায়, নেটওয়ার্ক ঝামেলা নেই<br />
+- সহজ, দ্রুত সমাধান</p>
+<p><strong>খারাপ দিক:</strong><br />
+- পৃথিবীর সবচেয়ে বড় সার্ভারেরও একটা লিমিট আছে<br />
+- একটাই সার্ভার মানে — সেটা বন্ধ হলে পুরো সিস্টেম বন্ধ<br />
+- বড় সার্ভার কিনতে দাম অনেক বেশি, দ্বিগুণ ক্ষমতার জন্য চার গুণ টাকা লাগে</p>
+<p>রাশেদ ভাই বড় চুলা কিনলেন, কিন্তু ঈদের দিন আবার একই সমস্যা। এবার আর বড় চুলা নেই দোকানে। তাহলে?</p>
+<hr />
+<h2>৩. হরিজোন্টাল স্কেলিং — নতুন শাখা খোলো</h2>
+<p>রাশেদ ভাই এবার বুদ্ধি করলেন। একটা বড় চুলার বদলে তিনটা ছোট চুলা রাখলেন। সাথে দুজন হেল্পার রাখলেন। দরজায় একজন মানুষ দাঁড় করালেন, যে দেখে কোন চুলা ফাঁকা আছে, সেখানে কাস্টমারকে পাঠিয়ে দিচ্ছে।</p>
+<p>এটাই <strong>হরিজোন্টাল স্কেলিং (Scale Out)।</strong></p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    User["👥 ইউজার"]:::box --&gt; LB["লোড ব্যালান্সার\n(দারোয়ান)"]:::box
+    LB --&gt; S1["সার্ভার ১"]:::box
+    LB --&gt; S2["সার্ভার ২"]:::box
+    LB --&gt; S3["সার্ভার ৩"]:::box
+    LB --&gt; SN["সার্ভার N..."]:::box</pre>
+<p>এই পদ্ধতিতে Google, Netflix, Amazon এদের মতো কোম্পানি কোটি কোটি রিকোয়েস্ট সামলায়।</p>
+<h3>সুবিধা ও সীমাবদ্ধতা</h3>
+<p><strong>ভালো দিক:</strong><br />
+- কোনো হার্ড লিমিট নেই, দরকার হলে আরও সার্ভার যোগ করো<br />
+- একটা সার্ভার বন্ধ হলে বাকিগুলো চলতে থাকে<br />
+- ছোট ছোট সার্ভার একসাথে বড় সার্ভারের চেয়ে অনেক সস্তা<br />
+- পৃথিবীর বিভিন্ন জায়গায় সার্ভার রাখা যায়</p>
+<p><strong>খারাপ দিক:</strong><br />
+- সিস্টেম জটিল হয়ে যায়<br />
+- অনেক সার্ভারে ডেটা মিলিয়ে রাখা কঠিন<br />
+- সার্ভারে সার্ভারে কথা বলতে সময় লাগে</p>
+<hr />
+<h2>৪. স্টেটলেস বনাম স্টেটফুল — সার্ভার কি কিছু মনে রাখে?</h2>
+<p>এখানে একটা মজার সমস্যা আছে।</p>
+<p>ধরো রাশেদ ভাইয়ের দোকানে তুমি গেলে, ওনাকে বললে "ভাই, আমি সবসময় আধা চামচ চিনি দিয়ে চা খাই।" রাশেদ ভাই মনে রাখলেন।</p>
+<p>পরের দিন গেলে — দেখো, অন্য হেল্পার বসে আছে। সে তোমাকে চেনে না। আবার চিনির কথা বলতে হলো।</p>
+<p>এটাই <strong>স্টেটফুল</strong> এর সমস্যা। একটা সার্ভার তোমার সেশন মনে রাখলে, প্রতিবার তোমাকে সেই একই সার্ভারে যেতে হবে।</p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    subgraph "স্টেটফুল — সমস্যা আছে"
+        U1["ইউজার রাইয়ান"]:::box --&gt;|"শুধু এখানেই যেতে পারবে"| SS1["সার্ভার ১\n(রাইয়ানের সেশন আছে)"]:::box
+        SS1 -.-&gt;|"এখানে যেতে পারবে না"| SS2["সার্ভার ২"]:::box
+    end
+
+    subgraph "স্টেটলেস — সমস্যা নেই"
+        U2["ইউজার রাইয়ান"]:::box --&gt; LB2["লোড ব্যালান্সার"]:::box
+        LB2 --&gt; TS1["সার্ভার ১"]:::box
+        LB2 --&gt; TS2["সার্ভার ২"]:::box
+        TS1 --&gt; Redis["Redis\n(সবার সেশন এখানে)"]:::box
+        TS2 --&gt; Redis
+    end</pre>
+<p><strong>সমাধান হলো স্টেটলেস আর্কিটেকচার।</strong></p>
+<p>সার্ভার নিজে কিছু মনে রাখবে না। সব সেশন ডেটা রাখা হবে একটা শেয়ার্ড জায়গায় — যেমন Redis। যেকোনো সার্ভার সেখান থেকে পড়ে নেবে।</p>
+<p>এটা করতে হলে:<br />
+- সেশন ডেটা Redis বা Memcached এ রাখো<br />
+- JWT Token ব্যবহার করো, সার্ভার-সাইড সেশনের বদলে<br />
+- ফাইল আপলোড হলে S3 এর মতো অবজেক্ট স্টোরেজে রাখো, সার্ভারের ডিস্কে না</p>
+<hr />
+<h2>৫. বিভিন্ন অংশ কীভাবে স্কেল করতে হয়</h2>
+<p>একটা সিস্টেম অনেক অংশ নিয়ে তৈরি। প্রতিটা অংশের স্কেলিং আলাদা।</p>
+<h3>অ্যাপ্লিকেশন সার্ভার — সবচেয়ে সহজ</h3>
+<p>অ্যাপ সার্ভার স্কেল করা সবচেয়ে সহজ, যদি সেটা স্টেটলেস হয়।</p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    C["কাস্টমার"]:::box --&gt; LB["লোড ব্যালান্সার"]:::box
+    LB --&gt; A1["অ্যাপ সার্ভার ১"]:::box
+    LB --&gt; A2["অ্যাপ সার্ভার ২"]:::box
+    LB --&gt; A3["অ্যাপ সার্ভার ৩"]:::box
+    A1 --&gt; Cache["Redis ক্যাশ"]:::box
+    A2 --&gt; Cache
+    A3 --&gt; Cache
+    A1 --&gt; DB["ডেটাবেস"]:::box
+    A2 --&gt; DB
+    A3 --&gt; DB</pre>
+<p>লোড বেড়ে গেলে আরও সার্ভার যোগ করো। ব্যস।</p>
+<hr />
+<h3>ডেটাবেস — সবচেয়ে কঠিন</h3>
+<p>ডেটাবেস স্কেল করা কঠিন কারণ এখানে ডেটা থাকে। অ্যাপ সার্ভারের মতো শুধু আরও কপি চালু করলেই হয় না।</p>
+<p>ধরো রাশেদ ভাইয়ের দোকানে একটা খাতায় সব অর্ডার লেখা থাকে। এই খাতার কপি করা যায়, কিন্তু সব কপিতে একই তথ্য রাখা — সেটা চ্যালেঞ্জ।</p>
+<p>ডেটাবেসের বোতলনেক কোথায় সেটার উপর নির্ভর করে সমাধান আলাদা:</p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    Q{"বোতলনেক কোথায়?"}:::box
+    Q --&gt;|"পড়া বেশি"| R["Read Replica"]:::box
+    Q --&gt;|"লেখা বেশি"| S["Sharding"]:::box
+    Q --&gt;|"দুটোই"| SR["Sharding + Replica"]:::box
+    Q --&gt;|"নমনীয়তা দরকার"| N["NoSQL"]:::box</pre>
+<h4>ক. Read Replica — পড়ার জন্য আলাদা কপি</h4>
+<p>বেশিরভাগ অ্যাপে পড়া হয় বেশি, লেখা হয় কম। bKash এর কথা ভাবো — লক্ষ মানুষ ব্যালান্স চেক করছে, কিন্তু ট্রানজেকশন হচ্ছে তুলনামূলক কম।</p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    App["অ্যাপ সার্ভার"]:::box
+    App --&gt;|"লেখা"| Primary["Primary DB\n(মূল ডেটাবেস)"]:::box
+    Primary --&gt;|"রেপ্লিকেশন"| R1["Read Replica ১"]:::box
+    Primary --&gt;|"রেপ্লিকেশন"| R2["Read Replica ২"]:::box
+    App --&gt;|"পড়া"| R1
+    App --&gt;|"পড়া"| R2</pre>
+<p>Primary সব লেখা সামলায়, Replica শুধু পড়ার রিকোয়েস্ট দেয়। একটু পিছিয়ে থাকতে পারে (Replication Lag), কিন্তু বেশিরভাগ ক্ষেত্রে সেটা সমস্যা না।</p>
+<h4>খ. Sharding — ডেটা ভাগ করে রাখো</h4>
+<p>যখন লেখাও বেশি, তখন একটা ডেটাবেসে কুলাবে না।</p>
+<p>ধরো রাশেদ ভাইয়ের চেইন হয়ে গেছে তিনটা শাখায়। মোহাম্মদপুরের শাখা শুধু মোহাম্মদপুরের কাস্টমারদের ডেটা রাখে। গুলশানের শাখা গুলশানেরটা। মিরপুরের শাখা মিরপুরেরটা।</p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    App["অ্যাপ সার্ভার"]:::box --&gt; Router["Shard Router"]:::box
+    Router --&gt;|"ইউজার A-H"| S1["Shard ১"]:::box
+    Router --&gt;|"ইউজার I-P"| S2["Shard ২"]:::box
+    Router --&gt;|"ইউজার Q-Z"| S3["Shard ৩"]:::box</pre>
+<p><strong>সাধারণ Sharding কৌশল:</strong><br />
+- <strong>Range-based:</strong> নামের প্রথম অক্ষর দিয়ে ভাগ (A-H, I-P, Q-Z)<br />
+- <strong>Hash-based:</strong> User ID হ্যাশ করে ভাগ<br />
+- <strong>Directory-based:</strong> একটা ম্যাপ রাখো, কে কোন Shard এ আছে</p>
+<hr />
+<h3>ক্যাশ — মনে রেখো সবচেয়ে জনপ্রিয় জিনিস</h3>
+<p>ধরো রাশেদ ভাইয়ের দোকানে ৯০% মানুষ আদা চা অর্ডার করে। তিনি এখন সকালেই একটু আদা ফুটিয়ে রাখেন। অর্ডার আসলে ডেটাবেসে (রেসিপি বইতে) যেতে হয় না, সরাসরি বানিয়ে দেন।</p>
+<p>এটাই <strong>ক্যাশিং।</strong></p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    App["অ্যাপ"]:::box --&gt;|"আগে চেক করো"| Cache["Redis ক্যাশ"]:::box
+    Cache --&gt;|"পাওয়া গেলে সরাসরি দাও"| App
+    Cache --&gt;|"না পেলে"| DB["ডেটাবেস"]:::box
+    DB --&gt;|"এনে ক্যাশে রাখো"| Cache</pre>
+<p>Redis একটাই নোডে ১,০০,০০০ এর বেশি অপারেশন প্রতি সেকেন্ডে সামলাতে পারে। ডেটাবেসের তুলনায় এটা ১০০ গুণ বেশি।</p>
+<hr />
+<h3>মেসেজ কিউ — টোকেন সিস্টেম</h3>
+<p>ঈদের দিন রাশেদ ভাইয়ের দোকানে ভিড় এত বেশি যে, সবাইকে লাইনে দাঁড় করানো যাচ্ছে না। তিনি বুদ্ধি করে একটা টোকেন সিস্টেম চালু করলেন।</p>
+<p>কেউ এলে টোকেন নেয়, যার নম্বর আসে সে চা পায়। রাশেদ ভাই নিজের গতিতে বানান।</p>
+<p>এটাই <strong>মেসেজ কিউ।</strong></p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    P1["Producer ১\n(অর্ডার)"]:::box --&gt; Q["Message Queue\nKafka / RabbitMQ"]:::box
+    P2["Producer ২\n(অর্ডার)"]:::box --&gt; Q
+    Q --&gt; C1["Consumer ১\n(প্রসেসিং)"]:::box
+    Q --&gt; C2["Consumer ২\n(প্রসেসিং)"]:::box
+    Q --&gt; C3["Consumer ৩\n(প্রসেসিং)"]:::box</pre>
+<p>এতে Producer আর Consumer আলাদাভাবে স্কেল করা যায়। হঠাৎ ট্র্যাফিক স্পাইক আসলে কিউ সেটা ধরে রাখে, সার্ভার ক্র্যাশ করে না।</p>
+<hr />
+<h2>৬. বাস্তব গল্প — ০ থেকে কোটি ইউজার</h2>
+<p>ধরো Shohoz Food এর মতো একটা ফুড ডেলিভারি অ্যাপ শুরু হচ্ছে। কীভাবে এটা বাড়তে বাড়তে কোটি ইউজার সামলাবে?</p>
+<h3>ধাপ ১ — শুরুর দিন (০ থেকে ১০,০০০ ইউজার)</h3>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    U["ইউজার"]:::box --&gt; Single["একটাই সার্ভার\n(অ্যাপ + ডেটাবেস একসাথে)"]:::box</pre>
+<p>সব একটা সার্ভারে। সহজ, সস্তা। ডিবাগ করাও সহজ। কোনো ঝামেলা নেই।</p>
+<p><strong>সমস্যা কখন শুরু হয়:</strong> অ্যাপ আর ডেটাবেস একই সার্ভারে থাকায় তারা CPU আর RAM নিয়ে মারামারি শুরু করে।</p>
+<hr />
+<h3>ধাপ ২ — ডেটাবেস আলাদা করো (১০,০০০ থেকে ১,০০,০০০ ইউজার)</h3>
+<p><pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    User["👥 ইউজার"]:::box --&gt; LB["লোড ব্যালান্সার\n(দারোয়ান)"]:::box
+    LB --&gt; S1["সার্ভার ১"]:::box
+    LB --&gt; S2["সার্ভার ২"]:::box
+    LB --&gt; S3["সার্ভার ৩"]:::box
+    LB --&gt; SN["সার্ভার N..."]:::box</pre>0</p>
+<p>এখন অ্যাপ সার্ভার আর ডেটাবেস আলাদা মেশিনে। প্রতিটাকে আলাদাভাবে টিউন করা যাচ্ছে।</p>
+<p><strong>সমস্যা কখন শুরু হয়:</strong> ডেটাবেসে কোয়েরি বেড়ে যাচ্ছে, পড়া স্লো হচ্ছে।</p>
+<hr />
+<h3>ধাপ ৩ — ক্যাশ যোগ করো (১,০০,০০০ থেকে ৫,০০,০০০ ইউজার)</h3>
+<p><pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    User["👥 ইউজার"]:::box --&gt; LB["লোড ব্যালান্সার\n(দারোয়ান)"]:::box
+    LB --&gt; S1["সার্ভার ১"]:::box
+    LB --&gt; S2["সার্ভার ২"]:::box
+    LB --&gt; S3["সার্ভার ৩"]:::box
+    LB --&gt; SN["সার্ভার N..."]:::box</pre>1</p>
+<p>রেস্টুরেন্ট লিস্ট, মেনু — এসব বারবার পড়তে হয় কিন্তু কম বদলায়। সেগুলো ক্যাশে রাখো। ৮০-৯০% রিড ডেটাবেসে যাচ্ছেই না।</p>
+<p><strong>সমস্যা কখন শুরু হয়:</strong> একটাই অ্যাপ সার্ভার আর কুলাচ্ছে না।</p>
+<hr />
+<h3>ধাপ ৪ — একাধিক অ্যাপ সার্ভার (৫,০০,০০০ থেকে ২০ লাখ ইউজার)</h3>
+<p><pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    User["👥 ইউজার"]:::box --&gt; LB["লোড ব্যালান্সার\n(দারোয়ান)"]:::box
+    LB --&gt; S1["সার্ভার ১"]:::box
+    LB --&gt; S2["সার্ভার ২"]:::box
+    LB --&gt; S3["সার্ভার ৩"]:::box
+    LB --&gt; SN["সার্ভার N..."]:::box</pre>2</p>
+<p>হরিজোন্টাল স্কেলিং শুরু হলো। লোড ব্যালান্সার সব সার্ভারে ভাগ করে দিচ্ছে। ট্র্যাফিক বাড়লে আরও সার্ভার যোগ করো।</p>
+<p><strong>সমস্যা কখন শুরু হয়:</strong> ডেটাবেসে এত বেশি কোয়েরি যাচ্ছে যে সে হাঁপাচ্ছে।</p>
+<hr />
+<h3>ধাপ ৫ — Read Replica যোগ করো (২০ লাখ থেকে ১ কোটি ইউজার)</h3>
+<p><pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    User["👥 ইউজার"]:::box --&gt; LB["লোড ব্যালান্সার\n(দারোয়ান)"]:::box
+    LB --&gt; S1["সার্ভার ১"]:::box
+    LB --&gt; S2["সার্ভার ২"]:::box
+    LB --&gt; S3["সার্ভার ৩"]:::box
+    LB --&gt; SN["সার্ভার N..."]:::box</pre>3</p>
+<p>পড়া আর লেখা আলাদা হলো। ৯০% রিড এখন Replica সামলাচ্ছে।</p>
+<p><strong>সমস্যা কখন শুরু হয়:</strong> লেখার চাপ একটা Primary আর নিতে পারছে না।</p>
+<hr />
+<h3>ধাপ ৬ — Sharding (১ কোটির বেশি ইউজার)</h3>
+<p><pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    User["👥 ইউজার"]:::box --&gt; LB["লোড ব্যালান্সার\n(দারোয়ান)"]:::box
+    LB --&gt; S1["সার্ভার ১"]:::box
+    LB --&gt; S2["সার্ভার ২"]:::box
+    LB --&gt; S3["সার্ভার ৩"]:::box
+    LB --&gt; SN["সার্ভার N..."]:::box</pre>4</p>
+<p>ডেটা ভাগ হয়ে গেল। প্রতিটা Shard ছোট, তাই দ্রুত। লেখা আর পড়া দুটোই স্কেল হচ্ছে।</p>
+<p><strong>চ্যালেঞ্জ:</strong> Shard করলে জটিলতা বাড়ে। দুই Shard জুড়ে কোয়েরি করা কঠিন। অনেক টিম এই পর্যায়ে CockroachDB বা Vitess এর মতো ডিস্ট্রিবিউটেড ডেটাবেসে চলে যায়।</p>
+<hr />
+<h2>সারসংক্ষেপ</h2>
+<table>
+<thead>
+<tr>
+<th>গল্পের ভাষায়</th>
+<th>প্রযুক্তির ভাষায়</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>বড় চুলা কেনা</td>
+<td>Vertical Scaling</td>
+</tr>
+<tr>
+<td>নতুন শাখা খোলা</td>
+<td>Horizontal Scaling</td>
+</tr>
+<tr>
+<td>দরজায় দারোয়ান যে ভাগ করে দেয়</td>
+<td>Load Balancer</td>
+</tr>
+<tr>
+<td>সার্ভার নিজে কিছু মনে রাখে না</td>
+<td>Stateless Architecture</td>
+</tr>
+<tr>
+<td>আদা আগেই ফুটিয়ে রাখা</td>
+<td>Caching</td>
+</tr>
+<tr>
+<td>টোকেন সিস্টেম</td>
+<td>Message Queue</td>
+</tr>
+<tr>
+<td>পড়ার জন্য আলাদা খাতা</td>
+<td>Read Replica</td>
+</tr>
+<tr>
+<td>ডেটা ভাগ করে রাখা</td>
+<td>Sharding</td>
+</tr>
+</tbody>
+</table>
+<h3>মূল শিক্ষা</h3>
+<p><strong>Vertical Scaling সহজ, কিন্তু সীমিত।</strong> শুরুতে ভালো, কিন্তু একটা সময় সবচেয়ে বড় মেশিনও ছোট লাগে।</p>
+<p><strong>Horizontal Scaling জটিল, কিন্তু শক্তিশালী।</strong> এটা করতে হলে সার্ভারকে Stateless বানাতে হবে।</p>
+<p><strong>আগে বোতলনেক খোঁজো, তারপর স্কেল করো।</strong> অ্যাপ সার্ভার বাড়িয়ে লাভ নেই যদি আসল সমস্যা ডেটাবেসে থাকে।</p>
+<p><strong>ক্যাশিং, Replica, Sharding, Message Queue</strong> — এই প্যাটার্নগুলো প্রায় সব বড় সিস্টেমেই দেখা যায়।</p>
+<hr />
+<blockquote>
+<p>স্কেলেবিলিটি শুধু লোড সামলানোর প্রশ্ন না — এটা হলো সিস্টেম না ভেঙে বড় হওয়ার শিল্প।<br />
+পরবর্তী প্রশ্ন হলো: সিস্টেম স্কেল করলেই হলো? কিন্তু সেটা যদি প্রতিদিন ক্র্যাশ করে?<br />
+সেই গল্পের নাম — <strong>Availability।</strong></p>
+</blockquote>
+<hr />
+<p><em>System Design সিরিজের পরবর্তী পর্ব: Availability — সিস্টেম কখনো ঘুমায় না</em></p>
+  </article>
+
+  <footer>
+    <p>বানিয়েছে <a href="https://github.com/raianul">রাইয়ান</a> · <a href="https://raian.xyz">raian.xyz</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'base' });
+  </script>
+  <script>
+    document.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightElement(block);
+    });
+  </script>
+
+</body>
+</html>
