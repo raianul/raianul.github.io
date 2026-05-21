@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enum: রিনা আপার অর্ডার খাতার বিশৃঙ্খলা | raian.xyz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --border: #e8e8e8;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #5b4de8;
+      --accent-soft: #5b4de812;
+      --code-bg: #f6f8fa;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      min-height: 100vh;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2.5rem;
+    }
+    .article-series {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .article-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* CONTENT */
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .article-content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 2rem 0 0.8rem;
+      color: var(--text);
+    }
+    .article-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .article-content p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    .article-content strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* TABLES */
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .article-content th {
+      background: var(--surface);
+      color: var(--accent);
+      font-weight: 600;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .article-content td {
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .article-content tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    /* CODE */
+    .article-content pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .article-content code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88em;
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #5b4de8;
+    }
+    .article-content pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+
+    /* MERMAID */
+    .article-content pre.mermaid {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    /* BLOCKQUOTE */
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      background: var(--accent-soft);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* LISTS */
+    .article-content ul, .article-content ol {
+      margin: 1rem 0 1.2rem 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .article-title { font-size: 1.6rem; }
+      .article-content { padding: 0 1.2rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
+    <a href="/" class="nav-back">← সব লেখা</a>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-series">OOP সিরিজ</div>
+    <h1 class="article-title">Enum: রিনা আপার অর্ডার খাতার বিশৃঙ্খলা</h1>
+    <div class="article-meta">
+      <span>রাইয়ান</span>
+      <span>·</span>
+      <span>মে ২০২৬</span>
+    </div>
+  </header>
+
+  <article class="article-content">
+    <p>রিনা আপার একটা ছোট্ট অনলাইন শপ আছে।</p>
+<p>ফেসবুকে পেজ, হাতে বানানো কাপড়ের গয়না, মাসে ৫০-৬০টা অর্ডার। ব্যবসা ভালোই চলছে।</p>
+<p>কিন্তু অর্ডার ট্র্যাক করতে গিয়ে সমস্যা।</p>
+<p>রিনা আপা নিজে লেখেন: "পেন্ডিং", "রেডি", "পাঠানো হয়েছে", "পৌঁছেছে"। তার হেল্পার সুমাইয়া লেখে: "wait", "ready to ship", "shipped", "delivered"। আরেকজন হেল্পার কামাল লেখে: "অপেক্ষায়", "তৈরি", "রাস্তায়", "পাইছে"।</p>
+<p>মাস শেষে রিপোর্ট বানাতে গিয়ে মাথায় হাত। কতটা অর্ডার এখনো পেন্ডিং? কতটা shipped হয়েছে? কেউ বলতে পারছে না কারণ একই অবস্থার তিনটা আলাদা নাম।</p>
+<p>এই সমস্যার নাম <strong>magic strings</strong> আর সমাধানের নাম <strong>Enum।</strong></p>
+<hr />
+<h2>১. Enum কী?</h2>
+<p>রিনা আপা যদি সবাইকে বলতেন: "অর্ডারের অবস্থা লিখতে হলে শুধু এই পাঁচটা শব্দ ব্যবহার করবে: PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED। এর বাইরে কোনো শব্দ চলবে না।"</p>
+<p>এই পাঁচটা নির্দিষ্ট শব্দের তালিকাটাই হলো <strong>Enum (Enumeration)</strong>।</p>
+<p>Enum হলো একটা বিশেষ data type যেটা একটা fixed, predefined set of named constants ধরে রাখে। একবার define করলে সেই set-এর বাইরে কোনো value সম্ভব না।</p>
+<pre><code class="language-python">from enum import Enum
+
+class OrderStatus(Enum):
+    PENDING    = &quot;pending&quot;
+    CONFIRMED  = &quot;confirmed&quot;
+    SHIPPED    = &quot;shipped&quot;
+    DELIVERED  = &quot;delivered&quot;
+    CANCELLED  = &quot;cancelled&quot;
+</code></pre>
+<p>এখন কেউ <code>OrderStatus.SHIPED</code> লিখলে Python সাথে সাথে error দেবে। Typo করার সুযোগ নেই। "raste ache" লেখার সুযোগ নেই। শুধু পাঁচটা নির্দিষ্ট option।</p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    P["PENDING\nঅপেক্ষায়"]:::box --&gt;|"confirm"| C["CONFIRMED\nনিশ্চিত"]:::box
+    C --&gt;|"ship"| S["SHIPPED\nপাঠানো হয়েছে"]:::box
+    S --&gt;|"deliver"| D["DELIVERED\nপৌঁছেছে"]:::box
+    P --&gt;|"cancel"| X["CANCELLED\nবাতিল"]:::box
+    C --&gt;|"cancel"| X</pre>
+<p>Enum use না করলে এই flow-টা maintain করা কঠিন। যে কেউ যেকোনো string লিখতে পারে, ভুল state-ও set করতে পারে।</p>
+<hr />
+<h2>২. Simple Enum: শুধু নাম দরকার</h2>
+<p>সবচেয়ে সহজ Enum-এ শুধু names থাকে। কোনো extra value দরকার নেই।</p>
+<p>Pathao ride-এর payment method ভাবো। হয় CASH, নয়তো CARD, নয়তো BKASH। তিনটার বাইরে কিছু নেই।</p>
+<pre><code class="language-python">from enum import Enum
+
+class PaymentMethod(Enum):
+    CASH   = 1
+    CARD   = 2
+    BKASH  = 3
+
+# ব্যবহার
+method = PaymentMethod.BKASH
+print(method)        # PaymentMethod.BKASH
+print(method.name)   # BKASH
+print(method.value)  # 3
+
+# Comparison সহজ
+if method == PaymentMethod.BKASH:
+    print(&quot;bKash দিয়ে পেমেন্ট নিচ্ছি&quot;)
+</code></pre>
+<p>Enum members-কে compare করা যায়, loop করা যায়, সহজেই check করা যায়:</p>
+<pre><code class="language-python"># সব payment method দেখো
+for m in PaymentMethod:
+    print(m.name, &quot;-&gt;&quot;, m.value)
+
+# CASH -&gt; 1
+# CARD -&gt; 2
+# BKASH -&gt; 3
+</code></pre>
+<p>Simple Enum-এ value হিসেবে integer ব্যবহার করলে কাজ চলে। কিন্তু কখনো কখনো আরেকটু বেশি দরকার হয়।</p>
+<hr />
+<h2>৩. Enum with Properties and Methods: Enum-এ বুদ্ধি</h2>
+<p>রিনা আপার অর্ডার status-এর সাথে যদি আরও তথ্য রাখা দরকার হয়? যেমন, প্রতিটা status-এর একটা বাংলা label আর একটা description?</p>
+<p>Enum-এ properties আর methods যোগ করা যায়।</p>
+<pre><code class="language-python">from enum import Enum
+
+class OrderStatus(Enum):
+    PENDING   = (&quot;pending&quot;,   &quot;অপেক্ষায়&quot;,        &quot;অর্ডার পাওয়া গেছে, এখনো confirm হয়নি&quot;)
+    CONFIRMED = (&quot;confirmed&quot;, &quot;নিশ্চিত হয়েছে&quot;,   &quot;অর্ডার confirm, প্যাক করা হচ্ছে&quot;)
+    SHIPPED   = (&quot;shipped&quot;,   &quot;পাঠানো হয়েছে&quot;,    &quot;অর্ডার courier-এ দেওয়া হয়েছে&quot;)
+    DELIVERED = (&quot;delivered&quot;, &quot;পৌঁছেছে&quot;,         &quot;কাস্টমার পেয়ে গেছে&quot;)
+    CANCELLED = (&quot;cancelled&quot;, &quot;বাতিল&quot;,           &quot;অর্ডার বাতিল করা হয়েছে&quot;)
+
+    def __new__(cls, code, label, description):
+        obj = object.__new__(cls)
+        obj._value_ = code
+        obj.label = label
+        obj.description = description
+        return obj
+
+    def is_active(self):
+        return self in (OrderStatus.PENDING, OrderStatus.CONFIRMED, OrderStatus.SHIPPED)
+
+    def can_cancel(self):
+        return self in (OrderStatus.PENDING, OrderStatus.CONFIRMED)
+</code></pre>
+<p>এখন Enum শুধু নাম না, পুরো information ধরে রাখছে:</p>
+<pre><code class="language-python">status = OrderStatus.SHIPPED
+
+print(status.value)       # shipped
+print(status.label)       # পাঠানো হয়েছে
+print(status.description) # অর্ডার courier-এ দেওয়া হয়েছে
+print(status.is_active())  # True
+print(status.can_cancel()) # False (shipped হয়ে গেলে আর cancel হয় না)
+</code></pre>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    E["OrderStatus Enum"]:::box
+    E --&gt; P["PENDING\nvalue: pending\nlabel: অপেক্ষায়\ncan_cancel: True"]:::box
+    E --&gt; C["CONFIRMED\nvalue: confirmed\nlabel: নিশ্চিত\ncan_cancel: True"]:::box
+    E --&gt; S["SHIPPED\nvalue: shipped\nlabel: পাঠানো হয়েছে\ncan_cancel: False"]:::box
+    E --&gt; D["DELIVERED\nvalue: delivered\nlabel: পৌঁছেছে\ncan_cancel: False"]:::box
+    E --&gt; X["CANCELLED\nvalue: cancelled\nlabel: বাতিল\ncan_cancel: False"]:::box</pre>
+<p>প্রতিটা Enum member এখন নিজেই জানে সে cancel করা যাবে কিনা, সে active কিনা। এই logic Enum-এর ভেতরেই থাকায় বাইরে বারবার লিখতে হয় না।</p>
+<hr />
+<h2>বাস্তব উদাহরণ: Daraz-এর Order Processing</h2>
+<p>Daraz-এ প্রতিদিন লক্ষ লক্ষ অর্ডার হয়। প্রতিটা অর্ডার বিভিন্ন state-এর মধ্য দিয়ে যায়।</p>
+<p>Enum ছাড়া এই system-এ কী সমস্যা হতো:</p>
+<pre><code class="language-python"># Enum ছাড়া: বিপদ
+order[&quot;status&quot;] = &quot;shiped&quot;    # typo, কেউ ধরতে পারবে না
+order[&quot;status&quot;] = &quot;Delivered&quot; # capital D, আলাদা string
+order[&quot;status&quot;] = &quot;রাস্তায়&quot;  # বাংলায় লিখলে?
+
+if order[&quot;status&quot;] == &quot;shipped&quot;:  # এই check কাজ করবে না!
+    notify_customer()
+</code></pre>
+<p>Enum দিয়ে:</p>
+<pre><code class="language-python">from enum import Enum
+
+class OrderStatus(Enum):
+    PLACED     = &quot;placed&quot;
+    CONFIRMED  = &quot;confirmed&quot;
+    PACKED     = &quot;packed&quot;
+    SHIPPED    = &quot;shipped&quot;
+    OUT_FOR_DELIVERY = &quot;out_for_delivery&quot;
+    DELIVERED  = &quot;delivered&quot;
+    RETURNED   = &quot;returned&quot;
+    CANCELLED  = &quot;cancelled&quot;
+
+class Order:
+    def __init__(self, order_id, product):
+        self.order_id  = order_id
+        self.product   = product
+        self.status    = OrderStatus.PLACED
+
+    def confirm(self):
+        if self.status == OrderStatus.PLACED:
+            self.status = OrderStatus.CONFIRMED
+            print(f&quot;অর্ডার {self.order_id} confirm হয়েছে&quot;)
+
+    def ship(self):
+        if self.status == OrderStatus.PACKED:
+            self.status = OrderStatus.SHIPPED
+            print(f&quot;অর্ডার {self.order_id} courier-এ দেওয়া হয়েছে&quot;)
+
+    def cancel(self):
+        if self.status in (OrderStatus.PLACED, OrderStatus.CONFIRMED):
+            self.status = OrderStatus.CANCELLED
+            print(f&quot;অর্ডার {self.order_id} বাতিল&quot;)
+        else:
+            print(f&quot;এই অবস্থায় cancel করা যাবে না: {self.status.value}&quot;)
+
+
+# ব্যবহার
+order = Order(&quot;DRZ-001&quot;, &quot;কাপড়ের গয়না&quot;)
+order.confirm()
+order.ship()       # status PACKED না হওয়ায় কিছু হবে না
+order.cancel()     # CONFIRMED অবস্থায় cancel হবে না কারণ ship হয়নি
+</code></pre>
+<p>Enum ব্যবহার করায় invalid state transition সম্ভব না। কেউ ভুলেও <code>order.status = "delvrd"</code> লিখতে পারবে না।</p>
+<hr />
+<h2>সারসংক্ষেপ</h2>
+<table>
+<thead>
+<tr>
+<th>গল্পের ভাষায়</th>
+<th>প্রযুক্তির ভাষায়</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>রিনা আপার পাঁচটা নির্দিষ্ট status শব্দ</td>
+<td>Enum</td>
+</tr>
+<tr>
+<td>প্রতিটা নির্দিষ্ট শব্দ</td>
+<td>Enum member</td>
+</tr>
+<tr>
+<td>শব্দের সাথে বাংলা label রাখা</td>
+<td>Enum property</td>
+</tr>
+<tr>
+<td>"shipped হলে cancel হবে না" নিয়ম</td>
+<td>Enum method</td>
+</tr>
+<tr>
+<td>যে কেউ যা খুশি লিখতে পারত</td>
+<td>Magic strings (সমস্যা)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Enum ব্যবহার করলে invalid value set করা compiler বা runtime-এই আটকে যায়।</strong></p>
+<p><strong>Enum members-এ property আর method রাখা যায়, তাই related logic একজায়গায় থাকে।</strong></p>
+<p><strong>Code পড়তে সহজ হয়: <code>OrderStatus.SHIPPED</code> দেখলেই বোঝা যায়, <code>2</code> দেখলে বোঝা যায় না।</strong></p>
+<hr />
+<blockquote>
+<p>পরবর্তী প্রশ্ন: Class-এ যদি কিছু জিনিস লুকিয়ে রাখা যেত, শুধু দরকারি অংশটুকুই বাইরে দেখাত? সেই ধারণার নাম <strong>Encapsulation।</strong></p>
+</blockquote>
+<p><em>OOP সিরিজের পরবর্তী পর্ব: Encapsulation, যা সবাইকে দেখানো যায় না</em></p>
+  </article>
+
+  <footer>
+    <p>বানিয়েছে <a href="https://github.com/raianul">রাইয়ান</a> · <a href="https://raian.xyz">raian.xyz</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'base' });
+  </script>
+  <script>
+    document.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightElement(block);
+    });
+  </script>
+
+</body>
+</html>

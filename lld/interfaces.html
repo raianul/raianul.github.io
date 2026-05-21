@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interface: Pathao জানে না bKash কীভাবে কাজ করে, তবু পেমেন্ট হয় | raian.xyz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --border: #e8e8e8;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #5b4de8;
+      --accent-soft: #5b4de812;
+      --code-bg: #f6f8fa;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      min-height: 100vh;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2.5rem;
+    }
+    .article-series {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .article-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* CONTENT */
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .article-content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 2rem 0 0.8rem;
+      color: var(--text);
+    }
+    .article-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .article-content p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    .article-content strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* TABLES */
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .article-content th {
+      background: var(--surface);
+      color: var(--accent);
+      font-weight: 600;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .article-content td {
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .article-content tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    /* CODE */
+    .article-content pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .article-content code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88em;
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #5b4de8;
+    }
+    .article-content pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+
+    /* MERMAID */
+    .article-content pre.mermaid {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    /* BLOCKQUOTE */
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      background: var(--accent-soft);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* LISTS */
+    .article-content ul, .article-content ol {
+      margin: 1rem 0 1.2rem 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .article-title { font-size: 1.6rem; }
+      .article-content { padding: 0 1.2rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
+    <a href="/" class="nav-back">← সব লেখা</a>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-series">OOP সিরিজ</div>
+    <h1 class="article-title">Interface: Pathao জানে না bKash কীভাবে কাজ করে, তবু পেমেন্ট হয়</h1>
+    <div class="article-meta">
+      <span>রাইয়ান</span>
+      <span>·</span>
+      <span>মে ২০২৬</span>
+    </div>
+  </header>
+
+  <article class="article-content">
+    <p>Pathao-এ ride নিলে শেষে payment দিতে হয়।</p>
+<p>bKash, Nagad, Rocket, Credit Card, যেটা খুশি বেছে নাও। Pathao-এর app-এ সব কটা option আছে।</p>
+<p>এখন ভাবো: Pathao-এর developer-রা কি bKash-এর পুরো system জানে? Nagad কীভাবে তাদের server-এ transaction process করে, সেটা কি Pathao-এর code-এ লেখা আছে?</p>
+<p>না।</p>
+<p>Pathao শুধু একটাই কথা জানে: "আমাকে <code>processPayment(amount)</code> বলো, বাকিটা তুমি সামলাও।" bKash সেটা নিজের মতো করে। Nagad নিজের মতো করে। Pathao-এর কিছু যায় আসে না।</p>
+<p>এই চুক্তিটার নাম <strong>Interface।</strong></p>
+<hr />
+<h2>১. Interface কী?</h2>
+<p>ধরো তুমি একটা নতুন রেস্টুরেন্টে কাজ করতে এসেছ। মালিক বললেন: "তোমাকে তিনটা কাজ করতে হবে: অর্ডার নাও, খাবার দাও, বিল নাও। কীভাবে করবে সেটা তোমার ব্যাপার।"</p>
+<p>এই তিনটা কাজের তালিকাটাই হলো Interface। মালিক বলে দিচ্ছেন <strong>কী করতে হবে</strong>, কিন্তু <strong>কীভাবে করতে হবে</strong> সেটা বলছেন না।</p>
+<p>প্রোগ্রামিং-এ <strong>Interface</strong> হলো একটা contract বা চুক্তি। এটা define করে কোনো class-কে কী কী method implement করতে হবে, কিন্তু সেই method-এর ভেতরে কী হবে সেটা Interface-এর কাজ না।</p>
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+class PaymentGateway(ABC):
+    @abstractmethod
+    def process_payment(self, amount: float) -&gt; bool:
+        pass
+
+    @abstractmethod
+    def refund(self, transaction_id: str) -&gt; bool:
+        pass
+
+    @abstractmethod
+    def get_transaction_status(self, transaction_id: str) -&gt; str:
+        pass
+</code></pre>
+<p><code>PaymentGateway</code> Interface বলছে: "যে class আমাকে implement করবে, তাকে অবশ্যই <code>process_payment</code>, <code>refund</code>, আর <code>get_transaction_status</code> রাখতে হবে।" ভেতরে কী হবে? সেটা implementer-এর স্বাধীনতা।</p>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    I["PaymentGateway Interface\n(চুক্তি)\nprocess_payment()\nrefund()\nget_transaction_status()"]:::box
+
+    B["BkashPayment\n(নিজের implementation)"]:::box
+    N["NagadPayment\n(নিজের implementation)"]:::box
+    R["RocketPayment\n(নিজের implementation)"]:::box
+    C["CardPayment\n(নিজের implementation)"]:::box
+
+    I --&gt;|"implements"| B
+    I --&gt;|"implements"| N
+    I --&gt;|"implements"| R
+    I --&gt;|"implements"| C</pre>
+<hr />
+<h2>২. Interface-এর মূল বৈশিষ্ট্য</h2>
+<p><strong>শুধু কী, কীভাবে না।</strong> Interface-এ method-এর signature থাকে, implementation থাকে না। রেস্টুরেন্টের মেনু যেমন বলে "বিরিয়ানি আছে", রান্নার recipe দেয় না।</p>
+<p><strong>একটা class একাধিক Interface implement করতে পারে।</strong> একজন waiter যেমন অর্ডার নেওয়া, বিল দেওয়া, টেবিল সাজানো সব কাজই করতে পারে। একটা class-ও একাধিক চুক্তি মানতে পারে।</p>
+<p><strong>Interface নিজে object তৈরি করতে পারে না।</strong> মেনু দেখে খাবার আসে না, রাঁধুনি রান্না করে। Interface থেকে directly object বানানো যায় না।</p>
+<p><strong>Loose coupling তৈরি হয়।</strong> Pathao-এর code bKash-এর উপর depend করে না, করে <code>PaymentGateway</code> Interface-এর উপর। bKash বদলে গেলেও Pathao-এর core code ছুঁতে হয় না।</p>
+<hr />
+<h2>৩. Code Example: Payment Gateway</h2>
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+# Interface
+class PaymentGateway(ABC):
+    @abstractmethod
+    def process_payment(self, amount: float) -&gt; bool:
+        pass
+
+    @abstractmethod
+    def refund(self, transaction_id: str) -&gt; bool:
+        pass
+
+# Implementation ১: bKash
+class BkashPayment(PaymentGateway):
+    def process_payment(self, amount: float) -&gt; bool:
+        print(f&quot;bKash-এ {amount} টাকা পাঠানো হচ্ছে...&quot;)
+        # bKash-এর নিজস্ব API call
+        return True
+
+    def refund(self, transaction_id: str) -&gt; bool:
+        print(f&quot;bKash transaction {transaction_id} refund হচ্ছে...&quot;)
+        return True
+
+# Implementation ২: Nagad
+class NagadPayment(PaymentGateway):
+    def process_payment(self, amount: float) -&gt; bool:
+        print(f&quot;Nagad-এ {amount} টাকা পাঠানো হচ্ছে...&quot;)
+        # Nagad-এর নিজস্ব API call
+        return True
+
+    def refund(self, transaction_id: str) -&gt; bool:
+        print(f&quot;Nagad transaction {transaction_id} refund হচ্ছে...&quot;)
+        return True
+
+# Pathao-এর checkout: শুধু Interface জানে, implementation না
+class PathaoCheckout:
+    def __init__(self, payment_gateway: PaymentGateway):
+        self.gateway = payment_gateway
+
+    def complete_ride(self, fare: float):
+        success = self.gateway.process_payment(fare)
+        if success:
+            print(&quot;Ride সম্পন্ন! পেমেন্ট হয়ে গেছে।&quot;)
+        else:
+            print(&quot;পেমেন্ট ব্যর্থ হয়েছে।&quot;)
+</code></pre>
+<p>এখন দেখো <code>PathaoCheckout</code> class কতটা স্বাধীন:</p>
+<pre><code class="language-python"># bKash দিয়ে
+checkout = PathaoCheckout(BkashPayment())
+checkout.complete_ride(85.0)
+# bKash-এ 85.0 টাকা পাঠানো হচ্ছে...
+# Ride সম্পন্ন! পেমেন্ট হয়ে গেছে।
+
+# Nagad দিয়ে
+checkout = PathaoCheckout(NagadPayment())
+checkout.complete_ride(85.0)
+# Nagad-এ 85.0 টাকা পাঠানো হচ্ছে...
+# Ride সম্পন্ন! পেমেন্ট হয়ে গেছে।
+</code></pre>
+<p><code>PathaoCheckout</code>-এর একটা অক্ষরও বদলাতে হয়নি। কাল যদি Rocket যোগ হয়, <code>RocketPayment</code> class বানাও, <code>PathaoCheckout</code> ছুঁতে হবে না।</p>
+<hr />
+<h2>বাস্তব উদাহরণ: Notification Service</h2>
+<p>Shohoz Food-এ একটা order confirm হলে customer-কে notify করতে হয়। SMS দিয়ে, Email দিয়ে, আর app-এ Push notification দিয়ে।</p>
+<p>তিনটা আলাদা service, তিনটা আলাদা company-র API। কিন্তু কাজ একটাই: "এই message-টা user-কে পাঠাও।"</p>
+<pre><code class="language-python">from abc import ABC, abstractmethod
+from typing import List
+
+# Interface
+class NotificationService(ABC):
+    @abstractmethod
+    def send(self, recipient: str, message: str) -&gt; bool:
+        pass
+
+# SMS Implementation
+class SmsNotification(NotificationService):
+    def send(self, recipient: str, message: str) -&gt; bool:
+        print(f&quot;SMS পাঠানো হচ্ছে {recipient}-কে: {message}&quot;)
+        return True
+
+# Email Implementation
+class EmailNotification(NotificationService):
+    def send(self, recipient: str, message: str) -&gt; bool:
+        print(f&quot;Email পাঠানো হচ্ছে {recipient}-এ: {message}&quot;)
+        return True
+
+# Push Notification Implementation
+class PushNotification(NotificationService):
+    def send(self, recipient: str, message: str) -&gt; bool:
+        print(f&quot;Push notification: {recipient}-এর app-এ: {message}&quot;)
+        return True
+
+# Order Processor: একাধিক channel-এ notify করে
+class OrderProcessor:
+    def __init__(self, notifiers: List[NotificationService]):
+        self.notifiers = notifiers
+
+    def confirm_order(self, user_id: str, order_id: str):
+        message = f&quot;অর্ডার #{order_id} confirm হয়েছে!&quot;
+        for notifier in self.notifiers:
+            notifier.send(user_id, message)
+</code></pre>
+<pre class="mermaid">%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    OP["OrderProcessor"]:::box
+    NS["NotificationService\nInterface\nsend()"]:::box
+    SMS["SmsNotification"]:::box
+    EM["EmailNotification"]:::box
+    PN["PushNotification"]:::box
+
+    OP --&gt;|"depends on"| NS
+    NS --&gt;|"implements"| SMS
+    NS --&gt;|"implements"| EM
+    NS --&gt;|"implements"| PN</pre>
+<pre><code class="language-python">processor = OrderProcessor([
+    SmsNotification(),
+    EmailNotification(),
+    PushNotification()
+])
+
+processor.confirm_order(&quot;01711-XXXXX&quot;, &quot;SHZ-4521&quot;)
+# SMS পাঠানো হচ্ছে 01711-XXXXX-কে: অর্ডার #SHZ-4521 confirm হয়েছে!
+# Email পাঠানো হচ্ছে 01711-XXXXX-এ: অর্ডার #SHZ-4521 confirm হয়েছে!
+# Push notification: 01711-XXXXX-এর app-এ: অর্ডার #SHZ-4521 confirm হয়েছে!
+</code></pre>
+<p>কাল যদি WhatsApp notification যোগ করতে হয়, শুধু <code>WhatsAppNotification</code> class বানাও। <code>OrderProcessor</code>-এর কিছু বদলাতে হবে না।</p>
+<hr />
+<h2>সারসংক্ষেপ</h2>
+<table>
+<thead>
+<tr>
+<th>গল্পের ভাষায়</th>
+<th>প্রযুক্তির ভাষায়</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>রেস্টুরেন্টের মেনু</td>
+<td>Interface</td>
+</tr>
+<tr>
+<td>মেনুতে লেখা তিনটা কাজ</td>
+<td>Abstract methods</td>
+</tr>
+<tr>
+<td>ওয়েটার যে সেই কাজ করে</td>
+<td>Implementing class</td>
+</tr>
+<tr>
+<td>Pathao-এর payment চুক্তি</td>
+<td>PaymentGateway interface</td>
+</tr>
+<tr>
+<td>bKash, Nagad নিজের মতো করে</td>
+<td>Concrete implementations</td>
+</tr>
+<tr>
+<td>নতুন payment method যোগ করা সহজ</td>
+<td>Loose coupling</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interface বলে কী করতে হবে, কীভাবে করতে হবে সেটা implementing class-এর কাজ।</strong></p>
+<p><strong>Interface-এর কারণে নতুন implementation যোগ করতে পুরনো code ছুঁতে হয় না।</strong></p>
+<p><strong>একটা class একাধিক Interface implement করতে পারে, flexibility অনেক বেশি।</strong></p>
+<hr />
+<blockquote>
+<p>পরবর্তী প্রশ্ন: Object-এর ভেতরের data কি সবার জন্য উন্মুক্ত থাকা উচিত? কিছু জিনিস কি লুকিয়ে রাখা উচিত না? সেই ধারণার নাম <strong>Encapsulation।</strong></p>
+</blockquote>
+<p><em>OOP সিরিজের পরবর্তী পর্ব: Encapsulation, যা সবাইকে দেখানো যায় না</em></p>
+  </article>
+
+  <footer>
+    <p>বানিয়েছে <a href="https://github.com/raianul">রাইয়ান</a> · <a href="https://raian.xyz">raian.xyz</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'base' });
+  </script>
+  <script>
+    document.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightElement(block);
+    });
+  </script>
+
+</body>
+</html>
