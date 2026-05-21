@@ -8,6 +8,7 @@ tags: [Abstraction, OOP, "Abstract Class", LLD]
 date: 2026-05-19
 date_bn: "মে ২০২৬"
 read_time: "৭ মিনিট"
+description: "Pathao-এ গন্তব্য বলো, বাকিটা driver জানে। Engine বোঝার দরকার নেই। OOP-এর Abstraction বাংলায় গল্পের ছলে।"
 excerpt: "Anik প্রতিদিন university যায়, কখনো CNG-তে, কখনো bus-এ, কখনো Pathao bike-এ। গন্তব্য সে বলে, বাকিটা driver জানে। সে engine বোঝে না, GPS algorithm জানে না। এটাই Abstraction।"
 ---
 

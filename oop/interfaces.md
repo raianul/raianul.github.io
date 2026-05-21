@@ -8,6 +8,7 @@ tags: [Interface, OOP, Abstraction]
 date: 2026-05-17
 date_bn: "মে ২০২৬"
 read_time: "৫ মিনিট"
+description: "bKash, Nagad, Rocket তিনটা আলাদা system। Pathao কীভাবে সবগুলো সামলায় একটা অক্ষরও না বদলে? বাংলায় OOP Interface শেখো।"
 excerpt: "bKash, Nagad, Rocket তিনটা আলাদা system। Pathao কীভাবে সবগুলো সামলায় একটা অক্ষরও না বদলে? এটাই Interface-এর জাদু।"
 ---
 

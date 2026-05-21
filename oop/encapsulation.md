@@ -8,6 +8,7 @@ tags: [Encapsulation, OOP, "Access Modifiers", "Data Hiding"]
 date: 2026-05-18
 date_bn: "মে ২০২৬"
 read_time: "৬ মিনিট"
+description: "bKash-এ টাকা আছে, কিন্তু সেই balance variable-এ সরাসরি হাত দেওয়া যায় না। এটাই Encapsulation — data hiding আর controlled access বাংলায়।"
 excerpt: "bKash-এ টাকা আছে, কিন্তু সেই balance variable-এ সরাসরি হাত দেওয়া যায় না। PIN লাগবে, নির্দিষ্ট পথ লাগবে। এটাই Encapsulation , data hiding আর controlled access।"
 ---
 

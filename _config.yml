@@ -1,7 +1,16 @@
 title: Raian Blog
+description: "বাংলায় সফটওয়্যার ইঞ্জিনিয়ারিং — OOP, System Design, DSA বাংলায় গল্পের ছলে"
 url: "https://blog.raian.xyz"
 baseurl: ""
 lang: bn
+author: রাইয়ান
+
+twitter:
+  username: raianul
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 markdown: kramdown
 kramdown:
