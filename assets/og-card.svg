@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- Left accent bar -->
+  <rect width="8" height="630" fill="#5b4de8"/>
+
+  <!-- Top decorative dots -->
+  <circle cx="1120" cy="80" r="120" fill="#5b4de812"/>
+  <circle cx="1160" cy="560" r="80" fill="#5b4de80a"/>
+
+  <!-- Tag pill -->
+  <rect x="80" y="200" width="200" height="36" rx="18" fill="#5b4de812"/>
+  <text x="180" y="224" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#5b4de8" text-anchor="middle" letter-spacing="1">বাংলায় টেক</text>
+
+  <!-- Main headline -->
+  <text x="80" y="310" font-family="Inter, sans-serif" font-size="64" font-weight="800" fill="#1a1a1a" letter-spacing="-2">raian.xyz</text>
+
+  <!-- Subheading -->
+  <text x="80" y="375" font-family="Inter, sans-serif" font-size="28" font-weight="400" fill="#888888">সফটওয়্যার ইঞ্জিনিয়ারিং বাংলায়</text>
+
+  <!-- Divider -->
+  <rect x="80" y="420" width="80" height="3" rx="2" fill="#5b4de8"/>
+
+  <!-- Topics -->
+  <text x="80" y="470" font-family="Inter, sans-serif" font-size="18" fill="#888888">OOP · System Design · DSA · Networking</text>
+</svg>

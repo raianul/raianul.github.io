@@ -4,6 +4,7 @@ url: "https://blog.raian.xyz"
 baseurl: ""
 lang: bn
 author: রাইয়ান
+image: /assets/og-card.svg
 
 twitter:
   username: raianul
