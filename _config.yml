@@ -1,0 +1,15 @@
+title: Raian Blog
+url: "https://blog.raian.xyz"
+baseurl: ""
+lang: bn
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: none
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .github/
+  - "*.sh"

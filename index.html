@@ -1,6 +1,16 @@
+---
+---
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QGCTH06MZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8QGCTH06MZ');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Raian Blog</title>
@@ -125,9 +135,7 @@
     }
 
     /* HERO */
-    .hero {
-      padding: 3.5rem 0 2rem;
-    }
+    .hero { padding: 3.5rem 0 2rem; }
     .hero-tag {
       display: inline-block;
       background: var(--accent-soft);
@@ -280,6 +288,11 @@
     </div>
   </nav>
 
+  {% assign articles = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+  {% assign all_count = articles | size %}
+  {% assign oop_count = articles | where: "category", "oop" | size %}
+  {% assign core_count = articles | where: "category", "core-concepts" | size %}
+
   <div class="layout">
 
     <!-- SIDEBAR -->
@@ -288,7 +301,7 @@
 
       <div class="sidebar-item active" data-category="all">
         সব লেখা
-        <span class="sidebar-count">4</span>
+        <span class="sidebar-count">{{ all_count }}</span>
       </div>
 
       <hr class="sidebar-divider"/>
@@ -296,7 +309,7 @@
 
       <div class="sidebar-item" data-category="core-concepts">
         Core Concepts
-        <span class="sidebar-count">1</span>
+        <span class="sidebar-count">{{ core_count }}</span>
       </div>
       <div class="sidebar-item" data-category="networking">
         Networking
@@ -324,7 +337,7 @@
 
       <div class="sidebar-item" data-category="oop">
         OOP
-        <span class="sidebar-count">3</span>
+        <span class="sidebar-count">{{ oop_count }}</span>
       </div>
       <div class="sidebar-item" data-category="lld">
         Low Level Design
@@ -346,113 +359,36 @@
 
       <div class="section-header">
         <span class="section-title" id="section-title">সব লেখা</span>
-        <span class="section-badge" id="section-badge">4টি</span>
+        <span class="section-badge" id="section-badge">{{ all_count }}টি</span>
       </div>
 
       <div class="articles" id="article-list">
 
-        <!-- Article 01 -->
-        <a href="system-design/scalability.html" class="card" data-category="core-concepts">
-          <div class="card-number">01</div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-series">Core Concepts</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">মে ২০২৬</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">৮ মিনিট</span>
+        {% for article in articles %}
+          {% assign idx = forloop.index %}
+          <a href="{{ article.url }}" class="card" data-category="{{ article.category }}">
+            <div class="card-number">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-series">{{ article.series_label }}</span>
+                <span class="card-dot">·</span>
+                <span class="card-date">{{ article.date_bn }}</span>
+                <span class="card-dot">·</span>
+                <span class="card-date">{{ article.read_time }}</span>
+              </div>
+              <div class="card-title">{{ article.title }}</div>
+              <div class="card-excerpt">{{ article.excerpt }}</div>
+              <div class="card-tags">
+                {% for tag in article.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+              </div>
             </div>
-            <div class="card-title">স্কেলেবিলিটি: ঈদের দিন রাশেদ ভাইয়ের দোকান ডুবে গেল</div>
-            <div class="card-excerpt">
-              রাশেদ ভাইয়ের ছোট্ট চায়ের দোকানে ঈদের দিন ৫০০ কাস্টমার এলো। চুলা একটা, হাত দুটো।
-              এই সমস্যার নামই Scalability — আর এর সমাধান লুকিয়ে আছে এই গল্পে।
-            </div>
-            <div class="card-tags">
-              <span class="tag">Scalability</span>
-              <span class="tag">Load Balancer</span>
-              <span class="tag">Database</span>
-              <span class="tag">Redis</span>
-            </div>
-          </div>
-          <div class="card-arrow">→</div>
-        </a>
-
-        <!-- Article 02 -->
-        <a href="lld/classes-and-objects.html" class="card" data-category="oop">
-          <div class="card-number">02</div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-series">OOP</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">মে ২০২৬</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">৭ মিনিট</span>
-            </div>
-            <div class="card-title">ক্লাস আর অবজেক্ট: একটা ছাঁচ, হাজার পাতিল</div>
-            <div class="card-excerpt">
-              করিম মিয়ার কারখানায় একটাই ছাঁচ, কিন্তু পাতিল তৈরি হয় হাজার হাজার। সেই ছাঁচের নামই Class — আর প্রতিটা পাতিল একটা Object।
-            </div>
-            <div class="card-tags">
-              <span class="tag">Class</span>
-              <span class="tag">Object</span>
-              <span class="tag">OOP</span>
-              <span class="tag">LLD</span>
-            </div>
-          </div>
-          <div class="card-arrow">→</div>
-        </a>
-
-        <!-- Article 03 -->
-        <a href="lld/enums.html" class="card" data-category="oop">
-          <div class="card-number">03</div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-series">OOP</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">মে ২০২৬</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">৬ মিনিট</span>
-            </div>
-            <div class="card-title">Enum: রিনা আপার অর্ডার খাতার বিশৃঙ্খলা</div>
-            <div class="card-excerpt">
-              তিনজন হেল্পার, তিনরকম লেখা, একই অর্ডারের তিনটা নাম। মাস শেষে রিপোর্ট বানাতে গিয়ে মাথায় হাত। Enum কীভাবে এই বিশৃঙ্খলা থামায়।
-            </div>
-            <div class="card-tags">
-              <span class="tag">Enum</span>
-              <span class="tag">OOP</span>
-              <span class="tag">Constants</span>
-            </div>
-          </div>
-          <div class="card-arrow">→</div>
-        </a>
-
-        <!-- Article 04 -->
-        <a href="lld/interfaces.html" class="card" data-category="oop">
-          <div class="card-number">04</div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-series">OOP</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">মে ২০২৬</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">৫ মিনিট</span>
-            </div>
-            <div class="card-title">Interface: Pathao জানে না bKash কীভাবে কাজ করে, তবু পেমেন্ট হয়</div>
-            <div class="card-excerpt">
-              bKash, Nagad, Rocket তিনটা আলাদা system। Pathao কীভাবে সবগুলো সামলায় একটা অক্ষরও না বদলে? এটাই Interface-এর জাদু।
-            </div>
-            <div class="card-tags">
-              <span class="tag">Interface</span>
-              <span class="tag">OOP</span>
-              <span class="tag">Abstraction</span>
-            </div>
-          </div>
-          <div class="card-arrow">→</div>
-        </a>
+            <div class="card-arrow">→</div>
+          </a>
+        {% endfor %}
 
         <!-- Coming: Availability -->
         <div class="card card-coming" data-category="core-concepts">
-          <div class="card-number">02</div>
+          <div class="card-number">—</div>
           <div class="card-body">
             <div class="card-meta">
               <span class="card-series">Core Concepts</span>
@@ -471,7 +407,7 @@
 
         <!-- Coming: CAP Theorem -->
         <div class="card card-coming" data-category="distributed-systems">
-          <div class="card-number">03</div>
+          <div class="card-number">—</div>
           <div class="card-body">
             <div class="card-meta">
               <span class="card-series">Distributed Systems</span>
@@ -489,7 +425,7 @@
 
         <!-- Coming: DNS -->
         <div class="card card-coming" data-category="networking">
-          <div class="card-number">04</div>
+          <div class="card-number">—</div>
           <div class="card-body">
             <div class="card-meta">
               <span class="card-series">Networking</span>
@@ -520,7 +456,7 @@
 
   <script>
     const items = document.querySelectorAll('.sidebar-item');
-    const cards = document.querySelectorAll('#article-list .card');
+    const cards = document.querySelectorAll('#article-list .card:not(.card-coming)');
     const sectionTitle = document.getElementById('section-title');
     const sectionBadge = document.getElementById('section-badge');
     const emptyState = document.getElementById('empty-state');
@@ -541,17 +477,15 @@
     items.forEach(item => {
       item.addEventListener('click', () => {
         const cat = item.dataset.category;
-
         items.forEach(i => i.classList.remove('active'));
         item.classList.add('active');
-
         sectionTitle.textContent = categoryNames[cat] || cat;
 
         let visible = 0;
-        cards.forEach(card => {
+        document.querySelectorAll('#article-list .card').forEach(card => {
           const match = cat === 'all' || card.dataset.category === cat;
           card.style.display = match ? '' : 'none';
-          if (match) visible++;
+          if (match && !card.classList.contains('card-coming')) visible++;
         });
 
         sectionBadge.textContent = visible + 'টি';

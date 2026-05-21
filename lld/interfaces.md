@@ -1,6 +1,14 @@
-# Interface: Pathao জানে না bKash কীভাবে কাজ করে, তবু পেমেন্ট হয়
-## OOP সিরিজ
-
+---
+layout: post
+title: "Interface: Pathao জানে না bKash কীভাবে কাজ করে, তবু পেমেন্ট হয়"
+series: "OOP সিরিজ"
+series_label: "OOP"
+category: oop
+tags: [Interface, OOP, Abstraction]
+date: 2026-05-17
+date_bn: "মে ২০২৬"
+read_time: "৫ মিনিট"
+excerpt: "bKash, Nagad, Rocket তিনটা আলাদা system। Pathao কীভাবে সবগুলো সামলায় একটা অক্ষরও না বদলে? এটাই Interface-এর জাদু।"
 ---
 
 Pathao-এ ride নিলে শেষে payment দিতে হয়।
@@ -49,12 +57,20 @@ class PaymentGateway(ABC):
 graph TD
     classDef box fill:#F5F5F5,color:#000,stroke:#333
 
-    I["PaymentGateway Interface\n(চুক্তি)\nprocess_payment()\nrefund()\nget_transaction_status()"]:::box
+    I["PaymentGateway Interface
+    (চুক্তি)
+    process_payment()
+    refund()
+    get_transaction_status()"]:::box
 
-    B["BkashPayment\n(নিজের implementation)"]:::box
-    N["NagadPayment\n(নিজের implementation)"]:::box
-    R["RocketPayment\n(নিজের implementation)"]:::box
-    C["CardPayment\n(নিজের implementation)"]:::box
+    B["BkashPayment
+    (নিজের implementation)"]:::box
+    N["NagadPayment
+    (নিজের implementation)"]:::box
+    R["RocketPayment
+    (নিজের implementation)"]:::box
+    C["CardPayment
+    (নিজের implementation)"]:::box
 
     I -->|"implements"| B
     I -->|"implements"| N
@@ -197,7 +213,9 @@ graph LR
     classDef box fill:#F5F5F5,color:#000,stroke:#333
 
     OP["OrderProcessor"]:::box
-    NS["NotificationService\nInterface\nsend()"]:::box
+    NS["NotificationService
+    Interface
+    send()"]:::box
     SMS["SmsNotification"]:::box
     EM["EmailNotification"]:::box
     PN["PushNotification"]:::box

@@ -1,6 +1,14 @@
-# ক্লাস আর অবজেক্ট: একটা ছাঁচ, হাজার পাতিল
-## LLD (Low Level Design) সিরিজ
-
+---
+layout: post
+title: "ক্লাস আর অবজেক্ট: একটা ছাঁচ, হাজার পাতিল"
+series: "LLD (Low Level Design) সিরিজ"
+series_label: "OOP"
+category: oop
+tags: [Class, Object, OOP, LLD]
+date: 2026-05-15
+date_bn: "মে ২০২৬"
+read_time: "৭ মিনিট"
+excerpt: "করিম মিয়ার কারখানায় একটাই ছাঁচ, কিন্তু পাতিল তৈরি হয় হাজার হাজার। সেই ছাঁচের নামই Class — আর প্রতিটা পাতিল একটা Object।"
 ---
 
 নারায়ণগঞ্জের বাজারে করিম মিয়ার একটা ছোট্ট কারখানা আছে।
