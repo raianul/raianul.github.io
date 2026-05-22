@@ -2,6 +2,7 @@
 title: "Abstraction: Tell It Where to Go, Not How to Get There"
 tags: [Abstraction, OOP, Abstract Class, LLD]
 date: 2026-05-19
+order: 5
 read_time: "7 min"
 description: "Alex tells Lyft where he's going and stares out the window. He doesn't know the GPS algorithm. He doesn't need to. That's Abstraction — hiding complexity, showing only what matters."
 excerpt: "Alex commutes to NYU three different ways each week. Same destination, three different engines, three different routing systems. But his experience is always the same: tell it where to go, get there. That's Abstraction."

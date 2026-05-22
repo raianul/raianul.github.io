@@ -2,6 +2,7 @@
 title: "Interface: Pathao জানে না bKash কীভাবে কাজ করে, তবু পেমেন্ট হয়"
 tags: [Interface, OOP, Abstraction]
 date: 2022-10-15
+order: 3
 date_bn: "অক্টোবর ২০২২"
 read_time: "৫ মিনিট"
 description: "bKash, Nagad, Rocket তিনটা আলাদা system। Pathao কীভাবে সবগুলো সামলায় একটা অক্ষরও না বদলে? বাংলায় OOP Interface শেখো।"

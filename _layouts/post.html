@@ -314,6 +314,33 @@
     .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
     .lang-btn:not(.active):hover { color: var(--text); border-color: var(--text); }
 
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      padding-bottom: 3rem;
+      border-top: 1px solid var(--border);
+    }
+    .article-nav-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      text-decoration: none;
+      color: inherit;
+      max-width: 48%;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .article-nav-item:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .article-nav-item.next { text-align: right; margin-left: auto; }
+    .nav-label { font-size: 0.72rem; color: var(--muted); font-family: 'Inter', sans-serif; font-weight: 500; }
+    .nav-title { font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .article-nav-item:hover .nav-title { color: var(--accent); }
+
     @media (max-width: 768px) {
       .sidebar { display: none; }
       .main { padding: 0 1.2rem; }
@@ -426,6 +453,36 @@
       <article class="article-content">
         {{ content }}
       </article>
+
+      {% if page.order %}
+        {% assign next_order = page.order | plus: 1 %}
+        {% assign prev_order = page.order | minus: 1 %}
+        {% if page.lang == 'en' %}
+          {% assign series_articles = site.pages | where: "category", page.category | where: "lang", "en" %}
+        {% else %}
+          {% assign series_articles = site.pages | where: "category", page.category | where_exp: "p", "p.lang != 'en'" %}
+        {% endif %}
+        {% assign next_article = series_articles | where: "order", next_order | first %}
+        {% assign prev_article = series_articles | where: "order", prev_order | first %}
+        {% if next_article or prev_article %}
+          <nav class="article-nav">
+            {% if prev_article %}
+              <a href="{{ prev_article.url }}" class="article-nav-item prev">
+                <span class="nav-label">{% if page.lang == 'en' %}← Previous{% else %}← আগের লেখা{% endif %}</span>
+                <span class="nav-title">{{ prev_article.title }}</span>
+              </a>
+            {% else %}
+              <div></div>
+            {% endif %}
+            {% if next_article %}
+              <a href="{{ next_article.url }}" class="article-nav-item next">
+                <span class="nav-label">{% if page.lang == 'en' %}Next →{% else %}পরের লেখা →{% endif %}</span>
+                <span class="nav-title">{{ next_article.title }}</span>
+              </a>
+            {% endif %}
+          </nav>
+        {% endif %}
+      {% endif %}
     </main>
 
   </div>

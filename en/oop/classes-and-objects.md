@@ -2,6 +2,7 @@
 title: "Classes and Objects: One Mold, Thousand Pots"
 tags: [Class, Object, OOP, LLD]
 date: 2026-05-15
+order: 1
 read_time: "7 min"
 description: "In a small pottery studio in Brooklyn, one wooden mold shapes thousands of clay pots. That mold is a Class. Each pot is an Object. OOP explained through a story."
 excerpt: "In a small pottery studio in Brooklyn, one wooden mold shapes thousands of clay pots. That mold is a Class. Each pot is an Object."

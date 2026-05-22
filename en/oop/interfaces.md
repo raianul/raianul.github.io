@@ -2,6 +2,7 @@
 title: "Interfaces: The Contract You Must Keep"
 tags: [Interface, OOP, Abstraction]
 date: 2026-05-17
+order: 3
 date_en: "May 2026"
 read_time: "5 min"
 description: "Uber doesn't know how Venmo works internally. Stripe doesn't know how Chase processes transactions. Yet payments happen seamlessly. That's the power of Interfaces."

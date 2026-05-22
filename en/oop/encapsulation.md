@@ -2,6 +2,7 @@
 title: "Encapsulation: Nobody Gets to Touch Your Venmo Balance Directly"
 tags: [Encapsulation, OOP, Access Modifiers, Data Hiding]
 date: 2026-05-18
+order: 4
 read_time: "6 min"
 description: "Your Venmo balance lives on a server as a variable — but nobody can reach in and change it directly. That's Encapsulation: data hiding and controlled access, explained through a story."
 excerpt: "Your Venmo balance lives on a server as a variable — but nobody can reach in and change it directly. That's Encapsulation: data hiding and controlled access."

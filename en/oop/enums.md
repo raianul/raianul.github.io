@@ -2,6 +2,7 @@
 title: "Enums: When Options Must Be Fixed"
 tags: [Enum, OOP, Constants]
 date: 2026-05-16
+order: 2
 date_en: "May 2026"
 read_time: "6 min"
 description: "Three employees, three different spellings, one order status — three names. Enums are how you stop that chaos before it starts."

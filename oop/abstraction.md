@@ -2,6 +2,7 @@
 title: "Abstraction: গন্তব্য বলো, বাকিটা জানার দরকার নেই"
 tags: [Abstraction, OOP, "Abstract Class", LLD]
 date: 2022-12-15
+order: 5
 date_bn: "ডিসেম্বর ২০২২"
 read_time: "৭ মিনিট"
 description: "Pathao-এ গন্তব্য বলো, বাকিটা driver জানে। Engine বোঝার দরকার নেই। OOP-এর Abstraction বাংলায় গল্পের ছলে।"
