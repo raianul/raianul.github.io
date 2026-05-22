@@ -1,8 +1,8 @@
 ---
 title: "Polymorphism: রনি ভাইয়ের একটা নির্দেশ, পঞ্চাশটা আলাদা কাজ"
 tags: [Polymorphism, OOP, "Method Overriding", "Method Overloading", LLD]
-date: 2026-05-21
-date_bn: "মে ২০২৬"
+date: 2023-02-15
+date_bn: "ফেব্রুয়ারি ২০২৩"
 read_time: "৭ মিনিট"
 excerpt: "একটাই নির্দেশ, কিন্তু প্রত্যেকে নিজের মতো করে পালন করে। Polymorphism-এর গল্প, রনি ভাইয়ের গার্মেন্টস ফ্যাক্টরি থেকে।"
 ---

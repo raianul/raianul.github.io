@@ -5,8 +5,8 @@ series: "System Design সিরিজ"
 series_label: "Core Concepts"
 category: core-concepts
 tags: [Scalability, "Load Balancer", Database, Redis]
-date: 2026-05-14
-date_bn: "মে ২০২৬"
+date: 2022-07-15
+date_bn: "জুলাই ২০২২"
 read_time: "৮ মিনিট"
 excerpt: "রাশেদ ভাইয়ের ছোট্ট চায়ের দোকানে ঈদের দিন ৫০০ কাস্টমার এলো। চুলা একটা, হাত দুটো। এই সমস্যার নামই Scalability , আর এর সমাধান লুকিয়ে আছে এই গল্পে।"
 ---
