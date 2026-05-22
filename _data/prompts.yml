@@ -1,0 +1,87 @@
+# Prompt Library
+# Add prompts here — they auto-appear on /ai/
+# Fields: category, title, prompt (use | for multi-line)
+
+- category: Coding
+  title: Code Review
+  prompt: |
+    Review the following code for bugs, security vulnerabilities, and opportunities to improve readability and performance. For each issue found, explain the problem and suggest a specific fix.
+
+    ```
+    [paste code here]
+    ```
+
+- category: Coding
+  title: Debug This Error
+  prompt: |
+    I'm getting the following error. Help me understand the root cause and how to fix it.
+
+    Error:
+    [paste error message]
+
+    Relevant code:
+    [paste code]
+
+- category: Coding
+  title: Refactor for Readability
+  prompt: |
+    Refactor the following code to improve readability and maintainability without changing its behavior. Explain the key changes you made and why.
+
+    ```
+    [paste code here]
+    ```
+
+- category: Learning
+  title: Explain Like I'm New
+  prompt: |
+    Explain [concept] as if I'm encountering it for the first time. Use a concrete real-world analogy. Then show the simplest possible code example that demonstrates it.
+
+- category: Learning
+  title: What's the Difference?
+  prompt: |
+    What is the difference between [concept A] and [concept B]? Cover:
+    - Core distinction in one sentence
+    - When to use each
+    - A side-by-side code example
+    - Common mistakes people make when choosing between them
+
+- category: Learning
+  title: Interview Prep
+  prompt: |
+    I'm preparing for a software engineering interview on the topic of [topic]. Give me:
+    1. The 5 most commonly asked questions on this topic
+    2. A concise but complete answer for each
+    3. One follow-up question an interviewer might ask for each answer
+
+- category: Writing
+  title: Blog Post Outline
+  prompt: |
+    Create a detailed outline for a technical blog post about [topic] aimed at intermediate developers. Include:
+    - A compelling opening hook (no "In this article...")
+    - 4–6 main sections with subpoints
+    - Where to include code examples
+    - A practical takeaway conclusion
+
+- category: Writing
+  title: Simplify Technical Writing
+  prompt: |
+    Rewrite the following technical explanation to be clearer and more approachable for junior developers. Keep it accurate but cut jargon. Aim for shorter sentences.
+
+    [paste text here]
+
+- category: System Design
+  title: Design This System
+  prompt: |
+    Design a high-level architecture for [system]. Cover:
+    - Core components and their responsibilities
+    - Data flow between components
+    - Key design decisions and trade-offs
+    - How it handles scale (10x and 100x current load)
+    - What you would do differently if starting over
+
+- category: System Design
+  title: Identify Bottlenecks
+  prompt: |
+    Given the following system architecture, identify potential bottlenecks and single points of failure. For each one, suggest a mitigation strategy.
+
+    [describe your architecture]

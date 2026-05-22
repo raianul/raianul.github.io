@@ -338,9 +338,9 @@
       {% endif %}
     </div>
     {% if page.lang == "en" %}
-      <a href="/" class="nav-back">← All Articles</a>
+      <a href="/en/" class="nav-back">← All Articles</a>
     {% else %}
-      <a href="/" class="nav-back">← সব লেখা</a>
+      <a href="/blog" class="nav-back">← সব লেখা</a>
     {% endif %}
   </nav>
 
@@ -350,7 +350,7 @@
     <aside class="sidebar">
       <div class="sidebar-label">বিষয়</div>
 
-      <a href="/" class="sidebar-item">
+      <a href="/blog" class="sidebar-item">
         সব লেখা
         <span class="sidebar-count">{{ all_count }}</span>
       </a>
@@ -358,27 +358,27 @@
       <hr class="sidebar-divider"/>
       <div class="sidebar-label">System Design</div>
 
-      <a href="/" class="sidebar-item {% if page.category == 'core-concepts' %}active{% endif %}">
+      <a href="/blog" class="sidebar-item {% if page.category == 'core-concepts' %}active{% endif %}">
         Core Concepts
         <span class="sidebar-count">{{ core_count }}</span>
       </a>
-      <a href="/" class="sidebar-item">
+      <a href="/blog" class="sidebar-item">
         Networking
         <span class="sidebar-count">0</span>
       </a>
-      <a href="/" class="sidebar-item">
+      <a href="/blog" class="sidebar-item">
         Load Balancing
         <span class="sidebar-count">0</span>
       </a>
-      <a href="/" class="sidebar-item">
+      <a href="/blog" class="sidebar-item">
         Caching
         <span class="sidebar-count">0</span>
       </a>
-      <a href="/" class="sidebar-item">
+      <a href="/blog" class="sidebar-item">
         Databases
         <span class="sidebar-count">0</span>
       </a>
-      <a href="/" class="sidebar-item">
+      <a href="/blog" class="sidebar-item">
         Distributed Systems
         <span class="sidebar-count">0</span>
       </a>
@@ -386,15 +386,15 @@
       <hr class="sidebar-divider"/>
       <div class="sidebar-label">আরও</div>
 
-      <a href="/" class="sidebar-item {% if page.category == 'oop' %}active{% endif %}">
+      <a href="/blog" class="sidebar-item {% if page.category == 'oop' %}active{% endif %}">
         OOP
         <span class="sidebar-count">{{ oop_count }}</span>
       </a>
-      <a href="/" class="sidebar-item">
+      <a href="/blog" class="sidebar-item">
         Low Level Design
         <span class="sidebar-count">0</span>
       </a>
-      <a href="/" class="sidebar-item">
+      <a href="/blog" class="sidebar-item">
         DSA
         <span class="sidebar-count">0</span>
       </a>

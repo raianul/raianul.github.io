@@ -1,0 +1,290 @@
+---
+title: "বাংলায় সফটওয়্যার ইঞ্জিনিয়ারিং"
+description: "OOP, System Design, DSA — বাংলায় গল্পের ছলে। বাংলাদেশের ডেভেলপারদের জন্য।"
+permalink: /blog/
+---
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QGCTH06MZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8QGCTH06MZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  {% seo %}
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --border: #e8e8e8;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #5b4de8;
+      --accent-soft: #5b4de812;
+      --tag-bg: #f0f0f0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); font-weight: 600; }
+    .lang-toggle { display: flex; align-items: center; gap: 4px; }
+    .lang-btn { font-size: 0.78rem; font-family: 'Inter', sans-serif; padding: 3px 10px; border-radius: 4px; color: var(--muted); text-decoration: none; border: 1px solid var(--border); transition: color 0.15s, border-color 0.15s; }
+    .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .lang-btn:not(.active):hover { color: var(--text); border-color: var(--text); }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    .hero { padding: 3.5rem 0 2rem; }
+    .hero-tag { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 0.75rem; font-weight: 600; padding: 3px 11px; border-radius: 20px; margin-bottom: 1rem; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
+    .hero h1 { font-size: 2rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.5px; margin-bottom: 0.8rem; }
+    .hero p { color: var(--muted); font-size: 0.95rem; max-width: 480px; line-height: 1.8; }
+
+    .series-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0.5rem 0 2.5rem; }
+    .series-card { border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.5rem; cursor: pointer; transition: border-color 0.15s, background 0.15s; user-select: none; }
+    .series-card:hover { border-color: var(--accent); }
+    .series-card.active { border-color: var(--accent); background: var(--accent-soft); }
+    .series-card.empty { opacity: 0.4; cursor: default; pointer-events: none; }
+    .series-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .series-subtitle { font-size: 0.78rem; color: var(--muted); font-family: 'Inter', sans-serif; margin-bottom: 0.9rem; }
+    .series-progress { display: flex; align-items: center; gap: 3px; }
+    .dot { font-size: 0.65rem; }
+    .dot-filled { color: var(--accent); }
+    .dot-empty { color: var(--border); }
+    .series-count { font-size: 0.7rem; color: var(--muted); font-family: 'Inter', sans-serif; margin-left: 7px; }
+
+    .section-header { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 0; border-top: 1px solid var(--border); }
+    .section-title { font-size: 0.78rem; font-weight: 600; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .section-badge { font-size: 0.7rem; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+    .articles { display: flex; flex-direction: column; padding-bottom: 4rem; }
+    .card { padding: 1.5rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 1.2rem; align-items: flex-start; text-decoration: none; color: inherit; transition: all 0.15s; border-radius: 8px; }
+    .card:hover { background: var(--surface); padding-left: 0.8rem; padding-right: 0.8rem; margin: 0 -0.8rem; }
+    .card-number { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--accent); font-weight: 600; min-width: 24px; padding-top: 3px; }
+    .card-body { flex: 1; }
+    .card-meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+    .card-series { font-size: 0.72rem; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 500; }
+    .card-dot { color: var(--border); font-size: 0.65rem; }
+    .card-date { font-size: 0.72rem; color: var(--muted); font-family: 'Inter', sans-serif; }
+    .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.4; transition: color 0.2s; }
+    .card:hover .card-title { color: var(--accent); }
+    .card-excerpt { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.7rem; }
+    .card-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .tag { background: var(--tag-bg); color: var(--muted); font-size: 0.7rem; padding: 2px 9px; border-radius: 20px; border: 1px solid var(--border); font-family: 'Inter', sans-serif; }
+    .card-arrow { color: var(--muted); font-size: 1rem; padding-top: 3px; transition: color 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { color: var(--accent); transform: translateX(4px); }
+
+    .empty-state { padding: 4rem 0; text-align: center; color: var(--muted); font-size: 0.95rem; display: none; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; }
+    .footer-credit { color: var(--muted); font-size: 0.82rem; }
+    .footer-credit a { color: var(--accent); text-decoration: none; }
+    .footer-social { display: flex; gap: 1rem; align-items: center; }
+    .social-link { color: var(--muted); transition: color 0.2s; display: flex; }
+    .social-link:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .series-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 1.2rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .card-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
+    <div class="nav-links">
+      <a href="/blog" class="active">Tech Story</a>
+      <a href="/ai/">AI</a>
+      <a href="https://github.com/raianul" target="_blank">GitHub</a>
+      <div class="lang-toggle">
+        <span class="lang-btn active">বাংলা</span>
+        <a href="/en/" class="lang-btn">EN</a>
+      </div>
+    </div>
+  </nav>
+
+  {% assign bn_articles = site.pages | where: "layout", "post" | where_exp: "p", "p.lang != 'en'" | sort: "date" | reverse %}
+  {% assign all_count = bn_articles | size %}
+
+  {% assign oop_count  = bn_articles | where_exp: "p", "p.url contains '/oop/'"           | size %}
+  {% assign sd_count   = bn_articles | where_exp: "p", "p.url contains '/system-design/'" | size %}
+  {% assign dsa_count  = bn_articles | where_exp: "p", "p.url contains '/dsa/'"           | size %}
+  {% assign net_count  = bn_articles | where_exp: "p", "p.url contains '/networking/'"    | size %}
+  {% assign db_count   = bn_articles | where_exp: "p", "p.url contains '/databases/'"     | size %}
+
+  <div class="container">
+
+    <section class="hero">
+      <div class="hero-tag">বাংলায় টেক</div>
+      <h1>সফটওয়্যার ইঞ্জিনিয়ারিং</h1>
+      <p>একটা চায়ের দোকান থেকে একটা কোটি ইউজারের সিস্টেম — মাঝখানে শুধু কিছু সিদ্ধান্ত। এই ব্লগে সেই সিদ্ধান্তগুলো বাংলায়, গল্পের ছলে।</p>
+    </section>
+
+    <div class="series-grid">
+
+      <div class="series-card{% if oop_count == 0 %} empty{% endif %}"
+           data-filter="/oop/" data-published="{{ oop_count }}" data-total="7"
+           data-name="OOP সিরিজ">
+        <div class="series-name">OOP সিরিজ</div>
+        <div class="series-subtitle">Object-Oriented Programming</div>
+        <div class="series-progress"></div>
+      </div>
+
+      <div class="series-card{% if sd_count == 0 %} empty{% endif %}"
+           data-filter="/system-design/" data-published="{{ sd_count }}" data-total="8"
+           data-name="সিস্টেম ডিজাইন">
+        <div class="series-name">সিস্টেম ডিজাইন</div>
+        <div class="series-subtitle">System Design</div>
+        <div class="series-progress"></div>
+      </div>
+
+      <div class="series-card{% if dsa_count == 0 %} empty{% endif %}"
+           data-filter="/dsa/" data-published="{{ dsa_count }}" data-total="7"
+           data-name="DSA সিরিজ">
+        <div class="series-name">DSA সিরিজ</div>
+        <div class="series-subtitle">Data Structures & Algorithms</div>
+        <div class="series-progress"></div>
+      </div>
+
+      <div class="series-card{% if net_count == 0 %} empty{% endif %}"
+           data-filter="/networking/" data-published="{{ net_count }}" data-total="6"
+           data-name="নেটওয়ার্কিং">
+        <div class="series-name">নেটওয়ার্কিং</div>
+        <div class="series-subtitle">Networking</div>
+        <div class="series-progress"></div>
+      </div>
+
+      <div class="series-card{% if db_count == 0 %} empty{% endif %}"
+           data-filter="/databases/" data-published="{{ db_count }}" data-total="6"
+           data-name="ডেটাবেস">
+        <div class="series-name">ডেটাবেস</div>
+        <div class="series-subtitle">Databases</div>
+        <div class="series-progress"></div>
+      </div>
+
+    </div>
+
+    <div class="section-header">
+      <span class="section-title" id="section-title">সব লেখা</span>
+      <span class="section-badge" id="section-badge">{{ all_count }}টি</span>
+    </div>
+
+    <div class="articles" id="article-list">
+      {% for article in bn_articles %}
+        {% assign idx = forloop.index %}
+        <a href="{{ article.url }}" class="card" data-path="{{ article.url }}">
+          <div class="card-number">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-series">{{ article.series_label }}</span>
+              <span class="card-dot">·</span>
+              <span class="card-date">{{ article.date_bn }}</span>
+              <span class="card-dot">·</span>
+              <span class="card-date">{{ article.read_time }}</span>
+            </div>
+            <div class="card-title">{{ article.title }}</div>
+            <div class="card-excerpt">{{ article.excerpt }}</div>
+            <div class="card-tags">
+              {% for tag in article.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+            </div>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+      {% endfor %}
+    </div>
+
+    <div class="empty-state" id="empty-state">
+      এই সিরিজে এখনো কোনো লেখা নেই। শীঘ্রই আসছে।
+    </div>
+
+  </div>
+
+  {% include footer.html %}
+
+  <script>
+    document.querySelectorAll('.series-card').forEach(card => {
+      const published = parseInt(card.dataset.published) || 0;
+      const total = parseInt(card.dataset.total) || 7;
+      const container = card.querySelector('.series-progress');
+      let html = '';
+      for (let i = 1; i <= total; i++) {
+        const filled = i <= published;
+        html += `<span class="dot ${filled ? 'dot-filled' : 'dot-empty'}">${filled ? '●' : '○'}</span>`;
+      }
+      if (published > 0) {
+        html += `<span class="series-count">${published} টি লেখা</span>`;
+      }
+      container.innerHTML = html;
+    });
+
+    const seriesCards = document.querySelectorAll('.series-card:not(.empty)');
+    const articleCards = document.querySelectorAll('#article-list .card');
+    const sectionTitle = document.getElementById('section-title');
+    const sectionBadge = document.getElementById('section-badge');
+    const emptyState = document.getElementById('empty-state');
+    const totalCount = articleCards.length;
+
+    function showAll() {
+      articleCards.forEach(c => c.style.display = '');
+      sectionTitle.textContent = 'সব লেখা';
+      sectionBadge.textContent = totalCount + 'টি';
+      emptyState.style.display = 'none';
+    }
+
+    seriesCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const isActive = card.classList.contains('active');
+        seriesCards.forEach(c => c.classList.remove('active'));
+        if (isActive) { showAll(); return; }
+        card.classList.add('active');
+        const filter = card.dataset.filter;
+        const name = card.dataset.name;
+        let visible = 0;
+        articleCards.forEach(c => {
+          const match = c.dataset.path.includes(filter);
+          c.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+        sectionTitle.textContent = name;
+        sectionBadge.textContent = visible + 'টি';
+        emptyState.style.display = visible === 0 ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

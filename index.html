@@ -1,9 +1,9 @@
 ---
-title: "বাংলায় সফটওয়্যার ইঞ্জিনিয়ারিং"
-description: "OOP, System Design, DSA — বাংলায় গল্পের ছলে। বাংলাদেশের ডেভেলপারদের জন্য।"
+title: "Raian — Software Engineer"
+description: "Bengali tech writing and AI tools by Raian."
 ---
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QGCTH06MZ"></script>
@@ -16,7 +16,7 @@ description: "OOP, System Design, DSA — বাংলায় গল্পে�
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   {% seo %}
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -28,279 +28,139 @@ description: "OOP, System Design, DSA — বাংলায় গল্পে�
       --muted: #888;
       --accent: #5b4de8;
       --accent-soft: #5b4de812;
-      --tag-bg: #f0f0f0;
-      --sidebar-width: 220px;
     }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      font-family: 'Inter', sans-serif;
       min-height: 100vh;
-      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* NAV */
     nav {
-      border-bottom: 1px solid var(--border);
       padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       height: 60px;
-      position: sticky;
-      top: 0;
-      background: var(--bg);
-      z-index: 100;
     }
-    .nav-logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
     .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
-    .lang-toggle { display: flex; align-items: center; gap: 4px; }
-    .lang-btn {
-      font-size: 0.78rem;
-      font-family: 'Inter', sans-serif;
-      padding: 3px 10px;
-      border-radius: 4px;
-      color: var(--muted);
-      text-decoration: none;
-      border: 1px solid var(--border);
-      transition: color 0.15s, border-color 0.15s;
-    }
-    .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .lang-btn:not(.active):hover { color: var(--text); border-color: var(--text); }
 
-    /* LAYOUT */
-    .layout {
-      display: flex;
-      max-width: 1100px;
-      margin: 0 auto;
-      min-height: calc(100vh - 60px);
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-      width: var(--sidebar-width);
-      flex-shrink: 0;
-      border-right: 1px solid var(--border);
-      padding: 2rem 0;
-      position: sticky;
-      top: 60px;
-      height: calc(100vh - 60px);
-      overflow-y: auto;
-    }
-    .sidebar-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-family: 'Inter', sans-serif;
-      padding: 0 1.2rem 0.8rem;
-    }
-    .sidebar-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.55rem 1.2rem;
-      cursor: pointer;
-      border-radius: 6px;
-      margin: 0 0.5rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      transition: all 0.15s;
-      user-select: none;
-    }
-    .sidebar-item:hover { background: var(--surface); color: var(--text); }
-    .sidebar-item.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
-    .sidebar-count {
-      font-size: 0.7rem;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 1px 7px;
-      border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-    }
-    .sidebar-item.active .sidebar-count { border-color: var(--accent); color: var(--accent); }
-    .sidebar-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1rem 1.2rem;
-    }
-
-    /* MAIN CONTENT */
-    .main {
+    /* MAIN */
+    main {
       flex: 1;
-      min-width: 0;
-      padding: 0 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      width: 100%;
     }
 
-    /* HERO */
-    .hero { padding: 3.5rem 0 2rem; }
-    .hero-tag {
-      display: inline-block;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 3px 11px;
-      border-radius: 20px;
-      margin-bottom: 1rem;
-      letter-spacing: 0.5px;
-      font-family: 'Inter', sans-serif;
+    .intro {
+      margin-bottom: 3rem;
     }
-    .hero h1 {
-      font-size: 2rem;
+    .intro-name {
+      font-size: 2.2rem;
       font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.8rem;
+      letter-spacing: -1px;
+      margin-bottom: 0.6rem;
     }
-    .hero p {
+    .intro-name span { color: var(--accent); }
+    .intro-bio {
+      font-size: 1rem;
       color: var(--muted);
-      font-size: 0.95rem;
-      max-width: 480px;
       line-height: 1.8;
+      max-width: 440px;
     }
 
-    /* SECTION HEADER */
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1.5rem 0 1rem;
-      border-top: 1px solid var(--border);
-    }
-    .section-title {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-family: 'Inter', sans-serif;
-    }
-    .section-badge {
-      font-size: 0.7rem;
-      background: var(--accent-soft);
-      color: var(--accent);
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
+    /* DESTINATION CARDS */
+    .destinations {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
     }
 
-    /* ARTICLE CARDS */
-    .articles { display: flex; flex-direction: column; padding-bottom: 4rem; }
-
-    .card {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
+    .dest-card {
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem 1.8rem;
       text-decoration: none;
       color: inherit;
-      transition: all 0.15s;
-      border-radius: 8px;
+      transition: border-color 0.15s, background 0.15s;
     }
-    .card:hover { background: var(--surface); padding-left: 0.8rem; padding-right: 0.8rem; margin: 0 -0.8rem; }
-
-    .card-number {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      color: var(--accent);
-      font-weight: 600;
-      min-width: 24px;
-      padding-top: 3px;
+    .dest-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
     }
-    .card-body { flex: 1; }
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.4rem;
-      flex-wrap: wrap;
-    }
-    .card-series { font-size: 0.72rem; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 500; }
-    .card-dot { color: var(--border); font-size: 0.65rem; }
-    .card-date { font-size: 0.72rem; color: var(--muted); font-family: 'Inter', sans-serif; }
-    .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.4; transition: color 0.2s; }
-    .card:hover .card-title { color: var(--accent); }
-    .card-excerpt { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.7rem; }
-    .card-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
-    .tag {
-      background: var(--tag-bg);
-      color: var(--muted);
-      font-size: 0.7rem;
-      padding: 2px 9px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      font-family: 'Inter', sans-serif;
-    }
-    .card-arrow { color: var(--muted); font-size: 1rem; padding-top: 3px; transition: color 0.2s, transform 0.2s; }
-    .card:hover .card-arrow { color: var(--accent); transform: translateX(4px); }
-
-    .card-coming { opacity: 0.4; cursor: default; pointer-events: none; }
-    .coming-badge {
+    .dest-tag {
       font-size: 0.68rem;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 2px 8px;
-      border-radius: 20px;
-      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
     }
+    .dest-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .dest-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.1rem;
+    }
+    .dest-arrow {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 500;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+    .dest-card:hover .dest-arrow { transform: translateX(4px); }
 
-    /* EMPTY STATE */
-    .empty-state {
-      padding: 4rem 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-      display: none;
+    /* SOCIAL */
+    .social {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
     }
+    .social a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .social a:hover { color: var(--text); }
+    .social-dot { color: var(--border); }
 
     /* FOOTER */
     footer {
-      border-top: 1px solid var(--border);
       padding: 1.5rem 2rem;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .footer-credit {
+      border-top: 1px solid var(--border);
+      text-align: center;
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
     }
-    .footer-credit a { color: var(--accent); text-decoration: none; }
-    .footer-social { display: flex; gap: 1rem; align-items: center; }
-    .social-link { color: var(--muted); transition: color 0.2s; display: flex; }
-    .social-link:hover { color: var(--accent); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .sidebar { display: none; }
-      .main { padding: 0 1.2rem; }
-      .hero h1 { font-size: 1.6rem; }
-      .card-arrow { display: none; }
+    @media (max-width: 540px) {
+      .destinations { grid-template-columns: 1fr; }
+      main { padding: 3rem 1.2rem; }
+      .intro-name { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -309,218 +169,45 @@ description: "OOP, System Design, DSA — বাংলায় গল্পে�
   <nav>
     <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
     <div class="nav-links">
-      <a href="/">লেখা</a>
       <a href="https://github.com/raianul" target="_blank">GitHub</a>
-      <div class="lang-toggle">
-        <span class="lang-btn active">বাংলা</span>
-        <a href="/en/" class="lang-btn">EN</a>
-      </div>
+      <a href="mailto:raianul.berlin@gmail.com">Email</a>
     </div>
   </nav>
 
-  {% assign articles = site.pages | where: "layout", "post" | where_exp: "p", "p.lang != 'en'" | sort: "date" | reverse %}
-  {% assign all_count = articles | size %}
-  {% assign oop_count = articles | where: "category", "oop" | size %}
-  {% assign core_count = articles | where: "category", "core-concepts" | size %}
+  <main>
+    <div class="intro">
+      <div class="intro-name">Hey, I'm <span>Raian</span>.</div>
+      <p class="intro-bio">Software engineer. I write about CS concepts in Bengali — so more people can learn in their own language. I also collect prompts that actually work.</p>
+    </div>
 
-  <div class="layout">
+    <div class="destinations">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="sidebar-label">বিষয়</div>
+      <a href="/blog" class="dest-card">
+        <div class="dest-tag">Tech Story</div>
+        <div class="dest-title">বাংলায় সফটওয়্যার ইঞ্জিনিয়ারিং</div>
+        <div class="dest-desc">OOP, System Design, DSA — explained in Bengali through stories.</div>
+        <span class="dest-arrow">পড়তে শুরু করো →</span>
+      </a>
 
-      <div class="sidebar-item active" data-category="all">
-        সব লেখা
-        <span class="sidebar-count">{{ all_count }}</span>
-      </div>
+      <a href="/ai/" class="dest-card">
+        <div class="dest-tag">AI</div>
+        <div class="dest-title">Prompt Library</div>
+        <div class="dest-desc">Curated prompts for coding, learning, writing, and system design.</div>
+        <span class="dest-arrow">Explore →</span>
+      </a>
 
-      <hr class="sidebar-divider"/>
-      <div class="sidebar-label">System Design</div>
+    </div>
 
-      <div class="sidebar-item" data-category="core-concepts">
-        Core Concepts
-        <span class="sidebar-count">{{ core_count }}</span>
-      </div>
-      <div class="sidebar-item" data-category="networking">
-        Networking
-        <span class="sidebar-count">0</span>
-      </div>
-      <div class="sidebar-item" data-category="load-balancing">
-        Load Balancing
-        <span class="sidebar-count">0</span>
-      </div>
-      <div class="sidebar-item" data-category="caching">
-        Caching
-        <span class="sidebar-count">0</span>
-      </div>
-      <div class="sidebar-item" data-category="databases">
-        Databases
-        <span class="sidebar-count">0</span>
-      </div>
-      <div class="sidebar-item" data-category="distributed-systems">
-        Distributed Systems
-        <span class="sidebar-count">0</span>
-      </div>
+    <div class="social">
+      <a href="https://github.com/raianul" target="_blank">GitHub</a>
+      <span class="social-dot">·</span>
+      <a href="mailto:raianul.berlin@gmail.com">raianul.berlin@gmail.com</a>
+    </div>
+  </main>
 
-      <hr class="sidebar-divider"/>
-      <div class="sidebar-label">আরও</div>
-
-      <div class="sidebar-item" data-category="oop">
-        OOP
-        <span class="sidebar-count">{{ oop_count }}</span>
-      </div>
-      <div class="sidebar-item" data-category="lld">
-        Low Level Design
-        <span class="sidebar-count">0</span>
-      </div>
-      <div class="sidebar-item" data-category="dsa">
-        DSA
-        <span class="sidebar-count">0</span>
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main class="main">
-      <section class="hero">
-        <div class="hero-tag">বাংলায় টেক</div>
-        <h1>সফটওয়্যার ইঞ্জিনিয়ারিং</h1>
-        <p>একটা চায়ের দোকান থেকে একটা কোটি ইউজারের সিস্টেম — মাঝখানে শুধু কিছু সিদ্ধান্ত। এই ব্লগে সেই সিদ্ধান্তগুলো বাংলায়, গল্পের ছলে।</p>
-      </section>
-
-      <div class="section-header">
-        <span class="section-title" id="section-title">সব লেখা</span>
-        <span class="section-badge" id="section-badge">{{ all_count }}টি</span>
-      </div>
-
-      <div class="articles" id="article-list">
-
-        {% for article in articles %}
-          {% assign idx = forloop.index %}
-          <a href="{{ article.url }}" class="card" data-category="{{ article.category }}">
-            <div class="card-number">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="card-series">{{ article.series_label }}</span>
-                <span class="card-dot">·</span>
-                <span class="card-date">{{ article.date_bn }}</span>
-                <span class="card-dot">·</span>
-                <span class="card-date">{{ article.read_time }}</span>
-              </div>
-              <div class="card-title">{{ article.title }}</div>
-              <div class="card-excerpt">{{ article.excerpt }}</div>
-              <div class="card-tags">
-                {% for tag in article.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
-              </div>
-            </div>
-            <div class="card-arrow">→</div>
-          </a>
-        {% endfor %}
-
-        <!-- Coming: Availability -->
-        <div class="card card-coming" data-category="core-concepts">
-          <div class="card-number">—</div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-series">Core Concepts</span>
-              <span class="card-dot">·</span>
-              <span class="coming-badge">শীঘ্রই আসছে</span>
-            </div>
-            <div class="card-title">Availability — সিস্টেম কখনো ঘুমায় না</div>
-            <div class="card-excerpt">রাত ৩টায় bKash বন্ধ হয়ে গেলে কী হয়? High Availability মানে শুধু uptime না — এটা একটা প্রতিশ্রুতি।</div>
-            <div class="card-tags">
-              <span class="tag">Availability</span>
-              <span class="tag">Failover</span>
-              <span class="tag">Redundancy</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Coming: CAP Theorem -->
-        <div class="card card-coming" data-category="distributed-systems">
-          <div class="card-number">—</div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-series">Distributed Systems</span>
-              <span class="card-dot">·</span>
-              <span class="coming-badge">শীঘ্রই আসছে</span>
-            </div>
-            <div class="card-title">CAP Theorem — তিনটার মধ্যে দুটো বেছে নাও</div>
-            <div class="card-excerpt">জীবনে যেমন সব পাওয়া যায় না, ডিস্ট্রিবিউটেড সিস্টেমেও তাই। Consistency, Availability, Partition Tolerance — যেকোনো দুটো।</div>
-            <div class="card-tags">
-              <span class="tag">CAP Theorem</span>
-              <span class="tag">Consistency</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Coming: DNS -->
-        <div class="card card-coming" data-category="networking">
-          <div class="card-number">—</div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-series">Networking</span>
-              <span class="card-dot">·</span>
-              <span class="coming-badge">শীঘ্রই আসছে</span>
-            </div>
-            <div class="card-title">DNS — ইন্টারনেটের ফোনবুক</div>
-            <div class="card-excerpt">তুমি যখন browser এ "facebook.com" লেখো, কীভাবে সেটা জানে কোথায় যেতে হবে? এই গল্পটা DNS এর।</div>
-            <div class="card-tags">
-              <span class="tag">DNS</span>
-              <span class="tag">Networking</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="empty-state" id="empty-state">
-        এই বিষয়ে এখনো কোনো লেখা নেই। শীঘ্রই আসছে।
-      </div>
-
-    </main>
-  </div>
-
-  {% include footer.html %}
-
-  <script>
-    const items = document.querySelectorAll('.sidebar-item');
-    const cards = document.querySelectorAll('#article-list .card:not(.card-coming)');
-    const sectionTitle = document.getElementById('section-title');
-    const sectionBadge = document.getElementById('section-badge');
-    const emptyState = document.getElementById('empty-state');
-
-    const categoryNames = {
-      'all': 'সব লেখা',
-      'core-concepts': 'Core Concepts',
-      'networking': 'Networking',
-      'load-balancing': 'Load Balancing',
-      'caching': 'Caching',
-      'databases': 'Databases',
-      'distributed-systems': 'Distributed Systems',
-      'oop': 'OOP',
-      'lld': 'Low Level Design',
-      'dsa': 'DSA'
-    };
-
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        const cat = item.dataset.category;
-        items.forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-        sectionTitle.textContent = categoryNames[cat] || cat;
-
-        let visible = 0;
-        document.querySelectorAll('#article-list .card').forEach(card => {
-          const match = cat === 'all' || card.dataset.category === cat;
-          card.style.display = match ? '' : 'none';
-          if (match && !card.classList.contains('card-coming')) visible++;
-        });
-
-        sectionBadge.textContent = visible + 'টি';
-        emptyState.style.display = visible === 0 ? 'block' : 'none';
-      });
-    });
-  </script>
+  <footer>
+    <a href="https://raian.xyz">© 2026 raian.xyz</a>
+  </footer>
 
 </body>
 </html>
