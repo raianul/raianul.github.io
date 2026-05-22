@@ -1,0 +1,24 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    subgraph BEFORE ["SRP violation"]
+        K["KitchenWorker
+cook()
+take_order()
+calculate_bill()
+deliver()"]:::box
+    end
+
+    subgraph AFTER ["SRP applied"]
+        C["Chef
+cook()"]:::box
+        O["OrderTaker
+take_order()"]:::box
+        CA["Cashier
+calculate_bill()"]:::box
+        D["DeliveryBoy
+deliver()"]:::box
+    end
+</div>

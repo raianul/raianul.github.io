@@ -1,0 +1,35 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+
+class Cookable(ABC):  # ISP — one interface, one concern
+    @abstractmethod
+    def cook(self): pass
+
+
+class OrderTakeable(ABC):
+    @abstractmethod
+    def take_order(self): pass
+
+
+class Billable(ABC):
+    @abstractmethod
+    def handle_billing(self): pass
+
+
+class Deliverable(ABC):
+    @abstractmethod
+    def deliver(self): pass
+
+
+class Chef(Cookable, OrderTakeable):  # takes only what it needs
+    def cook(self):
+        print("Chef: cooking")
+
+    def take_order(self):
+        print("Chef: taking order")
+
+
+class DeliveryBoy(Deliverable):  # only what it needs — nothing forced
+    def deliver(self):
+        print("DeliveryBoy: out for delivery")
+</code></pre>

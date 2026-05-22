@@ -1,0 +1,41 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+
+class MenuItem(ABC):  # open for extension
+    @abstractmethod
+    def prepare(self) -> str:
+        pass
+
+    @abstractmethod
+    def price(self) -> float:
+        pass
+
+
+class Kacchi(MenuItem):
+    def prepare(self) -> str:
+        return "slow-cooked kacchi biryani"
+
+    def price(self) -> float:
+        return 350.0
+
+
+class Tehari(MenuItem):
+    def prepare(self) -> str:
+        return "tehari with beef"
+
+    def price(self) -> float:
+        return 200.0
+
+
+class Biryani(MenuItem):  # new item added — zero existing code changed
+    def prepare(self) -> str:
+        return "chicken biryani"
+
+    def price(self) -> float:
+        return 280.0
+
+
+class Kitchen:  # closed for modification
+    def serve(self, item: MenuItem):
+        print(f"Serving: {item.prepare()} — ${item.price():.2f}")
+</code></pre>

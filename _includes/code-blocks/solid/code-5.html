@@ -1,0 +1,27 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+
+class IngredientSupplier(ABC):  # the abstraction — DIP depends on this
+    @abstractmethod
+    def get_ingredients(self) -> list:
+        pass
+
+
+class KarimShop(IngredientSupplier):
+    def get_ingredients(self) -> list:
+        return ["turmeric", "cumin", "cardamom"]
+
+
+class WholesaleMarket(IngredientSupplier):
+    def get_ingredients(self) -> list:
+        return ["turmeric", "cumin", "cardamom", "saffron"]
+
+
+class Kitchen:
+    def __init__(self, supplier: IngredientSupplier):  # depends on abstraction, not a specific shop
+        self.supplier = supplier
+
+    def cook(self):
+        ingredients = self.supplier.get_ingredients()
+        print(f"Cooking with: {ingredients}")
+</code></pre>

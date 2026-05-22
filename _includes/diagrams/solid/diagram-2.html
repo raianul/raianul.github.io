@@ -1,0 +1,16 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    subgraph BAD ["DIP violation"]
+        K1["Kitchen"]:::box -->|"directly depends on"| KS["KarimShop"]:::box
+    end
+
+    subgraph GOOD ["DIP applied"]
+        K2["Kitchen"]:::box -->|"depends on"| IS["IngredientSupplier
+(abstract)"]:::box
+        IS -->|"implemented by"| K3["KarimShop"]:::box
+        IS -->|"implemented by"| WM["WholesaleMarket"]:::box
+    end
+</div>

@@ -1,0 +1,29 @@
+<pre><code class="language-python">class Cook:
+    def __init__(self, name: str):
+        self.name = name
+
+    def cook_standard_menu(self):
+        print(f"{self.name}: cooking standard menu items")
+
+    def take_new_order(self, item: str):
+        print(f"{self.name}: accepted order for {item}")
+
+
+class HeadCook(Cook):
+    def cook_standard_menu(self):
+        print(f"{self.name}: cooking full standard menu")
+
+    def take_new_order(self, item: str):
+        print(f"{self.name}: accepted order for {item}")
+
+    def cook_special(self, dish: str):  # extra capability — does not remove anything
+        print(f"{self.name}: preparing special {dish}")
+
+
+class SubstituteCook(Cook):  # LSP — fulfills every promise Cook makes
+    def cook_standard_menu(self):
+        print(f"{self.name}: cooking standard menu items")
+
+    def take_new_order(self, item: str):
+        print(f"{self.name}: accepted order for {item}")
+</code></pre>

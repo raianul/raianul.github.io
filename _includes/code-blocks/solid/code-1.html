@@ -1,0 +1,37 @@
+<pre><code class="language-python">class KitchenWorker:  # SRP violation — one class doing everything
+    def cook(self, order: str):
+        print(f"Cooking: {order}")
+
+    def take_order(self, customer: str) -> str:
+        print(f"Taking order from {customer}")
+        return order
+
+    def calculate_bill(self, order: str) -> float:
+        print(f"Calculating bill for: {order}")
+        return 250.0
+
+    def deliver(self, address: str):
+        print(f"Delivering to: {address}")
+
+
+class Chef:  # SRP applied — one responsibility each
+    def cook(self, order: str):
+        print(f"Cooking: {order}")
+
+
+class OrderTaker:
+    def take_order(self, customer: str) -> str:
+        print(f"Taking order from {customer}")
+        return "kacchi biryani"
+
+
+class Cashier:
+    def calculate_bill(self, order: str) -> float:
+        print(f"Calculating bill for: {order}")
+        return 250.0
+
+
+class DeliveryBoy:
+    def deliver(self, address: str):
+        print(f"Delivering to: {address}")
+</code></pre>
