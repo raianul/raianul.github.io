@@ -1,0 +1,29 @@
+<pre><code class="language-python">class PaymentProcessor:
+    def __init__(self, card_number: str, amount: float):
+        # raw card number is never stored
+        # masked immediately in the constructor
+        self.__masked_card = self.__mask_card(card_number)
+        self.__amount = amount
+        self.__is_processed = False
+
+    def __mask_card(self, card_number: str) -> str:
+        # private method — cannot be called from outside
+        digits_only = card_number.replace("-", "").replace(" ", "")
+        return f"****-****-****-{digits_only[-4:]}"
+
+    def process_payment(self) -> bool:
+        if self.__is_processed:
+            print("This payment has already been processed.")
+            return False
+
+        print(f"Processing ${self.__amount} via card {self.__masked_card}...")
+        self.__is_processed = True
+        print("Payment successful!")
+        return True
+
+    def get_masked_card(self) -> str:
+        return self.__masked_card
+
+    def get_amount(self) -> float:
+        return self.__amount
+</code></pre>

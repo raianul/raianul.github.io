@@ -1,0 +1,35 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+class NotificationSender(ABC):
+    def __init__(self, sender_name: str):
+        self.sender_name = sender_name
+
+    @abstractmethod
+    def send(self, recipient: str, message: str) -> bool:
+        pass
+
+    def log_attempt(self, recipient: str):
+        # shared logging — written once for all senders
+        print(f"[{self.sender_name}] Notifying: {recipient}")
+
+class SMSSender(NotificationSender):
+    def send(self, recipient: str, message: str) -> bool:
+        self.log_attempt(recipient)
+        # SMS gateway API call... (complexity hidden)
+        print(f"SMS sent to {recipient}: {message[:50]}...")
+        return True
+
+class PushSender(NotificationSender):
+    def send(self, recipient: str, message: str) -> bool:
+        self.log_attempt(recipient)
+        # Firebase FCM API call... (complexity hidden)
+        print(f"Push notification sent to device: {recipient}")
+        return True
+
+class EmailSender(NotificationSender):
+    def send(self, recipient: str, message: str) -> bool:
+        self.log_attempt(recipient)
+        # SMTP handshake, email rendering... (complexity hidden)
+        print(f"Email delivered to {recipient}")
+        return True
+</code></pre>

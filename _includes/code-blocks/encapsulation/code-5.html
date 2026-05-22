@@ -1,0 +1,12 @@
+<pre><code class="language-python">processor = PaymentProcessor("4111-1111-1111-1234", 500)
+
+# correct path
+processor.process_payment()
+# Processing $500 via card ****-****-****-1234...
+# Payment successful!
+
+print(processor.get_masked_card())  # ****-****-****-1234
+
+# raw card number is never accessible
+# processor.__mask_card() won't work (private method)
+</code></pre>

@@ -1,0 +1,26 @@
+<pre><code class="language-python">class DigitalWallet:
+    def __init__(self, owner, initial_balance):
+        self.__owner = owner              # private — not visible outside
+        self.__balance = initial_balance  # private — cannot be changed directly
+        self.__pin = None                 # private
+
+    def get_balance(self):               # public — read only
+        return self.__balance
+
+    def deposit(self, amount):           # public — controlled access
+        if amount <= 0:
+            print("Invalid amount")
+            return False
+        self.__balance += amount
+        return True
+
+    def withdraw(self, amount):          # public — controlled access
+        if amount <= 0:
+            print("Invalid amount")
+            return False
+        if amount > self.__balance:
+            print("Insufficient balance")
+            return False
+        self.__balance -= amount
+        return True
+</code></pre>

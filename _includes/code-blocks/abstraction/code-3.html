@@ -1,0 +1,9 @@
+<pre><code class="language-python"># OrderService only knows NotificationSender — not the implementation
+class OrderService:
+    def __init__(self, notifier: NotificationSender):
+        self.notifier = notifier
+
+    def confirm_order(self, order_id: str, customer_contact: str):
+        message = f"Order #{order_id} confirmed! On its way."
+        self.notifier.send(customer_contact, message)
+</code></pre>

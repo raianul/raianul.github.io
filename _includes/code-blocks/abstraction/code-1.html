@@ -1,0 +1,23 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+class Transport(ABC):
+    def __init__(self, name: str):
+        self.name = name
+
+    @abstractmethod
+    def travel(self, destination: str):
+        # each vehicle travels in its own way
+        pass
+
+    @abstractmethod
+    def get_fare(self, duration_min: int) -> float:
+        # fare calculation differs per vehicle
+        pass
+
+    def trip_summary(self, destination: str, duration: int):
+        # shared across all vehicles — written once
+        fare = self.get_fare(duration)
+        print(f"Vehicle: {self.name}")
+        print(f"Destination: {destination}")
+        print(f"Fare: ${fare:.2f}")
+</code></pre>

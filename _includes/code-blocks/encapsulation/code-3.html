@@ -1,0 +1,34 @@
+<pre><code class="language-python">class BankAccount:
+    def __init__(self):
+        self.__balance = 0
+        self.__account_holder = ""
+
+    # Getter
+    def get_balance(self):
+        return self.__balance
+
+    # Getter
+    def get_account_holder(self):
+        return self.__account_holder
+
+    # Setter with validation
+    def set_account_holder(self, name):
+        if not name or len(name.strip()) == 0:
+            raise ValueError("Account holder name cannot be empty")
+        self.__account_holder = name.strip()
+
+    # Business method with validation
+    def deposit(self, amount):
+        if amount <= 0:
+            raise ValueError("Deposit amount must be positive")
+        self.__balance += amount
+        print(f"Deposited {amount}. New balance: {self.__balance}")
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            raise ValueError("Withdrawal amount must be positive")
+        if amount > self.__balance:
+            raise ValueError("Insufficient funds")
+        self.__balance -= amount
+        print(f"Withdrew {amount}. New balance: {self.__balance}")
+</code></pre>

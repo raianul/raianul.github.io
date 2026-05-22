@@ -1,0 +1,11 @@
+<pre><code class="language-python">wallet = DigitalWallet("Raian", 1000)
+
+# correct path
+print(wallet.get_balance())   # 1000
+wallet.deposit(500)
+print(wallet.get_balance())   # 1500
+
+# attempt direct access
+wallet.__balance = 999999     # this won't work!
+print(wallet.get_balance())   # still 1500
+</code></pre>
