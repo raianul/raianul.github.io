@@ -1,0 +1,14 @@
+<pre><code class="language-python">class Pot:
+    # __init__ is the constructor — runs automatically when an object is created
+    def __init__(self, color, height, price):
+        self.color = color
+        self.height = height
+        self.price = price
+
+    def describe(self):
+        print(f"Color: {self.color}, Height: {self.height}cm, Price: {self.price}")
+
+    def update_price(self, new_price):
+        self.price = new_price
+        print(f"New price set: {self.price}")
+</code></pre>

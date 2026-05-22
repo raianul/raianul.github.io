@@ -5,29 +5,29 @@ graph LR
 
     DC["Driver Class (Blueprint)
     ─────────────────
-    naam, phone
-    garir_number, rating
+    name, phone
+    plate, rating
     ─────────────────
-    trip_shuru()
-    trip_sesh()
-    rating_update()"]:::box
+    start_trip()
+    end_trip()
+    update_rating()"]:::box
 
     D1["driver1
     ──────────
-    Karim Bhai
-    01711-XXX
+    name: Driver A
+    plate: XXX-001
     rating: 5.0"]:::box
 
     D2["driver2
     ──────────
-    Rahim Bhai
-    01811-XXX
+    name: Driver B
+    plate: XXX-002
     rating: 4.8"]:::box
 
     D3["driver3
     ──────────
-    Jamal Bhai
-    01911-XXX
+    name: Driver C
+    plate: XXX-003
     rating: 4.6"]:::box
 
     DC -->|"creates"| D1
