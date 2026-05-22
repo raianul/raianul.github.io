@@ -1,6 +1,6 @@
 # raianul.github.io
 
-Bengali-language CS education blog deployed at **blog.raian.xyz** via GitHub Pages + Jekyll.
+Bengali-language CS education blog deployed at **raian.xyz/blog** via GitHub Pages + Jekyll.
 
 ## Stack
 
