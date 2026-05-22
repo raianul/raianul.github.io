@@ -301,7 +301,7 @@ description: "OOP, System Design, DSA — বাংলায় গল্পে�
     </div>
   </nav>
 
-  {% assign articles = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+  {% assign articles = site.pages | where: "layout", "post" | where_exp: "p", "p.lang != 'en'" | sort: "date" | reverse %}
   {% assign all_count = articles | size %}
   {% assign oop_count = articles | where: "category", "oop" | size %}
   {% assign core_count = articles | where: "category", "core-concepts" | size %}
