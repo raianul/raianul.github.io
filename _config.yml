@@ -13,6 +13,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+permalink: pretty
+
 markdown: kramdown
 kramdown:
   input: GFM
