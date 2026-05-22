@@ -1,0 +1,17 @@
+<pre><code class="language-python">class Worker:
+    def __init__(self, name: str):
+        self.name = name
+
+    def work(self):
+        print(f"{self.name} is working")
+
+
+class Shop:
+    def __init__(self, name: str, workers: list):  # Aggregation
+        self.name = name
+        self.workers = workers  # passed in from outside, not created here
+
+    def open(self):
+        for w in self.workers:
+            w.work()
+</code></pre>

@@ -1,0 +1,18 @@
+<pre><code class="language-python">class Supplier:
+    def __init__(self, name: str):
+        self.name = name
+
+    def provide(self, item: str) -> str:
+        print(f"{self.name}: preparing {item}")
+        return item
+
+
+class Worker:
+    def __init__(self, name: str, supplier: Supplier):  # Association
+        self.name = name
+        self.supplier = supplier  # holds a reference, but did not create it
+
+    def request_item(self, item: str):
+        received = self.supplier.provide(item)
+        print(f"{self.name}: received {received}")
+</code></pre>

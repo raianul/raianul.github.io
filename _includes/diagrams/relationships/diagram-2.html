@@ -1,0 +1,46 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+classDiagram
+    class Supplier {
+        +name: str
+        +provide(item) str
+    }
+    class Worker {
+        +name: str
+        +request_item(item)
+        +process_order(order_id, spec)
+    }
+    class WorkStation {
+        +number: int
+        +occupied: bool
+        +start_job(job_id)
+        +finish()
+    }
+    class Shop {
+        +name: str
+        +workers: list
+        +stations: list
+        +open()
+        +accept_job(job_id)
+    }
+    class Specification {
+        +get_measurements(order_id) dict
+    }
+    class CertifiedWorkshop {
+        <<interface>>
+        +safe_environment() bool
+        +fair_wages(employee_name) float
+        +quality_output(order_id) str
+    }
+    class Workshop {
+        +safe_environment() bool
+        +fair_wages(employee_name) float
+        +quality_output(order_id) str
+    }
+
+    Worker --> Supplier : Association
+    Shop o-- Worker : Aggregation
+    Shop *-- WorkStation : Composition
+    Worker ..> Specification : Dependency
+    Workshop ..|> CertifiedWorkshop : Realization
+</div>

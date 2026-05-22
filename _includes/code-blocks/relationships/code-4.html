@@ -1,0 +1,16 @@
+<pre><code class="language-python">class Specification:
+    def get_measurements(self, order_id: str) -> dict:
+        print(f"Looking up spec for {order_id}...")
+        return {"measurement_a": 40, "measurement_b": 34, "measurement_c": 16}
+
+
+class Worker:
+    def __init__(self, name: str):
+        self.name = name
+
+    def process_order(self, order_id: str, spec: Specification):  # Dependency
+        measurements = spec.get_measurements(order_id)
+        print(f"{self.name}: processing order {order_id}")
+        for key, val in measurements.items():
+            print(f"  {key}: {val}")
+</code></pre>

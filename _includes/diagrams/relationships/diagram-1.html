@@ -1,0 +1,21 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    subgraph AGG ["Aggregation ◇ — parts survive the whole"]
+        A["Shop"]:::box
+        B["Worker A"]:::box
+        C["Worker B"]:::box
+        A -->|"has (passed in)"| B
+        A -->|"has (passed in)"| C
+    end
+
+    subgraph COMP ["Composition ◆ — parts die with the whole"]
+        D["Shop"]:::box
+        E["WorkStation 1"]:::box
+        F["WorkStation 2"]:::box
+        D -->|"creates & owns"| E
+        D -->|"creates & owns"| F
+    end
+</div>

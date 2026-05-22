@@ -1,0 +1,30 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+
+class CertifiedWorkshop(ABC):  # Interface — defines the contract
+    @abstractmethod
+    def safe_environment(self) -> bool:
+        pass
+
+    @abstractmethod
+    def fair_wages(self, employee_name: str) -> float:
+        pass
+
+    @abstractmethod
+    def quality_output(self, order_id: str) -> str:
+        pass
+
+
+class Workshop(CertifiedWorkshop):  # Realization — fulfills the contract
+    def safe_environment(self) -> bool:
+        print("Fire exits clear, safety equipment in place")
+        return True
+
+    def fair_wages(self, employee_name: str) -> float:
+        print(f"{employee_name}: paid on time")
+        return 15000.0
+
+    def quality_output(self, order_id: str) -> str:
+        print(f"Order {order_id}: completed to standard")
+        return "approved"
+</code></pre>

@@ -1,0 +1,26 @@
+<pre><code class="language-python">class WorkStation:
+    def __init__(self, number: int):
+        self.number = number
+        self.occupied = False
+
+    def start_job(self, job_id: str):
+        self.occupied = True
+        print(f"Station #{self.number}: working on {job_id}")
+
+    def finish(self):
+        self.occupied = False
+        print(f"Station #{self.number}: cleared")
+
+
+class Shop:
+    def __init__(self, name: str):
+        self.name = name
+        self.stations = [WorkStation(i) for i in range(1, 5)]  # Composition — created here
+
+    def accept_job(self, job_id: str):
+        for station in self.stations:
+            if not station.occupied:
+                station.start_job(job_id)
+                return
+        print("All stations busy — please wait")
+</code></pre>
