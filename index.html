@@ -16,7 +16,10 @@ description: "Bengali tech writing and AI tools by Raian."
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   {% seo %}
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"/></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -201,7 +204,7 @@ description: "Bengali tech writing and AI tools by Raian."
 
     <!-- LEFT: ABOUT -->
     <aside class="sidebar">
-      <img src="/assets/raian.jpeg" alt="Sayed Raianul Kabir" class="sidebar-photo"/>
+      <img src="/assets/raian.jpeg" alt="Sayed Raianul Kabir" class="sidebar-photo" fetchpriority="high"/>
       <div class="sidebar-label">About</div>
       <p>Senior Backend Engineer at gridscale (OVHcloud) in Berlin. I work on the API and business logic layer for OVHcloud's sovereign cloud initiative, with a focus on SecNumCloud (SNC) compliance. My work involves building identity and access management APIs that allow customers to manage regions, projects, and access control across compliant cloud infrastructure. I was one of the core developers behind an internal distributed saga orchestration framework for coordinating multi-service provisioning workflows, covering failure detection, rollback, and dynamic task expansion.</p>
       <p>The majority of my career was at NewsCred Inc. (later acquired by Optimizely), where I focused on the Ingestion System: a pipeline that continuously pulled live news content from major wire services like AP, AFP, Reuters, and Getty Images, processed it, and served it through search and filtering APIs to customers worldwide. I also led the complete overhaul of the Smart Press application.</p>
