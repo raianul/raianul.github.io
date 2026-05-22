@@ -1,0 +1,23 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+class Worker(ABC):
+    def __init__(self, name: str):
+        self.name = name
+
+    @abstractmethod
+    def start_work(self):
+        pass  # every subclass must implement this
+
+    def introduce(self):  # concrete method — same for everyone
+        print(f"I'm {self.name}, floor staff.")
+
+
+class Tailor(Worker):
+    def start_work(self):
+        print(f"{self.name}: stitching started.")
+
+
+class QCInspector(Worker):
+    def start_work(self):
+        print(f"{self.name}: quality check started.")
+</code></pre>

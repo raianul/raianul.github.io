@@ -37,48 +37,11 @@ Inheritance চারটা বড় সুবিধা দেয়।
 
 ## ২. Code-এ কীভাবে কাজ করে?
 
-```python
-class Doctor:
-    def __init__(self, naam: str, degree: str):
-        self.naam = naam
-        self.degree = degree
+{% include code-blocks/inheritance/code-1.html %}
 
-    def check_vitals(self, patient: str):
-        print(f"{self.naam}: {patient}-এর vital signs check করছেন")
+এখন Imran আর Raisa দুজনেই `Doctor` থেকে inherit করবে, তারপর নিজের জিনিস যোগ করবে:
 
-    def prescribe(self, patient: str, medicine: str):
-        print(f"{self.naam}: {patient}-কে {medicine} দিলেন")
-
-    def diagnose(self, symptom: str) -> str:
-        print(f"{self.naam}: '{symptom}' দেখে diagnose করছেন")
-        return "General assessment"
-```
-
-এখন Imran আর Raisa দুজনেই Doctor থেকে inherit করবে, তারপর নিজের জিনিস যোগ করবে:
-
-```python
-class Cardiologist(Doctor):
-    def __init__(self, naam: str):
-        super().__init__(naam, "MBBS + MD (Cardiology)")  # বাবার constructor ডাকো
-
-    def read_ecg(self, patient: str):
-        print(f"{self.naam}: {patient}-এর ECG রিপোর্ট পড়ছেন")
-
-    def interpret_angiogram(self, result: str):
-        print(f"{self.naam}: Angiogram: {result}")
-
-
-class Surgeon(Doctor):
-    def __init__(self, naam: str, theatre: str):
-        super().__init__(naam, "MBBS + MS (Surgery)")
-        self.theatre = theatre
-
-    def perform_surgery(self, patient: str, operation: str):
-        print(f"{self.naam}: {self.theatre}-এ {patient}-এর {operation} করছেন")
-
-    def suture_wound(self, patient: str):
-        print(f"{self.naam}: {patient}-এর wound suture করলেন")
-```
+{% include code-blocks/inheritance/code-2.html %}
 
 ```python
 imran = Cardiologist("Dr. Imran")
@@ -100,14 +63,7 @@ raisa.perform_surgery("করিম সাহেব", "Appendectomy")
 
 Child চাইলে parent-এর method **override** করতেও পারে। ধরো Imran heart disease-এর জন্য আলাদাভাবে diagnose করে:
 
-```python
-class Cardiologist(Doctor):
-    # ...
-
-    def diagnose(self, symptom: str) -> str:  # override
-        print(f"{self.naam}: '{symptom}' দেখে cardiac assessment করছেন")
-        return "Cardiac evaluation needed"
-```
+{% include code-blocks/inheritance/code-3.html %}
 
 এখন `imran.diagnose("বুকে ব্যথা")` ডাকলে parent-এর version নয়, Imran-এর নিজের version চলবে।
 
@@ -134,8 +90,6 @@ class Cardiologist(Doctor):
 Cardiologist **is-a** Doctor। ✅ Inheritance ঠিক আছে।
 Car **has-a** Engine। ❌ Inheritance না, composition ব্যবহার করো।
 
-আরো কিছু চেকলিস্ট:
-
 | ব্যবহার করো | ব্যবহার করো না |
 |---|---|
 | Clear "is-a" সম্পর্ক আছে | "has-a" বা "uses-a" সম্পর্ক |
@@ -151,80 +105,66 @@ Car **has-a** Engine। ❌ Inheritance না, composition ব্যবহা�
 
 বাংলাদেশের একটা garment factory-তে বিভিন্ন ধরনের staff আছেন। সবাই factory-র কর্মী, সবাই কিছু common কাজ করেন: punch in/out করেন, salary পান। কিন্তু Production Worker, QC Inspector, আর Supervisor-এর কাজ আলাদা।
 
+{% include code-blocks/inheritance/code-4.html %}
+
 ```python
-class Kormi:  # Staff (base class)
-    def __init__(self, naam: str, id: str, salary: float):
-        self.naam = naam
-        self.id = id
-        self.salary = salary
-
-    def punch_in(self):
-        print(f"{self.naam} ({self.id}) কাজে এসেছেন")
-
-    def punch_out(self):
-        print(f"{self.naam} কাজ শেষ করেছেন")
-
-    def get_salary(self) -> float:
-        return self.salary
-
-
-class ProductionWorker(Kormi):
-    def __init__(self, naam: str, id: str, salary: float, machine_no: int):
-        super().__init__(naam, id, salary)
+class ProductionWorker(Employee):
+    def __init__(self, name: str, employee_id: str, salary: float, machine_no: int):
+        super().__init__(name, employee_id, salary)
         self.machine_no = machine_no
 
     def operate_machine(self):
-        print(f"{self.naam} machine #{self.machine_no} চালাচ্ছেন")
+        print(f"{self.name} machine #{self.machine_no} চালাচ্ছেন")
 
     def report_output(self, pieces: int):
-        print(f"{self.naam}: আজ {pieces} পিস তৈরি করেছেন")
+        print(f"{self.name}: আজ {pieces} পিস তৈরি করেছেন")
 
 
-class QCInspector(Kormi):
-    def __init__(self, naam: str, id: str, salary: float):
-        super().__init__(naam, id, salary)
+class QCInspector(Employee):
+    def __init__(self, name: str, employee_id: str, salary: float):
+        super().__init__(name, employee_id, salary)
 
     def inspect_batch(self, batch_id: str) -> bool:
-        print(f"{self.naam}: Batch #{batch_id} quality check করছেন")
+        print(f"{self.name}: Batch #{batch_id} quality check করছেন")
         return True
 
     def reject_item(self, item_id: str, reason: str):
-        print(f"{self.naam}: Item #{item_id} reject: {reason}")
+        print(f"{self.name}: Item #{item_id} reject — {reason}")
 
 
-class Supervisor(ProductionWorker):   # multi-level: Supervisor is-a ProductionWorker is-a Kormi
-    def __init__(self, naam: str, id: str, salary: float, machine_no: int, team_size: int):
-        super().__init__(naam, id, salary, machine_no)
+class Supervisor(ProductionWorker):   # multi-level: Supervisor is-a ProductionWorker is-a Employee
+    def __init__(self, name: str, employee_id: str, salary: float, machine_no: int, team_size: int):
+        super().__init__(name, employee_id, salary, machine_no)
         self.team_size = team_size
 
-    def approve_leave(self, worker_naam: str):
-        print(f"{self.naam}: {worker_naam}-এর ছুটি approve করলেন")
+    def approve_leave(self, worker_name: str):
+        print(f"{self.name}: approved leave for {worker_name}")
 
     def daily_report(self, total_output: int):
-        print(f"{self.naam}-এর team: আজ মোট {total_output} পিস, {self.team_size} জন কর্মী")
+        print(f"{self.name}'s team: {total_output} pieces today, {self.team_size} workers")
 ```
 
 ```python
-karim = ProductionWorker("কারিম মিয়া", "W-101", 12000, machine_no=5)
-ruma  = QCInspector("রুমা বেগম", "Q-203", 15000)
-jalal = Supervisor("জলিল সাহেব", "S-301", 22000, machine_no=1, team_size=12)
+karim = ProductionWorker("Karim Mia", "W-101", 12000, machine_no=5)
+ruma  = QCInspector("Ruma Begum", "Q-203", 15000)
+jalal = Supervisor("Jalal Saheb", "S-301", 22000, machine_no=1, team_size=12)
 
-# সবাই Kormi-র method পেয়েছে
-karim.punch_in()
-ruma.punch_in()
-jalal.punch_in()
+# সবাই Employee-র method পেয়েছে
+karim.clock_in()
+ruma.clock_in()
+jalal.clock_in()
 
 # নিজস্ব method
 karim.operate_machine()
 ruma.inspect_batch("B-4421")
-jalal.approve_leave("কারিম মিয়া")
+jalal.approve_leave("Karim Mia")
 
 # Supervisor is-a ProductionWorker, তাই এটাও পারে
 jalal.operate_machine()
 jalal.daily_report(480)
 ```
 
-নতুন role আসলে, যেমন `AccountsStaff`, শুধু `Kormi` থেকে extend করো। বাকি সব code অপরিবর্তিত থাকবে।
+নতুন role আসলে, যেমন `AccountsStaff`, শুধু `Employee` থেকে extend করো। বাকি সব code অপরিবর্তিত থাকবে।
 
 ---
 

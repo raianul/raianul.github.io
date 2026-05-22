@@ -1,0 +1,25 @@
+<pre><code class="language-python">from enum import Enum
+
+class PaymentMethod(Enum):
+    CASH           = 1
+    CARD           = 2
+    DIGITAL_WALLET = 3
+
+# Usage
+method = PaymentMethod.DIGITAL_WALLET
+print(method)        # PaymentMethod.DIGITAL_WALLET
+print(method.name)   # DIGITAL_WALLET
+print(method.value)  # 3
+
+# Comparison
+if method == PaymentMethod.DIGITAL_WALLET:
+    print("Processing digital wallet payment")
+
+# Loop over all members
+for m in PaymentMethod:
+    print(m.name, "->", m.value)
+
+# CASH           -> 1
+# CARD           -> 2
+# DIGITAL_WALLET -> 3
+</code></pre>

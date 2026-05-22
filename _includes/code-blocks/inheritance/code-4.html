@@ -1,0 +1,15 @@
+<pre><code class="language-python">class Employee:
+    def __init__(self, name: str, employee_id: str, salary: float):
+        self.name = name
+        self.employee_id = employee_id
+        self.salary = salary
+
+    def clock_in(self):
+        print(f"{self.name} ({self.employee_id}) clocked in")
+
+    def clock_out(self):
+        print(f"{self.name} clocked out")
+
+    def get_salary(self) -> float:
+        return self.salary
+</code></pre>

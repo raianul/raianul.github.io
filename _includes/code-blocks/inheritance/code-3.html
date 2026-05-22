@@ -1,0 +1,7 @@
+<pre><code class="language-python">class Cardiologist(Doctor):
+    # ... other methods
+
+    def diagnose(self, symptom: str) -> str:  # override parent method
+        print(f"{self.name}: running cardiac assessment for '{symptom}'")
+        return "Cardiac evaluation needed"
+</code></pre>

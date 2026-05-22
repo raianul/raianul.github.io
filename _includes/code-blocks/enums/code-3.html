@@ -1,0 +1,22 @@
+<pre><code class="language-python">from enum import Enum
+
+class OrderStatus(Enum):
+    PENDING   = ("pending",   "Waiting",    "Order received, not yet confirmed")
+    CONFIRMED = ("confirmed", "Confirmed",  "Order confirmed, being packed")
+    SHIPPED   = ("shipped",   "Shipped",    "Order handed to courier")
+    DELIVERED = ("delivered", "Delivered",  "Customer has received the order")
+    CANCELLED = ("cancelled", "Cancelled",  "Order has been cancelled")
+
+    def __new__(cls, code, label, description):
+        obj = object.__new__(cls)
+        obj._value_ = code
+        obj.label = label
+        obj.description = description
+        return obj
+
+    def is_active(self):
+        return self in (OrderStatus.PENDING, OrderStatus.CONFIRMED, OrderStatus.SHIPPED)
+
+    def can_cancel(self):
+        return self in (OrderStatus.PENDING, OrderStatus.CONFIRMED)
+</code></pre>

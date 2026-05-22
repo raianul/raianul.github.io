@@ -1,0 +1,15 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+class PaymentGateway(ABC):
+    @abstractmethod
+    def process_payment(self, amount: float) -> bool:
+        pass
+
+    @abstractmethod
+    def refund(self, transaction_id: str) -> bool:
+        pass
+
+    @abstractmethod
+    def get_transaction_status(self, transaction_id: str) -> str:
+        pass
+</code></pre>

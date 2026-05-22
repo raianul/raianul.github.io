@@ -1,0 +1,43 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+class PaymentGateway(ABC):
+    @abstractmethod
+    def process_payment(self, amount: float) -> bool:
+        pass
+
+    @abstractmethod
+    def refund(self, transaction_id: str) -> bool:
+        pass
+
+
+class WalletPayment(PaymentGateway):
+    def process_payment(self, amount: float) -> bool:
+        print(f"Wallet: processing payment of {amount}...")
+        return True
+
+    def refund(self, transaction_id: str) -> bool:
+        print(f"Wallet: refunding transaction {transaction_id}...")
+        return True
+
+
+class DirectDebitPayment(PaymentGateway):
+    def process_payment(self, amount: float) -> bool:
+        print(f"Direct debit: processing payment of {amount}...")
+        return True
+
+    def refund(self, transaction_id: str) -> bool:
+        print(f"Direct debit: refunding transaction {transaction_id}...")
+        return True
+
+
+class RideCheckout:
+    def __init__(self, payment_gateway: PaymentGateway):
+        self.gateway = payment_gateway
+
+    def complete_ride(self, fare: float):
+        success = self.gateway.process_payment(fare)
+        if success:
+            print("Ride complete! Payment processed.")
+        else:
+            print("Payment failed.")
+</code></pre>

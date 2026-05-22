@@ -1,0 +1,23 @@
+<pre><code class="language-python">class Order:
+    def __init__(self, order_id: str, product: str):
+        self.order_id = order_id
+        self.product  = product
+        self.status   = OrderStatus.PLACED
+
+    def confirm(self):
+        if self.status == OrderStatus.PLACED:
+            self.status = OrderStatus.CONFIRMED
+            print(f"Order {self.order_id} confirmed")
+
+    def ship(self):
+        if self.status == OrderStatus.PACKED:
+            self.status = OrderStatus.SHIPPED
+            print(f"Order {self.order_id} shipped")
+
+    def cancel(self):
+        if self.status in (OrderStatus.PLACED, OrderStatus.CONFIRMED):
+            self.status = OrderStatus.CANCELLED
+            print(f"Order {self.order_id} cancelled")
+        else:
+            print(f"Cannot cancel in current state: {self.status.value}")
+</code></pre>

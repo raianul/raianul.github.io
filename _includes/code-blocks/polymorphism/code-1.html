@@ -1,0 +1,27 @@
+<pre><code class="language-python">class Worker:
+    def __init__(self, name: str):
+        self.name = name
+
+    def start_work(self):
+        print(f"{self.name} is working")  # default behavior
+
+
+class Tailor(Worker):
+    def start_work(self):
+        print(f"{self.name}: machine on, stitching started")
+
+
+class Cutter(Worker):
+    def start_work(self):
+        print(f"{self.name}: scissors up, cutting fabric")
+
+
+class QCInspector(Worker):
+    def start_work(self):
+        print(f"{self.name}: inspecting pieces for quality")
+
+
+class Packer(Worker):
+    def start_work(self):
+        print(f"{self.name}: folding and packing boxes")
+</code></pre>

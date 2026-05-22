@@ -1,0 +1,37 @@
+<pre><code class="language-python">from abc import ABC, abstractmethod
+
+class Product(ABC):
+    def __init__(self, name: str, base_price: float):
+        self.name = name
+        self.base_price = base_price
+
+    @abstractmethod
+    def final_price(self) -> float:
+        pass
+
+    def display(self):
+        print(f"{self.name}: ${self.final_price():.2f}")
+
+
+class RegularProduct(Product):
+    def final_price(self) -> float:
+        return self.base_price
+
+
+class DiscountedProduct(Product):
+    def __init__(self, name: str, base_price: float, discount_pct: float):
+        super().__init__(name, base_price)
+        self.discount_pct = discount_pct
+
+    def final_price(self) -> float:
+        return self.base_price * (1 - self.discount_pct / 100)
+
+
+class FlashSaleProduct(Product):
+    def __init__(self, name: str, base_price: float, flash_price: float):
+        super().__init__(name, base_price)
+        self.flash_price = flash_price
+
+    def final_price(self) -> float:
+        return self.flash_price  # flat price, no calculation
+</code></pre>

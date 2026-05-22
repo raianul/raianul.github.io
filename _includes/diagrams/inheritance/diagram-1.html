@@ -3,9 +3,16 @@
 graph TD
     classDef box fill:#F5F5F5,color:#000,stroke:#333
 
-    F["Faruk Sir (Doctor)\ncheck_vitals()\nprescribe()\ndiagnose()"]:::box
-    I["Imran (Cardiologist)\n+ read_ecg()\n+ interpret_angiogram()"]:::box
-    R["Raisa (Surgeon)\n+ perform_surgery()\n+ suture_wound()"]:::box
+    F["Doctor (Parent Class)
+check_vitals()
+prescribe()
+diagnose()"]:::box
+    I["Cardiologist (Child)
++ read_ecg()
++ interpret_angiogram()"]:::box
+    R["Surgeon (Child)
++ perform_surgery()
++ suture_wound()"]:::box
 
     F -->|"inherits"| I
     F -->|"inherits"| R

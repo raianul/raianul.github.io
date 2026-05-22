@@ -1,0 +1,15 @@
+<pre><code class="language-python">class Doctor:
+    def __init__(self, name: str, degree: str):
+        self.name = name
+        self.degree = degree
+
+    def check_vitals(self, patient: str):
+        print(f"{self.name}: checking vitals for {patient}")
+
+    def prescribe(self, patient: str, medicine: str):
+        print(f"{self.name}: prescribed {medicine} for {patient}")
+
+    def diagnose(self, symptom: str) -> str:
+        print(f"{self.name}: assessing '{symptom}'")
+        return "General assessment"
+</code></pre>

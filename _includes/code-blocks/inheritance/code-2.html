@@ -1,0 +1,22 @@
+<pre><code class="language-python">class Cardiologist(Doctor):
+    def __init__(self, name: str):
+        super().__init__(name, "MBBS + MD (Cardiology)")  # call parent constructor
+
+    def read_ecg(self, patient: str):
+        print(f"{self.name}: reading ECG for {patient}")
+
+    def interpret_angiogram(self, result: str):
+        print(f"{self.name}: angiogram result — {result}")
+
+
+class Surgeon(Doctor):
+    def __init__(self, name: str, theatre: str):
+        super().__init__(name, "MBBS + MS (Surgery)")
+        self.theatre = theatre
+
+    def perform_surgery(self, patient: str, operation: str):
+        print(f"{self.name}: performing {operation} on {patient} in {self.theatre}")
+
+    def suture_wound(self, patient: str):
+        print(f"{self.name}: suturing wound for {patient}")
+</code></pre>

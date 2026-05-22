@@ -95,31 +95,7 @@ Compile-time Polymorphism বেশিরভাগ সময় কোড পর
 
 এটাই **Method Overriding** আর Runtime Polymorphism।
 
-```python
-# Parent class
-class Worker:
-    def __init__(self, name):
-        self.name = name
-
-    def start_work(self):
-        print(f"{self.name} কাজে আছে")  # default behavior
-
-
-# Child classes — প্রত্যেকে নিজের মতো override করে
-class Tailor(Worker):
-    def start_work(self):
-        print(f"{self.name}: সেলাই মেশিন চালু, কাপড় সেলাই শুরু")
-
-
-class Cutter(Worker):
-    def start_work(self):
-        print(f"{self.name}: কাঁচি তুলে কাপড় কাটা শুরু")
-
-
-class QCInspector(Worker):
-    def start_work(self):
-        print(f"{self.name}: পিস ধরে মান পরীক্ষা শুরু")
-```
+{% include code-blocks/polymorphism/code-1.html %}
 
 এখন রনি ভাইয়ের ফ্লোর ম্যানেজমেন্ট কোড দেখো:
 
@@ -135,14 +111,6 @@ for worker in floor:
     worker.start_work()  # একই call, চারটা আলাদা ফলাফল
 ```
 
-Output:
-```
-জামাল: সেলাই মেশিন চালু, কাপড় সেলাই শুরু
-সালমা: কাঁচি তুলে কাপড় কাটা শুরু
-হাসান: পিস ধরে মান পরীক্ষা শুরু
-মিতু: সেলাই মেশিন চালু, কাপড় সেলাই শুরু
-```
-
 রনি ভাই একবার `start_work()` লিখেছেন। Python runtime-এ নিজে বুঝে নিচ্ছে কোন object-এর কোন version চালাতে হবে। এটাই **Dynamic Dispatch**, Runtime Polymorphism-এর মূল কৌশল।
 
 {% include diagrams/polymorphism/diagram-2.html %}
@@ -155,30 +123,7 @@ Output:
 
 Abstract Class দিয়ে তুমি বলতে পারো: **"প্রতিটা `Worker`-এর অবশ্যই `start_work()` থাকতে হবে। কিন্তু কী করবে সেটা নিজে ঠিক করো।"**
 
-```python
-from abc import ABC, abstractmethod
-
-class Worker(ABC):
-    def __init__(self, name):
-        self.name = name
-
-    @abstractmethod
-    def start_work(self):
-        pass  # প্রতিটা subclass implement করতে বাধ্য
-
-    def introduce(self):  # concrete method, সবার জন্য এক
-        print(f"আমি {self.name}, ফ্লোর স্টাফ।")
-
-
-class Tailor(Worker):
-    def start_work(self):
-        print(f"{self.name}: সেলাই শুরু।")
-
-
-class QCInspector(Worker):
-    def start_work(self):
-        print(f"{self.name}: মান পরীক্ষা শুরু।")
-```
+{% include code-blocks/polymorphism/code-2.html %}
 
 এখন কেউ `Worker` class-এর direct object বানাতে পারবে না। আর `start_work()` implement না করলে error আসবে। Polymorphism-এর সাথে Abstract Class এই গ্যারান্টিটা দেয়।
 
@@ -192,10 +137,10 @@ class Trainable:
 
 class Tailor(Worker, Trainable):
     def start_work(self):
-        print(f"{self.name}: সেলাই শুরু।")
+        print(f"{self.name}: stitching started.")
 
     def take_training(self):
-        print(f"{self.name} নতুন মেশিন অপারেশন শিখছে।")
+        print(f"{self.name} learning new machine operation.")
 ```
 
 এখন একটা `trainable_list` তৈরি করে সবাইকে `take_training()` বলা যাচ্ছে, Polymorphism থাকছে, কিন্তু ট্রেনিং শুধু যোগ্যদের জন্য।
@@ -206,50 +151,13 @@ class Tailor(Worker, Trainable):
 
 Daraz-এ তিন ধরনের product আছে: সাধারণ product, discounted product, আর flash sale product। তিনটার দাম হিসেব করার নিয়ম আলাদা। কিন্তু checkout page-এ সবার জন্য একটাই call: **"দাম বলো।"**
 
+{% include code-blocks/polymorphism/code-3.html %}
+
 ```python
-from abc import ABC, abstractmethod
-
-class Product(ABC):
-    def __init__(self, name, base_price):
-        self.name = name
-        self.base_price = base_price
-
-    @abstractmethod
-    def final_price(self):
-        pass
-
-    def display(self):
-        print(f"{self.name}: ৳{self.final_price()}")
-
-
-class RegularProduct(Product):
-    def final_price(self):
-        return self.base_price
-
-
-class DiscountedProduct(Product):
-    def __init__(self, name, base_price, discount_pct):
-        super().__init__(name, base_price)
-        self.discount_pct = discount_pct
-
-    def final_price(self):
-        return self.base_price * (1 - self.discount_pct / 100)
-
-
-class FlashSaleProduct(Product):
-    def __init__(self, name, base_price, flash_price):
-        super().__init__(name, base_price)
-        self.flash_price = flash_price
-
-    def final_price(self):
-        return self.flash_price  # flat price, no calculation
-
-
-# Checkout-এ Polymorphism
 cart = [
     RegularProduct("শার্ট", 850),
     DiscountedProduct("জুতা", 1200, 20),   # 20% ছাড়
-    FlashSaleProduct("ব্যাগ", 2000, 999),   # flash sale price
+    FlashSaleProduct("ব্যাগ", 2000, 999),  # flash sale price
 ]
 
 total = 0
@@ -258,15 +166,6 @@ for product in cart:
     total += product.final_price()
 
 print(f"\nমোট: ৳{total}")
-```
-
-Output:
-```
-শার্ট: ৳850
-জুতা: ৳960.0
-ব্যাগ: ৳999
-
-মোট: ৳2809.0
 ```
 
 Checkout code জানে না কোনটা regular, কোনটা flash sale। সে শুধু জানে সবাই `Product`, আর প্রতিটার `final_price()` আছে। নতুন product type যোগ করতে হলে শুধু নতুন class বানাও, checkout code একটুও বদলাবে না। এটাই Polymorphism-এর আসল সুবিধা।
