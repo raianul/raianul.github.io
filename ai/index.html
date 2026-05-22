@@ -17,6 +17,7 @@ permalink: /ai/
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   {% seo %}
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
@@ -215,6 +216,9 @@ permalink: /ai/
       .prompt-grid { grid-template-columns: 1fr; }
       .container { padding: 0 1.2rem; }
       .hero h1 { font-size: 1.6rem; }
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a.github-link { display: none; }
     }
   </style>
 </head>
@@ -225,7 +229,7 @@ permalink: /ai/
     <div class="nav-links">
       <a href="/blog">Tech Story</a>
       <a href="/ai/" class="active">AI</a>
-      <a href="https://github.com/raianul" target="_blank">GitHub</a>
+      <a href="https://github.com/raianul" target="_blank" class="github-link">GitHub</a>
     </div>
   </nav>
 

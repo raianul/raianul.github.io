@@ -17,6 +17,7 @@ lang: en
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   {% seo %}
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
@@ -80,7 +81,15 @@ lang: en
     .footer-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
     .footer-credit { color: var(--muted); font-size: 0.82rem; }
     .footer-credit a { color: var(--accent); text-decoration: none; }
-    @media (max-width: 768px) { .sidebar { display: none; } .main { padding: 0 1.2rem; } .hero h1 { font-size: 1.6rem; } .card-arrow { display: none; } }
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { padding: 0 1.2rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .card-arrow { display: none; }
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a.github-link { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -94,7 +103,7 @@ lang: en
     <div class="nav-links">
       <a href="/en/" class="active">Tech Story</a>
       <a href="/ai/">AI</a>
-      <a href="https://github.com/raianul" target="_blank">GitHub</a>
+      <a href="https://github.com/raianul" target="_blank" class="github-link">GitHub</a>
       <div class="lang-toggle">
         <a href="/blog" class="lang-btn">বাংলা</a>
         <span class="lang-btn active">EN</span>
