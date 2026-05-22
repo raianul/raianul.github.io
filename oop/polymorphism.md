@@ -1,6 +1,7 @@
 ---
 title: "Polymorphism: রনি ভাইয়ের একটা নির্দেশ, পঞ্চাশটা আলাদা কাজ"
 tags: [Polymorphism, OOP, "Method Overriding", "Method Overloading", LLD]
+description: "রনি ভাই প্রতিদিন একটাই বলেন: কাজ শুরু করো। কাটার মেশিন কাটে, সেলাই মেশিন সেলাই করে, প্যাকার প্যাক করে। একই নির্দেশ, পঞ্চাশটা আলাদা কাজ — এটাই Polymorphism।"
 date: 2023-02-15
 date_bn: "ফেব্রুয়ারি ২০২৩"
 read_time: "৭ মিনিট"
