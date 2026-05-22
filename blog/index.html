@@ -20,37 +20,17 @@ permalink: /blog/
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #ffffff;
-      --surface: #f5f5f5;
-      --border: #e8e8e8;
-      --text: #1a1a1a;
-      --muted: #888;
-      --accent: #5b4de8;
-      --accent-soft: #5b4de812;
-      --tag-bg: #f0f0f0;
+      --bg: #ffffff; --surface: #f5f5f5; --border: #e8e8e8;
+      --text: #1a1a1a; --muted: #888; --accent: #5b4de8;
+      --accent-soft: #5b4de812; --tag-bg: #f0f0f0; --sidebar-width: 220px;
     }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Hind Siliguri', 'Inter', sans-serif;
-      min-height: 100vh;
-      line-height: 1.6;
-    }
+    body { background: var(--bg); color: var(--text); font-family: 'Hind Siliguri', 'Inter', sans-serif; min-height: 100vh; line-height: 1.6; }
 
     nav {
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-      position: sticky;
-      top: 0;
-      background: var(--bg);
-      z-index: 100;
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px; position: sticky; top: 0; background: var(--bg); z-index: 100;
     }
     .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
     .nav-logo span { color: var(--accent); }
@@ -63,27 +43,24 @@ permalink: /blog/
     .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
     .lang-btn:not(.active):hover { color: var(--text); border-color: var(--text); }
 
-    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+    .layout { display: flex; max-width: 1100px; margin: 0 auto; min-height: calc(100vh - 60px); }
 
+    .sidebar { width: var(--sidebar-width); flex-shrink: 0; border-right: 1px solid var(--border); padding: 2rem 0; position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; }
+    .sidebar-label { font-size: 0.7rem; font-weight: 600; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Inter', sans-serif; padding: 0 1.2rem 0.8rem; }
+    .sidebar-item { display: flex; align-items: center; justify-content: space-between; padding: 0.55rem 1.2rem; border-radius: 6px; margin: 0 0.5rem; font-size: 0.9rem; color: var(--muted); transition: all 0.15s; cursor: pointer; user-select: none; }
+    .sidebar-item:hover { background: var(--surface); color: var(--text); }
+    .sidebar-item.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+    .sidebar-count { font-size: 0.7rem; background: var(--tag-bg); border: 1px solid var(--border); color: var(--muted); padding: 1px 7px; border-radius: 10px; font-family: 'Inter', sans-serif; }
+    .sidebar-item.active .sidebar-count { border-color: var(--accent); color: var(--accent); }
+    .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 1rem 1.2rem; }
+
+    .main { flex: 1; min-width: 0; padding: 0 2.5rem; }
     .hero { padding: 3.5rem 0 2rem; }
     .hero-tag { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 0.75rem; font-weight: 600; padding: 3px 11px; border-radius: 20px; margin-bottom: 1rem; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
     .hero h1 { font-size: 2rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.5px; margin-bottom: 0.8rem; }
     .hero p { color: var(--muted); font-size: 0.95rem; max-width: 480px; line-height: 1.8; }
 
-    .series-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0.5rem 0 2.5rem; }
-    .series-card { border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.5rem; cursor: pointer; transition: border-color 0.15s, background 0.15s; user-select: none; }
-    .series-card:hover { border-color: var(--accent); }
-    .series-card.active { border-color: var(--accent); background: var(--accent-soft); }
-    .series-card.empty { opacity: 0.4; cursor: default; pointer-events: none; }
-    .series-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
-    .series-subtitle { font-size: 0.78rem; color: var(--muted); font-family: 'Inter', sans-serif; margin-bottom: 0.9rem; }
-    .series-progress { display: flex; align-items: center; gap: 3px; }
-    .dot { font-size: 0.65rem; }
-    .dot-filled { color: var(--accent); }
-    .dot-empty { color: var(--border); }
-    .series-count { font-size: 0.7rem; color: var(--muted); font-family: 'Inter', sans-serif; margin-left: 7px; }
-
-    .section-header { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 0; border-top: 1px solid var(--border); }
+    .section-header { display: flex; align-items: center; gap: 0.8rem; padding: 1.5rem 0 1rem; border-top: 1px solid var(--border); }
     .section-title { font-size: 0.78rem; font-weight: 600; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
     .section-badge { font-size: 0.7rem; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-family: 'Inter', sans-serif; font-weight: 600; }
 
@@ -107,22 +84,30 @@ permalink: /blog/
     .empty-state { padding: 4rem 0; text-align: center; color: var(--muted); font-size: 0.95rem; display: none; }
 
     footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
     .footer-credit { color: var(--muted); font-size: 0.82rem; }
     .footer-credit a { color: var(--accent); text-decoration: none; }
     .footer-social { display: flex; gap: 1rem; align-items: center; }
     .social-link { color: var(--muted); transition: color 0.2s; display: flex; }
     .social-link:hover { color: var(--accent); }
 
-    @media (max-width: 600px) {
-      .series-grid { grid-template-columns: 1fr; }
-      .container { padding: 0 1.2rem; }
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { padding: 0 1.2rem; }
       .hero h1 { font-size: 1.6rem; }
       .card-arrow { display: none; }
     }
   </style>
 </head>
 <body>
+
+  {% assign bn_articles = site.pages | where: "layout", "post" | where_exp: "p", "p.lang != 'en'" | sort: "date" | reverse %}
+  {% assign all_count    = bn_articles | size %}
+  {% assign oop_count    = bn_articles | where_exp: "p", "p.url contains '/oop/'"           | size %}
+  {% assign sd_count     = bn_articles | where_exp: "p", "p.url contains '/system-design/'" | size %}
+  {% assign dsa_count    = bn_articles | where_exp: "p", "p.url contains '/dsa/'"           | size %}
+  {% assign net_count    = bn_articles | where_exp: "p", "p.url contains '/networking/'"    | size %}
+  {% assign db_count     = bn_articles | where_exp: "p", "p.url contains '/databases/'"     | size %}
 
   <nav>
     <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
@@ -137,149 +122,124 @@ permalink: /blog/
     </div>
   </nav>
 
-  {% assign bn_articles = site.pages | where: "layout", "post" | where_exp: "p", "p.lang != 'en'" | sort: "date" | reverse %}
-  {% assign all_count = bn_articles | size %}
+  <div class="layout">
 
-  {% assign oop_count  = bn_articles | where_exp: "p", "p.url contains '/oop/'"           | size %}
-  {% assign sd_count   = bn_articles | where_exp: "p", "p.url contains '/system-design/'" | size %}
-  {% assign dsa_count  = bn_articles | where_exp: "p", "p.url contains '/dsa/'"           | size %}
-  {% assign net_count  = bn_articles | where_exp: "p", "p.url contains '/networking/'"    | size %}
-  {% assign db_count   = bn_articles | where_exp: "p", "p.url contains '/databases/'"     | size %}
+    <aside class="sidebar">
+      <div class="sidebar-label">বিষয়</div>
 
-  <div class="container">
-
-    <section class="hero">
-      <div class="hero-tag">বাংলায় টেক</div>
-      <h1>সফটওয়্যার ইঞ্জিনিয়ারিং</h1>
-      <p>একটা চায়ের দোকান থেকে একটা কোটি ইউজারের সিস্টেম — মাঝখানে শুধু কিছু সিদ্ধান্ত। এই ব্লগে সেই সিদ্ধান্তগুলো বাংলায়, গল্পের ছলে।</p>
-    </section>
-
-    <div class="series-grid">
-
-      <div class="series-card{% if oop_count == 0 %} empty{% endif %}"
-           data-filter="/oop/" data-published="{{ oop_count }}" data-total="7"
-           data-name="OOP সিরিজ">
-        <div class="series-name">OOP সিরিজ</div>
-        <div class="series-subtitle">Object-Oriented Programming</div>
-        <div class="series-progress"></div>
+      <div class="sidebar-item active" data-filter="all">
+        সব লেখা
+        <span class="sidebar-count">{{ all_count }}</span>
       </div>
 
-      <div class="series-card{% if sd_count == 0 %} empty{% endif %}"
-           data-filter="/system-design/" data-published="{{ sd_count }}" data-total="8"
-           data-name="সিস্টেম ডিজাইন">
-        <div class="series-name">সিস্টেম ডিজাইন</div>
-        <div class="series-subtitle">System Design</div>
-        <div class="series-progress"></div>
+      <hr class="sidebar-divider"/>
+      <div class="sidebar-label">সিরিজ</div>
+
+      <div class="sidebar-item" data-filter="/oop/">
+        OOP
+        <span class="sidebar-count">{{ oop_count }}</span>
+      </div>
+      <div class="sidebar-item" data-filter="/system-design/">
+        System Design
+        <span class="sidebar-count">{{ sd_count }}</span>
+      </div>
+      <div class="sidebar-item" data-filter="/dsa/">
+        DSA
+        <span class="sidebar-count">{{ dsa_count }}</span>
+      </div>
+      <div class="sidebar-item" data-filter="/networking/">
+        Networking
+        <span class="sidebar-count">{{ net_count }}</span>
+      </div>
+      <div class="sidebar-item" data-filter="/databases/">
+        Databases
+        <span class="sidebar-count">{{ db_count }}</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-tag">বাংলায় টেক</div>
+        <h1>সফটওয়্যার ইঞ্জিনিয়ারিং</h1>
+        <p>একটা চায়ের দোকান থেকে একটা কোটি ইউজারের সিস্টেম — মাঝখানে শুধু কিছু সিদ্ধান্ত। এই ব্লগে সেই সিদ্ধান্তগুলো বাংলায়, গল্পের ছলে।</p>
+      </section>
+
+      <div class="section-header">
+        <span class="section-title" id="section-title">সব লেখা</span>
+        <span class="section-badge" id="section-badge">{{ all_count }}টি</span>
       </div>
 
-      <div class="series-card{% if dsa_count == 0 %} empty{% endif %}"
-           data-filter="/dsa/" data-published="{{ dsa_count }}" data-total="7"
-           data-name="DSA সিরিজ">
-        <div class="series-name">DSA সিরিজ</div>
-        <div class="series-subtitle">Data Structures & Algorithms</div>
-        <div class="series-progress"></div>
-      </div>
-
-      <div class="series-card{% if net_count == 0 %} empty{% endif %}"
-           data-filter="/networking/" data-published="{{ net_count }}" data-total="6"
-           data-name="নেটওয়ার্কিং">
-        <div class="series-name">নেটওয়ার্কিং</div>
-        <div class="series-subtitle">Networking</div>
-        <div class="series-progress"></div>
-      </div>
-
-      <div class="series-card{% if db_count == 0 %} empty{% endif %}"
-           data-filter="/databases/" data-published="{{ db_count }}" data-total="6"
-           data-name="ডেটাবেস">
-        <div class="series-name">ডেটাবেস</div>
-        <div class="series-subtitle">Databases</div>
-        <div class="series-progress"></div>
-      </div>
-
-    </div>
-
-    <div class="section-header">
-      <span class="section-title" id="section-title">সব লেখা</span>
-      <span class="section-badge" id="section-badge">{{ all_count }}টি</span>
-    </div>
-
-    <div class="articles" id="article-list">
-      {% for article in bn_articles %}
-        {% assign idx = forloop.index %}
-        <a href="{{ article.url }}" class="card" data-path="{{ article.url }}">
-          <div class="card-number">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-series">{{ article.series_label }}</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">{{ article.date_bn }}</span>
-              <span class="card-dot">·</span>
-              <span class="card-date">{{ article.read_time }}</span>
+      <div class="articles" id="article-list">
+        {% for article in bn_articles %}
+          {% assign idx = forloop.index %}
+          <a href="{{ article.url }}" class="card" data-path="{{ article.url }}">
+            <div class="card-number">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-series">{{ article.series_label }}</span>
+                <span class="card-dot">·</span>
+                <span class="card-date">{{ article.date_bn }}</span>
+                <span class="card-dot">·</span>
+                <span class="card-date">{{ article.read_time }}</span>
+              </div>
+              <div class="card-title">{{ article.title }}</div>
+              <div class="card-excerpt">{{ article.excerpt }}</div>
+              <div class="card-tags">
+                {% for tag in article.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+              </div>
             </div>
-            <div class="card-title">{{ article.title }}</div>
-            <div class="card-excerpt">{{ article.excerpt }}</div>
-            <div class="card-tags">
-              {% for tag in article.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
-            </div>
-          </div>
-          <div class="card-arrow">→</div>
-        </a>
-      {% endfor %}
-    </div>
+            <div class="card-arrow">→</div>
+          </a>
+        {% endfor %}
+      </div>
 
-    <div class="empty-state" id="empty-state">
-      এই সিরিজে এখনো কোনো লেখা নেই। শীঘ্রই আসছে।
-    </div>
+      <div class="empty-state" id="empty-state">
+        এই সিরিজে এখনো কোনো লেখা নেই। শীঘ্রই আসছে।
+      </div>
+    </main>
 
   </div>
 
   {% include footer.html %}
 
   <script>
-    document.querySelectorAll('.series-card').forEach(card => {
-      const published = parseInt(card.dataset.published) || 0;
-      const total = parseInt(card.dataset.total) || 7;
-      const container = card.querySelector('.series-progress');
-      let html = '';
-      for (let i = 1; i <= total; i++) {
-        const filled = i <= published;
-        html += `<span class="dot ${filled ? 'dot-filled' : 'dot-empty'}">${filled ? '●' : '○'}</span>`;
-      }
-      if (published > 0) {
-        html += `<span class="series-count">${published} টি লেখা</span>`;
-      }
-      container.innerHTML = html;
-    });
-
-    const seriesCards = document.querySelectorAll('.series-card:not(.empty)');
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
     const articleCards = document.querySelectorAll('#article-list .card');
     const sectionTitle = document.getElementById('section-title');
     const sectionBadge = document.getElementById('section-badge');
     const emptyState = document.getElementById('empty-state');
     const totalCount = articleCards.length;
 
-    function showAll() {
-      articleCards.forEach(c => c.style.display = '');
-      sectionTitle.textContent = 'সব লেখা';
-      sectionBadge.textContent = totalCount + 'টি';
-      emptyState.style.display = 'none';
-    }
+    const labels = {
+      'all': 'সব লেখা',
+      '/oop/': 'OOP',
+      '/system-design/': 'System Design',
+      '/dsa/': 'DSA',
+      '/networking/': 'Networking',
+      '/databases/': 'Databases'
+    };
 
-    seriesCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const isActive = card.classList.contains('active');
-        seriesCards.forEach(c => c.classList.remove('active'));
-        if (isActive) { showAll(); return; }
-        card.classList.add('active');
-        const filter = card.dataset.filter;
-        const name = card.dataset.name;
+    sidebarItems.forEach(item => {
+      item.addEventListener('click', () => {
+        sidebarItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+
+        const filter = item.dataset.filter;
+        sectionTitle.textContent = labels[filter] || filter;
+
+        if (filter === 'all') {
+          articleCards.forEach(c => c.style.display = '');
+          sectionBadge.textContent = totalCount + 'টি';
+          emptyState.style.display = 'none';
+          return;
+        }
+
         let visible = 0;
         articleCards.forEach(c => {
           const match = c.dataset.path.includes(filter);
           c.style.display = match ? '' : 'none';
           if (match) visible++;
         });
-        sectionTitle.textContent = name;
         sectionBadge.textContent = visible + 'টি';
         emptyState.style.display = visible === 0 ? 'block' : 'none';
       });
