@@ -1,6 +1,6 @@
 ---
-title: "Real World Case Studies — বাংলায়"
-description: "Netflix, Uber, Discord, Meta — বড় কোম্পানিগুলো কীভাবে real engineering সমস্যা সমাধান করে। বাংলায় ব্যাখ্যা।"
+title: "Engineering Case Studies — Bengali Tech Blog"
+description: "How Netflix, Uber, Discord, Meta and others solve real engineering problems — explained in Bengali."
 permalink: /case-studies/
 ---
 <!DOCTYPE html>
@@ -128,10 +128,10 @@ permalink: /case-studies/
   <div class="layout">
 
     <aside class="sidebar">
-      <div class="sidebar-label">ফিল্টার</div>
+      <div class="sidebar-label">Filter</div>
 
       <div class="sidebar-item active" data-filter="all">
-        সব
+        All
         <span class="sidebar-count">{{ all_count }}</span>
       </div>
 
@@ -153,18 +153,18 @@ permalink: /case-studies/
       <section class="hero">
         <div class="hero-tag">Real World</div>
         <h1>Case Studies</h1>
-        <p>Netflix, Uber, Discord, Meta — বড় কোম্পানিগুলো কীভাবে real engineering সমস্যা সমাধান করে। মূল article থেকে অনুপ্রাণিত, বাংলায় ব্যাখ্যা।</p>
+        <p>How Netflix, Uber, Discord, Meta and others solve real engineering problems — explained in Bengali through original articles inspired by their engineering blogs.</p>
       </section>
 
       <div class="section-header">
-        <span class="section-title" id="section-title">সব</span>
-        <span class="section-badge" id="section-badge">{{ all_count }}টি</span>
+        <span class="section-title" id="section-title">All</span>
+        <span class="section-badge" id="section-badge">{{ all_count }}</span>
       </div>
 
       <div class="articles" id="article-list">
         {% if all_count == 0 %}
           <div class="empty-state">
-            শীঘ্রই আসছে। প্রথম case study প্রকাশিত হলে এখানে দেখা যাবে।
+            Coming soon. The first case study will appear here when published.
           </div>
         {% else %}
           {% for article in cs_articles %}
@@ -209,7 +209,7 @@ permalink: /case-studies/
         item.classList.add('active');
 
         const filter = item.dataset.filter;
-        sectionTitle.textContent = filter === 'all' ? 'সব' : filter;
+        sectionTitle.textContent = filter === 'all' ? 'All' : filter;
 
         if (filter === 'all') {
           articleCards.forEach(c => c.style.display = '');

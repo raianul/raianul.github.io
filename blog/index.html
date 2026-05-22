@@ -1,6 +1,6 @@
 ---
-title: "বাংলায় সফটওয়্যার ইঞ্জিনিয়ারিং"
-description: "OOP, System Design, DSA — বাংলায় গল্পের ছলে। বাংলাদেশের ডেভেলপারদের জন্য।"
+title: "Software Engineering — Bengali Tech Blog"
+description: "OOP, System Design, Design Patterns, Databases, APIs, Concurrency — explained in Bengali through stories."
 permalink: /blog/
 ---
 <!DOCTYPE html>
@@ -118,28 +118,28 @@ permalink: /blog/
 
   <div class="main">
     <section class="hero">
-      <div class="hero-tag">বাংলায় টেক</div>
-      <h1>সফটওয়্যার ইঞ্জিনিয়ারিং</h1>
-      <p>সহজ গল্পে কঠিন ধারণা। বাংলাদেশের ডেভেলপারদের জন্য।</p>
+      <div class="hero-tag">Bengali Tech</div>
+      <h1>Software Engineering</h1>
+      <p>Complex concepts explained simply — through Bengali stories. For Bangladeshi developers.</p>
     </section>
 
-    <div class="section-label">সিরিজ</div>
+    <div class="section-label">Series</div>
 
     <div class="series-grid">
 
       <!-- OOP -->
       {% if oop_count > 0 %}
       <a href="/oop/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ oop_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ oop_count }} articles</span></div>
         <div class="series-name">OOP</div>
-        <div class="series-desc">Class, Object, Inheritance, Polymorphism, SOLID — অবজেক্ট ওরিয়েন্টেড প্রোগ্রামিং।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Class, Object, Inheritance, Polymorphism, SOLID — object-oriented programming from the ground up.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">OOP</div>
-        <div class="series-desc">Class, Object, Inheritance, Polymorphism, SOLID।</div>
+        <div class="series-desc">Class, Object, Inheritance, Polymorphism, SOLID.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -147,16 +147,16 @@ permalink: /blog/
       <!-- Design Principles -->
       {% if dp_count > 0 %}
       <a href="/design-principles/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ dp_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ dp_count }} articles</span></div>
         <div class="series-name">Design Principles</div>
-        <div class="series-desc">DRY, KISS, YAGNI, Separation of Concerns — ভালো কোডের মূলনীতি।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">DRY, KISS, YAGNI, Separation of Concerns — the rules behind good code.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Design Principles</div>
-        <div class="series-desc">DRY, KISS, YAGNI, Separation of Concerns।</div>
+        <div class="series-desc">DRY, KISS, YAGNI, Separation of Concerns.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -164,16 +164,16 @@ permalink: /blog/
       <!-- Design Patterns -->
       {% if pat_count > 0 %}
       <a href="/design-patterns/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ pat_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ pat_count }} articles</span></div>
         <div class="series-name">Design Patterns</div>
-        <div class="series-desc">Singleton, Factory, Observer, Strategy — বারবার কাজে লাগে এমন সমাধান।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Singleton, Factory, Observer, Strategy — proven solutions to recurring problems.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Design Patterns</div>
-        <div class="series-desc">Singleton, Factory, Observer, Strategy, Decorator।</div>
+        <div class="series-desc">Singleton, Factory, Observer, Strategy, Decorator.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -181,16 +181,16 @@ permalink: /blog/
       <!-- Concurrency -->
       {% if con_count > 0 %}
       <a href="/concurrency/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ con_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ con_count }} articles</span></div>
         <div class="series-name">Concurrency</div>
-        <div class="series-desc">Thread, Mutex, Deadlock, Async/Await — একসাথে অনেক কাজ করার বিজ্ঞান।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Thread, Mutex, Deadlock, Async/Await — the science of doing many things at once.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Concurrency</div>
-        <div class="series-desc">Thread, Mutex, Deadlock, Async/Await, Event Loop।</div>
+        <div class="series-desc">Thread, Mutex, Deadlock, Async/Await, Event Loop.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -198,16 +198,16 @@ permalink: /blog/
       <!-- API Fundamentals -->
       {% if api_count > 0 %}
       <a href="/api-fundamentals/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ api_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ api_count }} articles</span></div>
         <div class="series-name">API Fundamentals</div>
-        <div class="series-desc">REST, HTTP Methods, Auth, Rate Limiting — API কীভাবে কাজ করে।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">REST, HTTP Methods, Auth, Rate Limiting — how APIs actually work.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">API Fundamentals</div>
-        <div class="series-desc">REST, HTTP Methods, OAuth, JWT, OpenAPI।</div>
+        <div class="series-desc">REST, HTTP Methods, OAuth, JWT, OpenAPI.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -215,16 +215,16 @@ permalink: /blog/
       <!-- System Design -->
       {% if sd_count > 0 %}
       <a href="/system-design/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ sd_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ sd_count }} articles</span></div>
         <div class="series-name">System Design</div>
-        <div class="series-desc">DNS, Load Balancer, CDN, Caching, Message Queue — বড় সিস্টেম কীভাবে তৈরি হয়।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">DNS, Load Balancer, CDN, Caching, Message Queue — how large-scale systems are built.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">System Design</div>
-        <div class="series-desc">DNS, Load Balancer, CDN, Rate Limiting, Circuit Breaker।</div>
+        <div class="series-desc">DNS, Load Balancer, CDN, Rate Limiting, Circuit Breaker.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -232,16 +232,16 @@ permalink: /blog/
       <!-- Distributed Systems -->
       {% if dis_count > 0 %}
       <a href="/distributed-systems/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ dis_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ dis_count }} articles</span></div>
         <div class="series-name">Distributed Systems</div>
-        <div class="series-desc">Microservices, Service Discovery, Consensus, Distributed Tracing।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Microservices, Service Discovery, Consensus, Distributed Tracing.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Distributed Systems</div>
-        <div class="series-desc">Microservices, Service Discovery, Consensus, Tracing।</div>
+        <div class="series-desc">Microservices, Service Discovery, Consensus, Tracing.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -249,16 +249,16 @@ permalink: /blog/
       <!-- Architectural Patterns -->
       {% if arc_count > 0 %}
       <a href="/architecture/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ arc_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ arc_count }} articles</span></div>
         <div class="series-name">Architectural Patterns</div>
-        <div class="series-desc">Monolith, Microservices, Serverless, Event-Driven, CQRS।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Monolith, Microservices, Serverless, Event-Driven, CQRS.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Architectural Patterns</div>
-        <div class="series-desc">Monolith, Microservices, Serverless, Event-Driven, CQRS।</div>
+        <div class="series-desc">Monolith, Microservices, Serverless, Event-Driven, CQRS.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -266,16 +266,16 @@ permalink: /blog/
       <!-- Async Communication -->
       {% if asy_count > 0 %}
       <a href="/async/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ asy_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ asy_count }} articles</span></div>
         <div class="series-name">Async Communication</div>
-        <div class="series-desc">Pub/Sub, Message Queue, Kafka, Event-Driven Architecture।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Pub/Sub, Message Queue, Kafka, Event-Driven Architecture.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Async Communication</div>
-        <div class="series-desc">Pub/Sub, Message Queue, Kafka, CDC, Dead Letter Queue।</div>
+        <div class="series-desc">Pub/Sub, Message Queue, Kafka, CDC, Dead Letter Queue.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -283,16 +283,16 @@ permalink: /blog/
       <!-- Caching -->
       {% if cac_count > 0 %}
       <a href="/caching/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ cac_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ cac_count }} articles</span></div>
         <div class="series-name">Caching</div>
-        <div class="series-desc">Cache Strategies, Eviction Policies, Redis, CDN — দ্রুততার রহস্য।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Cache Strategies, Eviction Policies, Redis, CDN — the secret to speed.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Caching</div>
-        <div class="series-desc">Cache Strategies, Eviction Policies, Redis, Distributed Cache।</div>
+        <div class="series-desc">Cache Strategies, Eviction Policies, Redis, Distributed Cache.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -300,16 +300,16 @@ permalink: /blog/
       <!-- Database Fundamentals -->
       {% if db_count > 0 %}
       <a href="/databases/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ db_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ db_count }} articles</span></div>
         <div class="series-name">Database Fundamentals</div>
-        <div class="series-desc">SQL, Joins, Transactions, Normalization — ডেটাবেজের ভিত্তি।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">SQL, Joins, Transactions, Normalization — the foundation of databases.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Database Fundamentals</div>
-        <div class="series-desc">SQL, Joins, Transactions, ACID, Normalization।</div>
+        <div class="series-desc">SQL, Joins, Transactions, ACID, Normalization.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -317,16 +317,16 @@ permalink: /blog/
       <!-- Database Deep Dive -->
       {% if dbx_count > 0 %}
       <a href="/database-deep-dive/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ dbx_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ dbx_count }} articles</span></div>
         <div class="series-name">Database Deep Dive</div>
-        <div class="series-desc">Sharding, Replication, Scaling, Bloom Filters — ডেটাবেজের গভীরে।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Sharding, Replication, Scaling, Bloom Filters — databases at depth.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Database Deep Dive</div>
-        <div class="series-desc">Sharding, Replication, Scaling, Bloom Filters।</div>
+        <div class="series-desc">Sharding, Replication, Scaling, Bloom Filters.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -334,16 +334,16 @@ permalink: /blog/
       <!-- DSA -->
       {% if dsa_count > 0 %}
       <a href="/dsa/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ dsa_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ dsa_count }} articles</span></div>
         <div class="series-name">DSA</div>
-        <div class="series-desc">Data Structures, Algorithms — কোডিং ইন্টারভিউর প্রস্তুতি।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Data Structures, Algorithms — coding interview preparation.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">DSA</div>
-        <div class="series-desc">Data Structures, Algorithms — কোডিং ইন্টারভিউর প্রস্তুতি।</div>
+        <div class="series-desc">Data Structures, Algorithms — coding interview preparation.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -351,16 +351,16 @@ permalink: /blog/
       <!-- Networking -->
       {% if net_count > 0 %}
       <a href="/networking/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ net_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ net_count }} articles</span></div>
         <div class="series-name">Networking</div>
-        <div class="series-desc">HTTP, TCP/IP, DNS, TLS — ইন্টারনেট কীভাবে কাজ করে।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">HTTP, TCP/IP, DNS, TLS — how the internet works.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">Networking</div>
-        <div class="series-desc">HTTP, TCP/IP, DNS, TLS।</div>
+        <div class="series-desc">HTTP, TCP/IP, DNS, TLS.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
@@ -368,16 +368,16 @@ permalink: /blog/
       <!-- AI Series -->
       {% if ai_count > 0 %}
       <a href="/ai-series/" class="series-card">
-        <div class="series-card-top"><span class="series-count">{{ ai_count }}টি লেখা</span></div>
+        <div class="series-card-top"><span class="series-count">{{ ai_count }} articles</span></div>
         <div class="series-name">AI</div>
-        <div class="series-desc">Machine Learning, LLMs, RAG — কৃত্রিম বুদ্ধিমত্তার জগত।</div>
-        <span class="series-arrow">পড়তে শুরু করো →</span>
+        <div class="series-desc">Machine Learning, LLMs, RAG — the world of artificial intelligence.</div>
+        <span class="series-arrow">Start reading →</span>
       </a>
       {% else %}
       <div class="series-card series-card--empty">
-        <div class="series-card-top"><span class="series-count series-count--empty">শীঘ্রই</span></div>
+        <div class="series-card-top"><span class="series-count series-count--empty">Soon</span></div>
         <div class="series-name">AI</div>
-        <div class="series-desc">Machine Learning, LLMs, RAG।</div>
+        <div class="series-desc">Machine Learning, LLMs, RAG.</div>
         <span class="series-coming">Coming soon</span>
       </div>
       {% endif %}
