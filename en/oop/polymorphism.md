@@ -1,6 +1,7 @@
 ---
 title: "Polymorphism: One Command, Fifty Different Jobs"
 tags: [Polymorphism, OOP, "Method Overriding", "Method Overloading", LLD]
+description: "Ray says one thing every morning: let's get to work. The sewers sew, the cutters cut, the packers pack. One command, fifty different jobs. That's Polymorphism."
 date: 2026-05-21
 date_en: "May 2026"
 read_time: "7 min"

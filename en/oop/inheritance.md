@@ -1,6 +1,7 @@
 ---
 title: "Inheritance: Dad's a GP, Son's a Cardiologist"
 tags: [Inheritance, OOP, LLD, "Code Reuse"]
+description: "Dr. Frank Miller trained two residents at Mount Sinai. One became a cardiologist, the other a surgeon. Both took everything he taught them and built on top. That's Inheritance — explained through a story."
 date: 2026-05-20
 date_en: "May 2026"
 read_time: "7 min"
