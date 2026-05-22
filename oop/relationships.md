@@ -40,12 +40,12 @@ Object-oriented programming-এও ঠিক এইভাবে object-রা �
 {% include code-blocks/relationships/code-1.html %}
 
 ```python
-selim = Supplier("সেলিম ভাই")
-sumon = Worker("সুমন", supplier=selim)
+selim = Supplier("Selim")
+sumon = Worker("Sumon", supplier=selim)
 
-sumon.request_item("সুতি কাপড়")
-# সেলিম ভাই: preparing সুতি কাপড়
-# সুমন: received সুতি কাপড়
+sumon.request_item("cotton fabric")
+# Selim: preparing cotton fabric
+# Sumon: received cotton fabric
 ```
 
 `sumon` চলে গেলেও `selim` থাকবেন। **দুজনের lifecycle আলাদা** — এটাই Association-এর মূল কথা।
@@ -67,15 +67,15 @@ Aggregation মানে: "whole"-এর কাছে "part" আছে, কি�
 {% include code-blocks/relationships/code-2.html %}
 
 ```python
-sumon  = Worker("সুমন")
-babul  = Worker("বাবুল")
-matin  = Worker("মতিন")
+sumon  = Worker("Sumon")
+babul  = Worker("Babul")
+matin  = Worker("Matin")
 
-shop = Shop("কামাল টেইলার্স", workers=[sumon, babul, matin])
+shop = Shop("Kamal Tailors", workers=[sumon, babul, matin])
 shop.open()
-# সুমন is working
-# বাবুল is working
-# মতিন is working
+# Sumon is working
+# Babul is working
+# Matin is working
 ```
 
 `workers` list বাইরে থেকে pass করা হয়েছে — `Shop` তাদের তৈরি করেনি। `shop` object চলে গেলেও `sumon`, `babul`, `matin` memory-তে থাকবে।
@@ -97,7 +97,7 @@ shop.open()
 {% include code-blocks/relationships/code-3.html %}
 
 ```python
-shop = Shop("কামাল টেইলার্স")
+shop = Shop("Kamal Tailors")
 shop.accept_job("ORDER-0042")
 # Station #1: working on ORDER-0042
 ```
@@ -126,11 +126,11 @@ shop.accept_job("ORDER-0042")
 
 ```python
 spec  = Specification()
-sumon = Worker("সুমন")
+sumon = Worker("Sumon")
 
 sumon.process_order("ORDER-0042", spec)
 # Looking up spec for ORDER-0042...
-# সুমন: processing order ORDER-0042
+# Sumon: processing order ORDER-0042
 #   measurement_a: 40
 #   measurement_b: 34
 #   measurement_c: 16
@@ -159,10 +159,10 @@ UML diagram-এ এটা dashed arrow দিয়ে আঁকা হয়।
 ```python
 shop = Workshop()
 shop.safe_environment()
-shop.fair_wages("সুমন")
+shop.fair_wages("Sumon")
 shop.quality_output("ORDER-0042")
 # Fire exits clear, safety equipment in place
-# সুমন: paid on time
+# Sumon: paid on time
 # Order ORDER-0042: completed to standard
 ```
 
