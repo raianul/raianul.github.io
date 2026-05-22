@@ -133,11 +133,22 @@ description: "Bengali tech writing and AI tools by Raian."
 
     /* ABOUT */
     .about {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
       padding-top: 2.5rem;
       margin-top: 0.5rem;
       border-top: 1px solid var(--border);
       margin-bottom: 3rem;
     }
+    .about-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .about-content { flex: 1; }
     .about-label {
       font-size: 0.7rem;
       font-weight: 600;
@@ -153,6 +164,10 @@ description: "Bengali tech writing and AI tools by Raian."
       margin-bottom: 1rem;
     }
     .about p:last-child { margin-bottom: 0; }
+    @media (max-width: 540px) {
+      .about { flex-direction: column; }
+      .about-photo { width: 120px; height: 120px; }
+    }
 
     /* SOCIAL */
     .social {
@@ -222,10 +237,13 @@ description: "Bengali tech writing and AI tools by Raian."
     </div>
 
     <div class="about">
-      <div class="about-label">About</div>
-      <p>Senior Backend Engineer at gridscale (OVHcloud) in Berlin. I work on the API and business logic layer for OVHcloud's sovereign cloud initiative, with a focus on SecNumCloud (SNC) compliance. My work involves building identity and access management APIs that allow customers to manage regions, projects, and access control across compliant cloud infrastructure. I was one of the core developers behind an internal distributed saga orchestration framework for coordinating multi-service provisioning workflows, covering failure detection, rollback, and dynamic task expansion.</p>
-      <p>The majority of my career was at NewsCred Inc. (later acquired by Optimizely), where I focused on the Ingestion System: a pipeline that continuously pulled live news content from major wire services like AP, AFP, Reuters, and Getty Images, processed it, and served it through search and filtering APIs to customers worldwide. I also led the complete overhaul of the Smart Press application.</p>
-      <p>I work primarily with Python, microservices, and distributed systems.</p>
+      <img src="/assets/raian.jpeg" alt="Sayed Raianul Kabir" class="about-photo"/>
+      <div class="about-content">
+        <div class="about-label">About</div>
+        <p>Senior Backend Engineer at gridscale (OVHcloud) in Berlin. I work on the API and business logic layer for OVHcloud's sovereign cloud initiative, with a focus on SecNumCloud (SNC) compliance. My work involves building identity and access management APIs that allow customers to manage regions, projects, and access control across compliant cloud infrastructure. I was one of the core developers behind an internal distributed saga orchestration framework for coordinating multi-service provisioning workflows, covering failure detection, rollback, and dynamic task expansion.</p>
+        <p>The majority of my career was at NewsCred Inc. (later acquired by Optimizely), where I focused on the Ingestion System: a pipeline that continuously pulled live news content from major wire services like AP, AFP, Reuters, and Getty Images, processed it, and served it through search and filtering APIs to customers worldwide. I also led the complete overhaul of the Smart Press application.</p>
+        <p>I work primarily with Python, microservices, and distributed systems.</p>
+      </div>
     </div>
 
     <div class="social">
