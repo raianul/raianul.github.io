@@ -57,7 +57,7 @@ description: "Bengali tech writing and AI tools by Raian."
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       max-width: 720px;
       margin: 0 auto;
       padding: 4rem 2rem;
@@ -131,6 +131,29 @@ description: "Bengali tech writing and AI tools by Raian."
     }
     .dest-card:hover .dest-arrow { transform: translateX(4px); }
 
+    /* ABOUT */
+    .about {
+      padding-top: 2.5rem;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .about-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .about p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+    .about p:last-child { margin-bottom: 0; }
+
     /* SOCIAL */
     .social {
       display: flex;
@@ -196,6 +219,13 @@ description: "Bengali tech writing and AI tools by Raian."
         <span class="dest-arrow">Explore →</span>
       </a>
 
+    </div>
+
+    <div class="about">
+      <div class="about-label">About</div>
+      <p>Senior Backend Engineer at gridscale (OVHcloud) in Berlin. I work on the API and business logic layer for OVHcloud's sovereign cloud initiative, with a focus on SecNumCloud (SNC) compliance. My work involves building identity and access management APIs that allow customers to manage regions, projects, and access control across compliant cloud infrastructure. I was one of the core developers behind an internal distributed saga orchestration framework for coordinating multi-service provisioning workflows, covering failure detection, rollback, and dynamic task expansion.</p>
+      <p>The majority of my career was at NewsCred Inc. (later acquired by Optimizely), where I focused on the Ingestion System: a pipeline that continuously pulled live news content from major wire services like AP, AFP, Reuters, and Getty Images, processed it, and served it through search and filtering APIs to customers worldwide. I also led the complete overhaul of the Smart Press application.</p>
+      <p>I work primarily with Python, microservices, and distributed systems.</p>
     </div>
 
     <div class="social">
