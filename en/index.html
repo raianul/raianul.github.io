@@ -1,0 +1,156 @@
+---
+title: "Software Engineering in Bengali"
+description: "OOP, System Design, DSA — explained in Bengali through stories. For Bangladeshi developers."
+lang: en
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QGCTH06MZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8QGCTH06MZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  {% seo %}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #ffffff; --surface: #f5f5f5; --border: #e8e8e8;
+      --text: #1a1a1a; --muted: #888; --accent: #5b4de8;
+      --accent-soft: #5b4de812; --tag-bg: #f0f0f0; --sidebar-width: 220px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; line-height: 1.6; }
+    nav {
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px; position: sticky; top: 0; background: var(--bg); z-index: 100;
+    }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .lang-toggle { display: flex; align-items: center; gap: 4px; }
+    .lang-btn { font-size: 0.78rem; font-family: 'Inter', sans-serif; padding: 3px 10px; border-radius: 4px; color: var(--muted); text-decoration: none; border: 1px solid var(--border); transition: color 0.15s, border-color 0.15s; }
+    .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .lang-btn:not(.active):hover { color: var(--text); border-color: var(--text); }
+    .layout { display: flex; max-width: 1100px; margin: 0 auto; min-height: calc(100vh - 60px); }
+    .sidebar { width: var(--sidebar-width); flex-shrink: 0; border-right: 1px solid var(--border); padding: 2rem 0; position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; }
+    .sidebar-label { font-size: 0.7rem; font-weight: 600; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Inter', sans-serif; padding: 0 1.2rem 0.8rem; }
+    .sidebar-item { display: flex; align-items: center; justify-content: space-between; padding: 0.55rem 1.2rem; border-radius: 6px; margin: 0 0.5rem; font-size: 0.9rem; color: var(--muted); transition: all 0.15s; }
+    .sidebar-item.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+    .sidebar-count { font-size: 0.7rem; background: var(--tag-bg); border: 1px solid var(--border); color: var(--muted); padding: 1px 7px; border-radius: 10px; }
+    .sidebar-item.active .sidebar-count { border-color: var(--accent); color: var(--accent); }
+    .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 1rem 1.2rem; }
+    .main { flex: 1; min-width: 0; padding: 0 2.5rem; }
+    .hero { padding: 3.5rem 0 2rem; }
+    .hero-tag { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 0.75rem; font-weight: 600; padding: 3px 11px; border-radius: 20px; margin-bottom: 1rem; letter-spacing: 0.5px; }
+    .hero h1 { font-size: 2rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.5px; margin-bottom: 0.8rem; }
+    .hero p { color: var(--muted); font-size: 0.95rem; max-width: 480px; line-height: 1.8; }
+    .section-header { display: flex; align-items: center; gap: 0.8rem; padding: 1.5rem 0 1rem; border-top: 1px solid var(--border); }
+    .section-title { font-size: 0.78rem; font-weight: 600; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+    .section-badge { font-size: 0.7rem; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+    .articles { display: flex; flex-direction: column; padding-bottom: 4rem; }
+    .card { padding: 1.5rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 1.2rem; align-items: flex-start; text-decoration: none; color: inherit; transition: all 0.15s; border-radius: 8px; }
+    .card:hover { background: var(--surface); padding-left: 0.8rem; padding-right: 0.8rem; margin: 0 -0.8rem; }
+    .card-number { font-size: 0.75rem; color: var(--accent); font-weight: 600; min-width: 24px; padding-top: 3px; }
+    .card-body { flex: 1; }
+    .card-meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+    .card-series { font-size: 0.72rem; color: var(--accent); font-weight: 500; }
+    .card-dot { color: var(--border); font-size: 0.65rem; }
+    .card-date { font-size: 0.72rem; color: var(--muted); }
+    .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.4; transition: color 0.2s; }
+    .card:hover .card-title { color: var(--accent); }
+    .card-excerpt { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.7rem; }
+    .card-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .tag { background: var(--tag-bg); color: var(--muted); font-size: 0.7rem; padding: 2px 9px; border-radius: 20px; border: 1px solid var(--border); }
+    .card-arrow { color: var(--muted); font-size: 1rem; padding-top: 3px; transition: color 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { color: var(--accent); transform: translateX(4px); }
+    footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
+    .footer-credit { color: var(--muted); font-size: 0.82rem; }
+    .footer-credit a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 768px) { .sidebar { display: none; } .main { padding: 0 1.2rem; } .hero h1 { font-size: 1.6rem; } .card-arrow { display: none; } }
+  </style>
+</head>
+<body>
+
+  {% assign en_articles = site.pages | where: "layout", "post" | where: "lang", "en" | sort: "date" | reverse %}
+  {% assign en_count = en_articles | size %}
+  {% assign en_oop_count = en_articles | where: "category", "oop" | size %}
+
+  <nav>
+    <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
+    <div class="nav-links">
+      <a href="/en/">Articles</a>
+      <a href="https://github.com/raianul" target="_blank">GitHub</a>
+      <div class="lang-toggle">
+        <a href="/" class="lang-btn">বাংলা</a>
+        <span class="lang-btn active">EN</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-label">Topics</div>
+      <div class="sidebar-item active">
+        All Articles
+        <span class="sidebar-count">{{ en_count }}</span>
+      </div>
+      <hr class="sidebar-divider"/>
+      <div class="sidebar-label">OOP</div>
+      <div class="sidebar-item">
+        OOP Series
+        <span class="sidebar-count">{{ en_oop_count }}</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-tag">Bengali Tech</div>
+        <h1>Software Engineering</h1>
+        <p>Complex ideas explained through simple stories — OOP, System Design, DSA. Originally written in Bengali, translated for English readers.</p>
+      </section>
+
+      <div class="section-header">
+        <span class="section-title">All Articles</span>
+        <span class="section-badge">{{ en_count }}</span>
+      </div>
+
+      <div class="articles">
+        {% for article in en_articles %}
+          <a href="{{ article.url }}" class="card">
+            <div class="card-number">{% if forloop.index < 10 %}0{{ forloop.index }}{% else %}{{ forloop.index }}{% endif %}</div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-series">{{ article.series_label }}</span>
+                <span class="card-dot">·</span>
+                <span class="card-date">{{ article.date | date: "%B %Y" }}</span>
+                <span class="card-dot">·</span>
+                <span class="card-date">{{ article.read_time }}</span>
+              </div>
+              <div class="card-title">{{ article.title }}</div>
+              <div class="card-excerpt">{{ article.description }}</div>
+              <div class="card-tags">
+                {% for tag in article.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+              </div>
+            </div>
+            <div class="card-arrow">→</div>
+          </a>
+        {% endfor %}
+      </div>
+    </main>
+  </div>
+
+  {% include footer.html %}
+
+</body>
+</html>
