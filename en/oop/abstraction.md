@@ -1,10 +1,5 @@
 ---
-layout: post
 title: "Abstraction: Hide the Complexity, Show the Interface"
-series: "OOP Series"
-series_label: "OOP"
-category: oop
-lang: en
 tags: [Abstraction, OOP, Abstract Class]
 date: 2026-05-17
 read_time: "8 min"

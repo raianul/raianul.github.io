@@ -1,10 +1,5 @@
 ---
-layout: post
 title: "Enums: When Options Must Be Fixed"
-series: "OOP Series"
-series_label: "OOP"
-category: oop
-lang: en
 tags: [Enum, OOP, Type Safety]
 date: 2026-05-21
 read_time: "7 min"

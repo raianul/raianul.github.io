@@ -1,9 +1,5 @@
 ---
-layout: post
 title: "Enum: রিনা আপার অর্ডার খাতার বিশৃঙ্খলা"
-series: "OOP সিরিজ"
-series_label: "OOP"
-category: oop
 tags: [Enum, OOP, Constants]
 date: 2026-05-16
 date_bn: "মে ২০২৬"

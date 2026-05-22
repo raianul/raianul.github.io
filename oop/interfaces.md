@@ -1,9 +1,5 @@
 ---
-layout: post
 title: "Interface: Pathao জানে না bKash কীভাবে কাজ করে, তবু পেমেন্ট হয়"
-series: "OOP সিরিজ"
-series_label: "OOP"
-category: oop
 tags: [Interface, OOP, Abstraction]
 date: 2026-05-17
 date_bn: "মে ২০২৬"

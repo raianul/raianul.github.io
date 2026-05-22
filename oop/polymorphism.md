@@ -1,9 +1,5 @@
 ---
-layout: post
 title: "Polymorphism: রনি ভাইয়ের একটা নির্দেশ, পঞ্চাশটা আলাদা কাজ"
-series: "OOP সিরিজ"
-series_label: "OOP"
-category: oop
 tags: [Polymorphism, OOP, "Method Overriding", "Method Overloading", LLD]
 date: 2026-05-21
 date_bn: "মে ২০২৬"

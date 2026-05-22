@@ -1,10 +1,5 @@
 ---
-layout: post
 title: "Interfaces: The Contract You Must Keep"
-series: "OOP Series"
-series_label: "OOP"
-category: oop
-lang: en
 tags: [Interface, OOP, Loose Coupling]
 date: 2026-05-19
 read_time: "8 min"

@@ -1,9 +1,5 @@
 ---
-layout: post
 title: "ক্লাস আর অবজেক্ট: একটা ছাঁচ, হাজার পাতিল"
-series: "LLD (Low Level Design) সিরিজ"
-series_label: "OOP"
-category: oop
 tags: [Class, Object, OOP, LLD]
 date: 2026-05-15
 date_bn: "মে ২০২৬"

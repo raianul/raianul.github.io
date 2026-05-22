@@ -15,6 +15,51 @@ plugins:
 
 permalink: pretty
 
+defaults:
+  - scope:
+      path: "oop"
+    values:
+      layout: post
+      category: oop
+      series: "OOP সিরিজ"
+      series_label: "OOP"
+  - scope:
+      path: "en/oop"
+    values:
+      layout: post
+      category: oop
+      lang: en
+      series: "OOP Series"
+      series_label: "OOP"
+  - scope:
+      path: "system-design"
+    values:
+      layout: post
+      category: system-design
+      series: "System Design সিরিজ"
+      series_label: "System Design"
+  - scope:
+      path: "dsa"
+    values:
+      layout: post
+      category: dsa
+      series: "DSA সিরিজ"
+      series_label: "DSA"
+  - scope:
+      path: "networking"
+    values:
+      layout: post
+      category: networking
+      series: "Networking সিরিজ"
+      series_label: "Networking"
+  - scope:
+      path: "databases"
+    values:
+      layout: post
+      category: databases
+      series: "Databases সিরিজ"
+      series_label: "Databases"
+
 markdown: kramdown
 kramdown:
   input: GFM

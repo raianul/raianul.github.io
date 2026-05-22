@@ -1,10 +1,5 @@
 ---
-layout: post
 title: "Polymorphism: One Call, Many Behaviours"
-series: "OOP Series"
-series_label: "OOP"
-category: oop
-lang: en
 tags: [Polymorphism, OOP, Method Overriding]
 date: 2026-05-20
 read_time: "9 min"

@@ -1,10 +1,5 @@
 ---
-layout: post
 title: "Classes and Objects: One Mold, Thousand Pots"
-series: "OOP Series"
-series_label: "OOP"
-category: oop
-lang: en
 tags: [Class, Object, OOP]
 date: 2026-05-15
 read_time: "7 min"

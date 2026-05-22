@@ -1,10 +1,5 @@
 ---
-layout: post
 title: "Encapsulation: Don't Touch What You Shouldn't"
-series: "OOP Series"
-series_label: "OOP"
-category: oop
-lang: en
 tags: [Encapsulation, OOP, Access Modifiers]
 date: 2026-05-16
 read_time: "7 min"

@@ -1,9 +1,5 @@
 ---
-layout: post
 title: "Encapsulation: তোমার bKash balance কেউ সরাসরি ছুঁতে পারে না"
-series: "OOP সিরিজ"
-series_label: "OOP"
-category: oop
 tags: [Encapsulation, OOP, "Access Modifiers", "Data Hiding"]
 date: 2026-05-18
 date_bn: "মে ২০২৬"

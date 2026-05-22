@@ -1,10 +1,5 @@
 ---
-layout: post
 title: "Inheritance: The Knowledge That Passes Down"
-series: "OOP Series"
-series_label: "OOP"
-category: oop
-lang: en
 tags: [Inheritance, OOP, Subclass]
 date: 2026-05-18
 read_time: "8 min"

@@ -1,9 +1,5 @@
 ---
-layout: post
 title: "Abstraction: গন্তব্য বলো, বাকিটা জানার দরকার নেই"
-series: "OOP সিরিজ"
-series_label: "OOP"
-category: oop
 tags: [Abstraction, OOP, "Abstract Class", LLD]
 date: 2026-05-19
 date_bn: "মে ২০২৬"

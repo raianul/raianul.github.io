@@ -1,9 +1,5 @@
 ---
-layout: post
 title: "Inheritance: বাবা সাধারণ ডাক্তার, ছেলে হার্ট বিশেষজ্ঞ"
-series: "OOP সিরিজ"
-series_label: "OOP"
-category: oop
 tags: [Inheritance, OOP, LLD, "Code Reuse"]
 date: 2026-05-20
 date_bn: "মে ২০২৬"
