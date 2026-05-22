@@ -1,0 +1,25 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    I["PaymentGateway Interface
+    (Contract)
+    process_payment()
+    refund()
+    get_transaction_status()"]:::box
+
+    B["BkashPayment
+    (own implementation)"]:::box
+    N["NagadPayment
+    (own implementation)"]:::box
+    R["RocketPayment
+    (own implementation)"]:::box
+    C["CardPayment
+    (own implementation)"]:::box
+
+    I -->|"implements"| B
+    I -->|"implements"| N
+    I -->|"implements"| R
+    I -->|"implements"| C
+</div>

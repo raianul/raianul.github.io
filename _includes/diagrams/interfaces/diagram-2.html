@@ -1,0 +1,18 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    OP["OrderProcessor"]:::box
+    NS["NotificationService
+    Interface
+    send()"]:::box
+    SMS["SmsNotification"]:::box
+    EM["EmailNotification"]:::box
+    PN["PushNotification"]:::box
+
+    OP -->|"depends on"| NS
+    NS -->|"implements"| SMS
+    NS -->|"implements"| EM
+    NS -->|"implements"| PN
+</div>

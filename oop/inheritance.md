@@ -35,18 +35,7 @@ Inheritance চারটা বড় সুবিধা দেয়।
 
 প্রথমত, **code reuse**: common logic একবার লেখো, সব child-এ পেয়ে যাবে। দ্বিতীয়ত, **স্বাভাবিক hierarchy**: "Cardiologist is-a Doctor" এই real-world সম্পর্কটা code-এ সরাসরি দেখা যায়। তৃতীয়ত, **maintenance সহজ**: parent-এ bug ঠিক করলে সব child-এও ঠিক হয়ে যায়। চতুর্থত, **Polymorphism-এর ভিত্তি**: পরের article-এ এটা দেখব।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph TD
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    F["ফারুক স্যার (Doctor)\ncheck_vitals()\nprescribe()\ndiagnose()"]:::box
-    I["Imran (Cardiologist)\n+ read_ecg()\n+ interpret_angiogram()"]:::box
-    R["Raisa (Surgeon)\n+ perform_surgery()\n+ suture_wound()"]:::box
-
-    F -->|"inherits"| I
-    F -->|"inherits"| R
-```
+{% include diagrams/inheritance/diagram-1.html %}
 
 ---
 
@@ -136,20 +125,7 @@ class Cardiologist(Doctor):
 
 **Multi-level Inheritance** মানে chain: parent → child → grandchild। যেমন ফারুক স্যারের পর Imran, Imran-এর পর তার ছাত্র একজন Interventional Cardiologist।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph TD
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    D["Doctor\n(সাধারণ ডাক্তার)"]:::box
-    C["Cardiologist\n(হার্ট বিশেষজ্ঞ)"]:::box
-    S["Surgeon\n(সার্জন)"]:::box
-    IC["InterventionalCardiologist\n(Angioplasty বিশেষজ্ঞ)"]:::box
-
-    D -->|"hierarchical"| C
-    D -->|"hierarchical"| S
-    C -->|"multi-level"| IC
-```
+{% include diagrams/inheritance/diagram-2.html %}
 
 **Multiple Inheritance** (একটা child, একাধিক parent) Python-এ সম্ভব কিন্তু বিপজ্জনক। ধরো `Imran` যদি `Doctor` আর `Researcher` দুটো class থেকেই inherit করতে চায়। দুটোতেই যদি `publish()` method থাকে, তাহলে Imran কোনটা নেবে? এটাকে বলে **Diamond Problem।** এই কারণে Java, C#-এ একাধিক class থেকে extend করা যায় না, কিন্তু multiple interface implement করা যায়।
 

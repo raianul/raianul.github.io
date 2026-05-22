@@ -34,25 +34,7 @@ excerpt: "bKash-এ টাকা আছে, কিন্তু সেই balance
 
 bKash-এর ATM analogy ভাবো। তুমি সরাসরি bank-এর vault-এ ঢুকে balance বদলাতে পারো না। ATM-এর মাধ্যমে যাও। ATM তোমাকে তিনটাই দেয়: `deposit()`, `withdraw()`, `checkBalance()`। ভেতরে কী হচ্ছে? সেটা তোমার ব্যাপার না।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph LR
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    U["তুমি (User)"]:::box
-    A["Public Interface
-    deposit()
-    withdraw()
-    getBalance()"]:::box
-    V["Private Data
-    balance
-    account_number
-    pin_hash"]:::box
-
-    U -->|"শুধু এখান দিয়ে"| A
-    A -->|"controlled access"| V
-    U -.->|"সরাসরি যাওয়া যাবে না"| V
-```
+{% include diagrams/encapsulation/diagram-1.html %}
 
 **Encapsulation কেন দরকার?**
 
@@ -213,29 +195,7 @@ class PaymentProcessor:
         return self.__amount
 ```
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph TD
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    IN["Input
-    4111-1111-1111-1234
-    500 টাকা"]:::box
-    PP["PaymentProcessor
-    (constructor চলে)"]:::box
-    PRIV["Private Data
-    __masked_card: ****-****-****-1234
-    __amount: 500
-    __is_processed: False"]:::box
-    PUB["Public Methods
-    process_payment()
-    get_masked_card()
-    get_amount()"]:::box
-
-    IN -->|"create"| PP
-    PP -->|"mask করে store"| PRIV
-    PP --> PUB
-```
+{% include diagrams/encapsulation/diagram-2.html %}
 
 ```python
 processor = PaymentProcessor("4111-1111-1111-1234", 500)

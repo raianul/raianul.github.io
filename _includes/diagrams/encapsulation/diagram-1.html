@@ -1,0 +1,19 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    U["You (User)"]:::box
+    A["Public Interface
+    deposit()
+    withdraw()
+    getBalance()"]:::box
+    V["Private Data
+    balance
+    account_number
+    pin_hash"]:::box
+
+    U -->|"only through here"| A
+    A -->|"controlled access"| V
+    U -.->|"direct access blocked"| V
+</div>

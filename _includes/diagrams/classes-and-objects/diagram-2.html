@@ -1,0 +1,36 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    DC["Driver Class (Blueprint)
+    ─────────────────
+    naam, phone
+    garir_number, rating
+    ─────────────────
+    trip_shuru()
+    trip_sesh()
+    rating_update()"]:::box
+
+    D1["driver1
+    ──────────
+    Karim Bhai
+    01711-XXX
+    rating: 5.0"]:::box
+
+    D2["driver2
+    ──────────
+    Rahim Bhai
+    01811-XXX
+    rating: 4.8"]:::box
+
+    D3["driver3
+    ──────────
+    Jamal Bhai
+    01911-XXX
+    rating: 4.6"]:::box
+
+    DC -->|"creates"| D1
+    DC -->|"creates"| D2
+    DC -->|"creates"| D3
+</div>

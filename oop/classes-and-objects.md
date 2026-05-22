@@ -81,38 +81,7 @@ patil1.bikri_holo()
 
 `patil1` আর `patil2` দুটো আলাদা object। একটার রঙ বদলালে অন্যটা প্রভাবিত হয় না। প্রতিটার নিজস্ব data আছে, নিজস্ব অস্তিত্ব আছে।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph TD
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    C["🏭 Patil Class (ছাঁচ)
-    ────────────────
-    attributes: rang, unchhota, mullo
-    methods: porichoy_dao(), bikri_holo()"]:::box
-
-    O1["🪔 patil1 (Object)
-    ────────────────
-    rang = লাল
-    unchhota = 20
-    mullo = 50"]:::box
-
-    O2["🪔 patil2 (Object)
-    ────────────────
-    rang = বাদামি
-    unchhota = 15
-    mullo = 35"]:::box
-
-    O3["🪔 patil3 (Object)
-    ────────────────
-    rang = সবুজ
-    unchhota = 25
-    mullo = 70"]:::box
-
-    C -->|"instantiate করে"| O1
-    C -->|"instantiate করে"| O2
-    C -->|"instantiate করে"| O3
-```
+{% include diagrams/classes-and-objects/diagram-1.html %}
 
 একটা Class থেকে যত খুশি Object তৈরি করা যায়। করিম মিয়ার ছাঁচ দিয়ে যেমন হাজার পাতিল বানানো যায়।
 
@@ -190,42 +159,7 @@ driver1.rating_update(5.0)
 # → করিম ভাই-এর নতুন rating: 5.0
 ```
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph LR
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    DC["Driver Class (ছাঁচ)
-    ─────────────────
-    naam, phone
-    garir_number, rating
-    ─────────────────
-    trip_shuru()
-    trip_sesh()
-    rating_update()"]:::box
-
-    D1["driver1
-    ──────────
-    করিম ভাই
-    01711-XXX
-    rating: 5.0"]:::box
-
-    D2["driver2
-    ──────────
-    রহিম ভাই
-    01811-XXX
-    rating: 4.8"]:::box
-
-    D3["driver3
-    ──────────
-    জামাল ভাই
-    01911-XXX
-    rating: 4.6"]:::box
-
-    DC -->|"তৈরি করে"| D1
-    DC -->|"তৈরি করে"| D2
-    DC -->|"তৈরি করে"| D3
-```
+{% include diagrams/classes-and-objects/diagram-2.html %}
 
 Pathao-এর পুরো driver management system মূলত এই একটা ধারণার উপর দাঁড়িয়ে। একটা Class, লক্ষ লক্ষ Object।
 

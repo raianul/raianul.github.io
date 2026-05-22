@@ -1,0 +1,14 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    D["Doctor\n(General Physician)"]:::box
+    C["Cardiologist\n(Heart Specialist)"]:::box
+    S["Surgeon"]:::box
+    IC["InterventionalCardiologist\n(Angioplasty Specialist)"]:::box
+
+    D -->|"hierarchical"| C
+    D -->|"hierarchical"| S
+    C -->|"multi-level"| IC
+</div>

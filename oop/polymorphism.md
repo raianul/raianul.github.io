@@ -50,15 +50,7 @@ def start_qc_work(worker): ...
 
 এভাবে ম্যানেজার হিসেবে রনি ভাইকে প্রতিটা টাইপের কর্মীর জন্য আলাদা করে চিন্তা করতে হতো। কিন্তু Polymorphism দিয়ে তিনি শুধু বলেন: **"যে-ই হও, `start_work()` করো।"** বাকিটা সবাই নিজে বোঝে।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph LR
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-    A["রনি ভাই\nstart_work()"]:::box -->|"call"| B["Tailor\nসেলাই করে"]:::box
-    A -->|"call"| C["Cutter\nকাপড় কাটে"]:::box
-    A -->|"call"| D["QCInspector\nমান পরীক্ষা করে"]:::box
-    A -->|"call"| E["Packer\nবাক্স সাজায়"]:::box
-```
+{% include diagrams/polymorphism/diagram-1.html %}
 
 এই ধারণাটা দুটো উপায়ে কাজ করে: **Compile-time Polymorphism** আর **Runtime Polymorphism**। প্রথমটা সহজ, দ্বিতীয়টাই আসল জায়গা।
 
@@ -157,18 +149,7 @@ Output:
 
 রনি ভাই একবার `start_work()` লিখেছেন। Python runtime-এ নিজে বুঝে নিচ্ছে কোন object-এর কোন version চালাতে হবে। এটাই **Dynamic Dispatch**, Runtime Polymorphism-এর মূল কৌশল।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph TD
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-    A["Worker\nstart_work()"]:::box
-    A -->|"inherits"| B["Tailor\nstart_work() — override"]:::box
-    A -->|"inherits"| C["Cutter\nstart_work() — override"]:::box
-    A -->|"inherits"| D["QCInspector\nstart_work() — override"]:::box
-    E["রনি ভাই\nfor loop-এ call"]:::box -->|"runtime-এ সঠিক version"| B
-    E -->|"runtime-এ সঠিক version"| C
-    E -->|"runtime-এ সঠিক version"| D
-```
+{% include diagrams/polymorphism/diagram-2.html %}
 
 ---
 

@@ -1,0 +1,23 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    IN["Input
+    4111-1111-1111-1234
+    500 BDT"]:::box
+    PP["PaymentProcessor
+    (constructor runs)"]:::box
+    PRIV["Private Data
+    __masked_card: ****-****-****-1234
+    __amount: 500
+    __is_processed: False"]:::box
+    PUB["Public Methods
+    process_payment()
+    get_masked_card()
+    get_amount()"]:::box
+
+    IN -->|"create"| PP
+    PP -->|"masks and stores"| PRIV
+    PP --> PUB
+</div>

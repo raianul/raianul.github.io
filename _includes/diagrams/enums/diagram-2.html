@@ -1,0 +1,12 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    E["OrderStatus Enum"]:::box
+    E --> P["PENDING\nvalue: pending\nlabel: waiting\ncan_cancel: True"]:::box
+    E --> C["CONFIRMED\nvalue: confirmed\nlabel: confirmed\ncan_cancel: True"]:::box
+    E --> S["SHIPPED\nvalue: shipped\nlabel: shipped\ncan_cancel: False"]:::box
+    E --> D["DELIVERED\nvalue: delivered\nlabel: delivered\ncan_cancel: False"]:::box
+    E --> X["CANCELLED\nvalue: cancelled\nlabel: cancelled\ncan_cancel: False"]:::box
+</div>

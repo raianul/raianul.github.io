@@ -1,0 +1,12 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+    A["Worker\nstart_work()"]:::box
+    A -->|"inherits"| B["Tailor\nstart_work() — override"]:::box
+    A -->|"inherits"| C["Cutter\nstart_work() — override"]:::box
+    A -->|"inherits"| D["QCInspector\nstart_work() — override"]:::box
+    E["Roni Bhai\nin for loop"]:::box -->|"correct version at runtime"| B
+    E -->|"correct version at runtime"| C
+    E -->|"correct version at runtime"| D
+</div>

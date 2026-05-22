@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="{{ page.lang | default: 'bn' }}">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QGCTH06MZ"></script>
@@ -12,6 +12,14 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   {% seo %}
+  {% if page.lang == "en" %}
+    {% assign bn_url = page.url | remove_first: "/en" %}
+    <link rel="alternate" hreflang="bn" href="{{ site.url }}{{ bn_url }}" />
+    <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}" />
+  {% else %}
+    <link rel="alternate" hreflang="bn" href="{{ site.url }}{{ page.url }}" />
+    <link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url }}" />
+  {% endif %}
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"/>
   <style>
@@ -288,6 +296,21 @@
     .social-link { color: var(--muted); transition: color 0.2s; display: flex; }
     .social-link:hover { color: var(--accent); }
 
+    /* LANG TOGGLE */
+    .lang-toggle { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      font-size: 0.78rem;
+      font-family: 'Inter', sans-serif;
+      padding: 3px 10px;
+      border-radius: 4px;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: color 0.15s;
+    }
+    .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .lang-btn:not(.active):hover { color: var(--text); border-color: var(--text); }
+
     @media (max-width: 768px) {
       .sidebar { display: none; }
       .main { padding: 0 1.2rem; }
@@ -297,14 +320,28 @@
 </head>
 <body>
 
-  {% assign articles = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+  {% assign articles = site.pages | where: "layout", "post" | where_exp: "p", "p.lang != 'en'" | sort: "date" | reverse %}
   {% assign all_count = articles | size %}
   {% assign oop_count = articles | where: "category", "oop" | size %}
   {% assign core_count = articles | where: "category", "core-concepts" | size %}
 
   <nav>
     <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
-    <a href="/" class="nav-back">← সব লেখা</a>
+    <div class="lang-toggle">
+      {% if page.lang == "en" %}
+        {% assign bn_url = page.url | remove_first: "/en" %}
+        <a href="{{ bn_url }}" class="lang-btn">বাংলা</a>
+        <span class="lang-btn active">EN</span>
+      {% else %}
+        <span class="lang-btn active">বাংলা</span>
+        <a href="/en{{ page.url }}" class="lang-btn">EN</a>
+      {% endif %}
+    </div>
+    {% if page.lang == "en" %}
+      <a href="/" class="nav-back">← All Articles</a>
+    {% else %}
+      <a href="/" class="nav-back">← সব লেখা</a>
+    {% endif %}
   </nav>
 
   <div class="layout">
@@ -369,9 +406,15 @@
         <div class="article-series">{{ page.series }}</div>
         <h1 class="article-title">{{ page.title }}</h1>
         <div class="article-meta">
-          <span>রাইয়ান</span>
-          <span>·</span>
-          <span>{{ page.date_bn }}</span>
+          {% if page.lang == "en" %}
+            <span>Raian</span>
+            <span>·</span>
+            <span>{{ page.date | date: "%B %Y" }}</span>
+          {% else %}
+            <span>রাইয়ান</span>
+            <span>·</span>
+            <span>{{ page.date_bn }}</span>
+          {% endif %}
           <span>·</span>
           <span>{{ page.read_time }}</span>
         </div>

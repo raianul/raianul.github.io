@@ -34,19 +34,7 @@ Programming-এ **Abstraction** ঠিক এটাই করে: complex intern
 
 সহজ সূত্র: **Abstraction = জটিলতা লুকানো + সরল interface দেখানো।**
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph LR
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    U["Anik (User)"]:::box
-    I["Public Interface\ntravel(গন্তব্য)\nget_fare()"]:::box
-    C["লুকানো জটিলতা\nengine mechanics\nGPS routing\nfuel calculation"]:::box
-
-    U -->|"শুধু এটুকু দেখে"| I
-    I -->|"ভেতরে কী হচ্ছে?"| C
-    U -.->|"সরাসরি দেখা যায় না ✗"| C
-```
+{% include diagrams/abstraction/diagram-1.html %}
 
 Abstraction-এর সবচেয়ে বড় সুবিধা হলো **"what" আর "how" আলাদা করে ফেলা।** Anik জানে *কী* হবে (গন্তব্যে পৌঁছাবে), কিন্তু *কীভাবে* হবে সেটা জানার দরকার নেই। এই বিচ্ছিন্নতাটাই বড় software system-কে manageable করে তোলে।
 
@@ -135,20 +123,7 @@ commute(PathaoMoto("Pathao Bike"), "BUET গেট", 15)
 
 `commute()` function কোনো specific যানবাহন চেনে না। সে শুধু `Joanbahan` interface জানে। কাল যদি electric scooter আসে, শুধু নতুন class বানাও। `commute()` এর একটা অক্ষরও বদলাতে হবে না।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph TD
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    A["Joanbahan (Abstract Class)\ntravel(): abstract\nget_fare(): abstract\ntrip_summary(): সবার একই"]:::box
-    B["CNG\ntravel(): গলিঘুপচি দিয়ে\nget_fare(): মিটার হিসেবে"]:::box
-    C["Bus\ntravel(): fixed route\nget_fare(): flat 15 টাকা"]:::box
-    D["PathaoMoto\ntravel(): GPS route\nget_fare(): base + time"]:::box
-
-    A -->|"extends"| B
-    A -->|"extends"| C
-    A -->|"extends"| D
-```
+{% include diagrams/abstraction/diagram-2.html %}
 
 ---
 

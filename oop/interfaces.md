@@ -53,31 +53,7 @@ class PaymentGateway(ABC):
 
 `PaymentGateway` Interface বলছে: "যে class আমাকে implement করবে, তাকে অবশ্যই `process_payment`, `refund`, আর `get_transaction_status` রাখতে হবে।" ভেতরে কী হবে? সেটা implementer-এর স্বাধীনতা।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph TD
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    I["PaymentGateway Interface
-    (চুক্তি)
-    process_payment()
-    refund()
-    get_transaction_status()"]:::box
-
-    B["BkashPayment
-    (নিজের implementation)"]:::box
-    N["NagadPayment
-    (নিজের implementation)"]:::box
-    R["RocketPayment
-    (নিজের implementation)"]:::box
-    C["CardPayment
-    (নিজের implementation)"]:::box
-
-    I -->|"implements"| B
-    I -->|"implements"| N
-    I -->|"implements"| R
-    I -->|"implements"| C
-```
+{% include diagrams/interfaces/diagram-1.html %}
 
 ---
 
@@ -208,24 +184,7 @@ class OrderProcessor:
             notifier.send(user_id, message)
 ```
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph LR
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    OP["OrderProcessor"]:::box
-    NS["NotificationService
-    Interface
-    send()"]:::box
-    SMS["SmsNotification"]:::box
-    EM["EmailNotification"]:::box
-    PN["PushNotification"]:::box
-
-    OP -->|"depends on"| NS
-    NS -->|"implements"| SMS
-    NS -->|"implements"| EM
-    NS -->|"implements"| PN
-```
+{% include diagrams/interfaces/diagram-2.html %}
 
 ```python
 processor = OrderProcessor([

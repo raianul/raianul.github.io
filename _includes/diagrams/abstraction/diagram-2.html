@@ -1,0 +1,14 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    A["Joanbahan (Abstract Class)\ntravel(): abstract\nget_fare(): abstract\ntrip_summary(): same for all"]:::box
+    B["CNG\ntravel(): through back alleys\nget_fare(): by meter"]:::box
+    C["Bus\ntravel(): fixed route\nget_fare(): flat 15 BDT"]:::box
+    D["PathaoMoto\ntravel(): GPS route\nget_fare(): base + time"]:::box
+
+    A -->|"extends"| B
+    A -->|"extends"| C
+    A -->|"extends"| D
+</div>

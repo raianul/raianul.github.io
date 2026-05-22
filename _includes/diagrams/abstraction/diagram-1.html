@@ -1,0 +1,13 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    U["Anik (User)"]:::box
+    I["Public Interface\ntravel(destination)\nget_fare()"]:::box
+    C["Hidden Complexity\nengine mechanics\nGPS routing\nfuel calculation"]:::box
+
+    U -->|"only sees this"| I
+    I -->|"what happens inside?"| C
+    U -.->|"cannot access directly ✗"| C
+</div>

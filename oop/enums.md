@@ -47,17 +47,7 @@ class OrderStatus(Enum):
 
 এখন কেউ `OrderStatus.SHIPED` লিখলে Python সাথে সাথে error দেবে। Typo করার সুযোগ নেই। "raste ache" লেখার সুযোগ নেই। শুধু পাঁচটা নির্দিষ্ট option।
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph LR
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    P["PENDING\nঅপেক্ষায়"]:::box -->|"confirm"| C["CONFIRMED\nনিশ্চিত"]:::box
-    C -->|"ship"| S["SHIPPED\nপাঠানো হয়েছে"]:::box
-    S -->|"deliver"| D["DELIVERED\nপৌঁছেছে"]:::box
-    P -->|"cancel"| X["CANCELLED\nবাতিল"]:::box
-    C -->|"cancel"| X
-```
+{% include diagrams/enums/diagram-1.html %}
 
 Enum use না করলে এই flow-টা maintain করা কঠিন। যে কেউ যেকোনো string লিখতে পারে, ভুল state-ও set করতে পারে।
 
@@ -146,18 +136,7 @@ print(status.is_active())  # True
 print(status.can_cancel()) # False (shipped হয়ে গেলে আর cancel হয় না)
 ```
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
-graph TD
-    classDef box fill:#F5F5F5,color:#000,stroke:#333
-
-    E["OrderStatus Enum"]:::box
-    E --> P["PENDING\nvalue: pending\nlabel: অপেক্ষায়\ncan_cancel: True"]:::box
-    E --> C["CONFIRMED\nvalue: confirmed\nlabel: নিশ্চিত\ncan_cancel: True"]:::box
-    E --> S["SHIPPED\nvalue: shipped\nlabel: পাঠানো হয়েছে\ncan_cancel: False"]:::box
-    E --> D["DELIVERED\nvalue: delivered\nlabel: পৌঁছেছে\ncan_cancel: False"]:::box
-    E --> X["CANCELLED\nvalue: cancelled\nlabel: বাতিল\ncan_cancel: False"]:::box
-```
+{% include diagrams/enums/diagram-2.html %}
 
 প্রতিটা Enum member এখন নিজেই জানে সে cancel করা যাবে কিনা, সে active কিনা। এই logic Enum-এর ভেতরেই থাকায় বাইরে বারবার লিখতে হয় না।
 

@@ -1,0 +1,32 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph TD
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    C["🏭 Patil Class (Blueprint)
+    ────────────────
+    attributes: rang, unchhota, mullo
+    methods: porichoy_dao(), bikri_holo()"]:::box
+
+    O1["🪔 patil1 (Object)
+    ────────────────
+    rang = red
+    unchhota = 20
+    mullo = 50"]:::box
+
+    O2["🪔 patil2 (Object)
+    ────────────────
+    rang = brown
+    unchhota = 15
+    mullo = 35"]:::box
+
+    O3["🪔 patil3 (Object)
+    ────────────────
+    rang = green
+    unchhota = 25
+    mullo = 70"]:::box
+
+    C -->|"instantiates"| O1
+    C -->|"instantiates"| O2
+    C -->|"instantiates"| O3
+</div>

@@ -1,0 +1,11 @@
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F5F5F5', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'background': '#fff'}}}%%
+graph LR
+    classDef box fill:#F5F5F5,color:#000,stroke:#333
+
+    P["PENDING\nwaiting"]:::box -->|"confirm"| C["CONFIRMED\nconfirmed"]:::box
+    C -->|"ship"| S["SHIPPED\nshipped"]:::box
+    S -->|"deliver"| D["DELIVERED\ndelivered"]:::box
+    P -->|"cancel"| X["CANCELLED\ncancelled"]:::box
+    C -->|"cancel"| X
+</div>
