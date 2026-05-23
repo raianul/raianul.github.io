@@ -358,6 +358,7 @@
 
   <nav>
     <a href="/" class="nav-logo">raian<span>.</span>xyz</a>
+    {% unless page.url contains '/case-studies/' %}
     <div class="lang-toggle">
       {% if page.lang == "en" %}
         {% assign bn_url = page.url | remove_first: "/en" %}
@@ -368,7 +369,10 @@
         <a href="/en{{ page.url }}" class="lang-btn">EN</a>
       {% endif %}
     </div>
-    {% if page.lang == "en" %}
+    {% endunless %}
+    {% if page.url contains '/case-studies/' %}
+      <a href="/case-studies" class="nav-back">← Case Studies</a>
+    {% elsif page.lang == "en" %}
       <a href="/en/" class="nav-back">← All Articles</a>
     {% else %}
       <a href="/blog" class="nav-back">← সব লেখা</a>
