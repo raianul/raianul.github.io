@@ -127,6 +127,18 @@ description: "Bengali tech writing and AI tools by Raian."
       gap: 1rem;
       margin-bottom: 2.5rem;
     }
+    .destinations--three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .section-divider {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-top: 0.5rem;
+    }
     .dest-card {
       display: block;
       border: 1px solid var(--border);
@@ -188,6 +200,7 @@ description: "Bengali tech writing and AI tools by Raian."
       .sidebar-photo { width: 100px; aspect-ratio: 1; }
       .content { padding: 2rem 0; }
       .destinations { grid-template-columns: 1fr; }
+      .destinations--three { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -231,6 +244,23 @@ description: "Bengali tech writing and AI tools by Raian."
           <div class="dest-title">Case Studies</div>
           <div class="dest-desc">How Netflix, Discord, Uber, and others solve real engineering problems — explained in Bengali.</div>
           <span class="dest-arrow">Read case studies →</span>
+        </a>
+      </div>
+
+      <div class="section-divider">AI</div>
+
+      <div class="destinations destinations--three">
+        <a href="/ai/fundamentals/" class="dest-card">
+          <div class="dest-tag">AI</div>
+          <div class="dest-title">AI Fundamentals</div>
+          <div class="dest-desc">LLM, Neural Networks, RAG, Embeddings — core AI concepts explained in Bengali.</div>
+          <span class="dest-arrow">Explore →</span>
+        </a>
+        <a href="/ai/tools/" class="dest-card">
+          <div class="dest-tag">AI</div>
+          <div class="dest-title">AI Tools</div>
+          <div class="dest-desc">Gemini, ChatGPT, Claude, Cursor — hands-on guides for the tools reshaping how we work.</div>
+          <span class="dest-arrow">Explore →</span>
         </a>
         <a href="/ai/" class="dest-card">
           <div class="dest-tag">AI</div>
