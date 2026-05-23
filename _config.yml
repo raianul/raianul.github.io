@@ -59,20 +59,6 @@ defaults:
       category: databases
       series: "Databases সিরিজ"
       series_label: "Databases"
-  - scope:
-      path: "ai/fundamentals"
-    values:
-      layout: post
-      category: ai-fundamentals
-      series: "AI Fundamentals"
-      series_label: "AI Fundamentals"
-  - scope:
-      path: "ai/tools"
-    values:
-      layout: post
-      category: ai-tools
-      series: "AI Tools"
-      series_label: "AI Tools"
 
 markdown: kramdown
 kramdown:

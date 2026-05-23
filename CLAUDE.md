@@ -1,6 +1,6 @@
 # raianul.github.io
 
-Bengali-language CS education blog deployed at **raian.xyz/blog** via GitHub Pages + Jekyll.
+Bengali-language CS education blog deployed at **raian.xyz** via GitHub Pages + Jekyll.
 
 ## Stack
 
@@ -21,8 +21,8 @@ All articles are Markdown with Jekyll front matter. Categories:
 | `dsa/` | DSA series | `dsa` |
 | `networking/` | Networking series | `networking` |
 | `databases/` | Databases series | `databases` |
-| `ai/fundamentals/` | AI Fundamentals series | `ai-fundamentals` |
-| `ai/tools/` | AI Tools guides | `ai-tools` |
+
+> AI content (AI Fundamentals, AI Tools, Prompts) has moved to **aibujho.com** (`/Users/raian/Personal/aibujho`).
 
 Front matter template for new articles:
 
@@ -33,12 +33,9 @@ title: "শিরোনাম"
 description: "এক লাইনের বিবরণ"
 date: YYYY-MM-DD
 author: রাইয়ান
-category: oop   # or system-design, dsa, networking, databases, ai-fundamentals, ai-tools
+category: oop   # or system-design, dsa, networking, databases
 ---
 ```
-
-For `ai-fundamentals` articles, add `topic: "LLM"` (or RAG, Neural Networks, etc.) for sidebar filtering.
-For `ai-tools` articles, add `tool: "Gemini"` (or ChatGPT, Claude, etc.) for sidebar filtering.
 
 ## Custom Skills
 

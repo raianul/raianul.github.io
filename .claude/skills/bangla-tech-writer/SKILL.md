@@ -153,8 +153,6 @@ The blog uses **Jekyll** on GitHub Pages. Save the finished article as a `.md` f
 | Database Deep Dive | `database-deep-dive/` |
 | DSA | `dsa/` |
 | Networking | `networking/` |
-| AI Fundamentals | `ai/fundamentals/` |
-| AI Tools | `ai/tools/` |
 
 **Filename format:** `[topic-in-english-lowercase-with-hyphens].md`
 
@@ -195,14 +193,9 @@ excerpt: "Homepage card-এ যা দেখাবে। Em dash ছাড়া
 | Database Deep Dive | `database-deep-dive` | `Database Deep Dive` |
 | DSA | `dsa` | `DSA` |
 | Networking | `networking` | `Networking` |
-| AI Fundamentals | `ai-fundamentals` | `AI Fundamentals` |
-| AI Tools | `ai-tools` | `AI Tools` |
-
 `order` must be the next number in the series (used for prev/next navigation). Check the published articles table below for the latest order number per series.
 
-**Extra fields for AI categories:**
-- `ai-fundamentals` articles: add `topic: "LLM"` (or `RAG`, `Neural Networks`, `Embeddings`, `Transformers`) — used for sidebar filtering on `/ai/fundamentals/`
-- `ai-tools` articles: add `tool: "Gemini"` (or `ChatGPT`, `Claude`, `Cursor`, etc.) — used for sidebar filtering on `/ai/tools/`
+> AI content (AI Fundamentals, AI Tools) has moved to **aibujho.com**. Use the `bangla-ai-writer` skill in `/Users/raian/Personal/aibujho` for AI articles.
 
 **After saving the `.md` file, no other steps are needed.** The homepage (`index.html`) auto-discovers all articles with `layout: post` via Jekyll Liquid — no manual card additions or count updates required.
 
