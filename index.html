@@ -103,6 +103,9 @@ description: "Bengali tech writing and AI tools by Raian."
       margin-bottom: 0.9rem;
     }
     .sidebar p:last-child { margin-bottom: 0; }
+    .sidebar-links { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1.2rem; }
+    .sidebar-links a { font-size: 0.82rem; color: var(--accent); text-decoration: none; font-weight: 500; }
+    .sidebar-links a:hover { text-decoration: underline; }
 
     /* RIGHT CONTENT */
     .content {
@@ -223,9 +226,13 @@ description: "Bengali tech writing and AI tools by Raian."
     <aside class="sidebar">
       <img src="/assets/raian.jpeg" alt="Sayed Raianul Kabir" class="sidebar-photo" fetchpriority="high"/>
       <div class="sidebar-label">About</div>
-      <p>Senior Backend Engineer at gridscale (OVHcloud) in Berlin. I work on the API and business logic layer for OVHcloud's sovereign cloud initiative, with a focus on SecNumCloud (SNC) compliance. My work involves building identity and access management APIs that allow customers to manage regions, projects, and access control across compliant cloud infrastructure. I was one of the core developers behind an internal distributed saga orchestration framework for coordinating multi-service provisioning workflows, covering failure detection, rollback, and dynamic task expansion.</p>
-      <p>The majority of my career was at NewsCred Inc. (later acquired by Optimizely), where I focused on the Ingestion System: a pipeline that continuously pulled live news content from major wire services like AP, AFP, Reuters, and Getty Images, processed it, and served it through search and filtering APIs to customers worldwide. I also led the complete overhaul of the Smart Press application.</p>
-      <p>I work primarily with Python, microservices, and distributed systems.</p>
+      <p>Senior Backend Engineer at gridscale (OVHcloud) in Berlin, working on the API and business logic layer for OVHcloud's sovereign cloud initiative with a focus on SecNumCloud (SNC) compliance — building IAM APIs for region, project, and access control management, and co-developing an internal distributed saga orchestration framework for multi-service provisioning workflows.</p>
+      <p>Previously at NewsCred (acquired by Optimizely), managing the live news ingestion pipeline from AP, AFP, Reuters, and Getty Images, and leading the overhaul of the Smart Press application. I work primarily with Python, microservices, and distributed systems.</p>
+      <div class="sidebar-links">
+        <a href="https://github.com/raianul" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/pranto/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:raianul.berlin@gmail.com">Email</a>
+      </div>
     </aside>
 
     <!-- RIGHT: CONTENT -->
@@ -251,16 +258,11 @@ description: "Bengali tech writing and AI tools by Raian."
         <a href="https://aibujho.com" target="_blank" rel="noopener" class="dest-card">
           <div class="dest-tag">AI</div>
           <div class="dest-title">AI Bujho</div>
-          <div class="dest-desc">ChatGPT, Gemini, LLM — AI বাংলায়, গল্পের ছলে।</div>
+          <div class="dest-desc">Understand AI in Bengali — LLM, ChatGPT, Gemini explained through stories.</div>
           <span class="dest-arrow">Visit aibujho.com →</span>
         </a>
       </div>
 
-<div class="social">
-        <a href="https://github.com/raianul" target="_blank">GitHub</a>
-        <span class="social-dot">·</span>
-        <a href="mailto:raianul.berlin@gmail.com">raianul.berlin@gmail.com</a>
-      </div>
 
     </main>
 
