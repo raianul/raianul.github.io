@@ -372,6 +372,10 @@
     {% endunless %}
     {% if page.url contains '/case-studies/' %}
       <a href="/case-studies" class="nav-back">← Case Studies</a>
+    {% elsif page.category == 'ai-fundamentals' %}
+      <a href="/ai/fundamentals/" class="nav-back">← AI Fundamentals</a>
+    {% elsif page.category == 'ai-tools' %}
+      <a href="/ai/tools/" class="nav-back">← AI Tools</a>
     {% elsif page.lang == "en" %}
       <a href="/en/" class="nav-back">← All Articles</a>
     {% else %}

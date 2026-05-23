@@ -14,13 +14,15 @@ Bengali-language CS education blog deployed at **raian.xyz/blog** via GitHub Pag
 
 All articles are Markdown with Jekyll front matter. Categories:
 
-| Dir | Topic |
-|-----|-------|
-| `oop/` | OOP series (Bengali) |
-| `system-design/` | System Design series (Bengali) |
-| `dsa/` | DSA series |
-| `networking/` | Networking series |
-| `databases/` | Databases series |
+| Dir | Topic | Category value |
+|-----|-------|---------------|
+| `oop/` | OOP series (Bengali) | `oop` |
+| `system-design/` | System Design series (Bengali) | `system-design` |
+| `dsa/` | DSA series | `dsa` |
+| `networking/` | Networking series | `networking` |
+| `databases/` | Databases series | `databases` |
+| `ai/fundamentals/` | AI Fundamentals series | `ai-fundamentals` |
+| `ai/tools/` | AI Tools guides | `ai-tools` |
 
 Front matter template for new articles:
 
@@ -31,9 +33,12 @@ title: "শিরোনাম"
 description: "এক লাইনের বিবরণ"
 date: YYYY-MM-DD
 author: রাইয়ান
-category: oop   # or system-design, dsa, networking, databases
+category: oop   # or system-design, dsa, networking, databases, ai-fundamentals, ai-tools
 ---
 ```
+
+For `ai-fundamentals` articles, add `topic: "LLM"` (or RAG, Neural Networks, etc.) for sidebar filtering.
+For `ai-tools` articles, add `tool: "Gemini"` (or ChatGPT, Claude, etc.) for sidebar filtering.
 
 ## Custom Skills
 
