@@ -296,6 +296,9 @@
       font-size: 0.82rem;
     }
     .footer-credit a { color: var(--accent); text-decoration: none; }
+    .footer-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); font-size: 0.78rem; text-decoration: none; font-family: 'Inter', sans-serif; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
     .footer-social { display: flex; gap: 1rem; align-items: center; }
     .social-link { color: var(--muted); transition: color 0.2s; display: flex; }
     .social-link:hover { color: var(--accent); }
@@ -499,8 +502,8 @@
   {% include footer.html %}
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
     document.querySelectorAll('pre code.language-mermaid').forEach(el => {
       const pre = el.parentElement;
       const div = document.createElement('div');
@@ -508,9 +511,9 @@
       div.textContent = el.textContent;
       pre.parentElement.replaceChild(div, pre);
     });
-    mermaid.initialize({ startOnLoad: true, theme: 'base' });
-  </script>
-  <script>
+    mermaid.initialize({ startOnLoad: false, theme: 'base' });
+    mermaid.run({ querySelector: '.mermaid' });
+
     document.querySelectorAll('pre code:not(.language-mermaid)').forEach(block => {
       hljs.highlightElement(block);
     });
